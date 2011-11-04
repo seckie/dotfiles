@@ -1,0 +1,15 @@
+*.dcu
+*.dsk
+*.identcache
+__history/
+_notes/
+*.bdsproj.local
+*.bdsgroup.local
+*.swp
+Thumbs.db
+dwsync.xml
+ModelSupport/
+contents/
+*.[0-9]+[a-z]+
+*.svn
+.sass-cache/
