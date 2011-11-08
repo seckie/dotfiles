@@ -7,7 +7,6 @@ endif
 " $VIMRUNTIME directory resetting
 if has('win32')
 	let $VF = 'D:/My\ Dropbox/vimfiles'
-	let $DESKTOP = $HOME . '/デスクトップ'
 	let $HTDOCS = 'D:/htdocs'
 elseif has('gui_macvim')
 	let $VF = $HOME . '/Dropbox/vimfiles'
@@ -64,6 +63,7 @@ filetype plugin indent on     " required!
 " or wiki for FAQ
 " Note: comments after Bundle command are not allowed..
 
+set title
 
 " basic setting 1------------------------------------------------------------------
 " indent style
