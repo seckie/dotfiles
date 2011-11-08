@@ -1,3 +1,8 @@
+version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+
 if has('win32')
 	set runtimepath+=D:\My\ Dropbox\vimfiles
 elseif has('gui_macvim')
@@ -195,7 +200,7 @@ vmap  "*d
 
 map Q gq
 nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0)
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0)
 vmap <C-Del> "*d
 vmap <S-Del> "*d
 vmap <C-Insert> "*y
@@ -204,7 +209,7 @@ inoremap <C-H> <Left>
 inoremap <NL> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
-inoremap <silent>  :set iminsert=0
+inoremap <silent>  :set iminsert=0
 
 " window size
 nnoremap + 4<C-w>+
