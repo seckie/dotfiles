@@ -96,7 +96,6 @@ set ignorecase
 set smartcase
 
 " visual
-set number
 syntax enable
 set background=dark
 colorscheme molokai
