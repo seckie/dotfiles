@@ -99,6 +99,7 @@ set smartcase
 set number
 syntax enable
 set background=dark
+colorscheme molokai
 	" title bar
 set title
 set wildmenu
