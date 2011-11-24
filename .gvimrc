@@ -39,14 +39,14 @@ endif
 
 " Coloring----------------------------------------------------------------------
 	"colorscheme
-colorscheme Tomorrow-Night-Bright
-"colorscheme molokai
+if has('win32')
+	colorscheme molokai
+elseif has('gui_macvim')
+	colorscheme Tomorrow-Night-Bright
+endif
 "colorscheme solarized
 "colorscheme jellybeans_custom
 "colorscheme less
-"if has('gui_macvim')
-"    colorscheme wombat
-"endif
 
 " overwrite "less" colorscheme
 highlight Directory guifg=LightBlue
