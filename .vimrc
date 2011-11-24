@@ -50,6 +50,7 @@ Bundle 'surround'
 
 " colorschemes
 Bundle 'vim-colors-solarized'
+Bundle 'Tomorrow-Theme'
 
 filetype plugin indent on     " required! 
 "

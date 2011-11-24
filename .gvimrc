@@ -39,7 +39,8 @@ endif
 
 " Coloring----------------------------------------------------------------------
 	"colorscheme
-colorscheme molokai
+colorscheme Tomorrow-Night-Bright
+"colorscheme molokai
 "colorscheme solarized
 "colorscheme jellybeans_custom
 "colorscheme less
