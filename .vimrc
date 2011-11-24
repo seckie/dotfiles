@@ -209,7 +209,7 @@ inoremap <C-H> <Left>
 inoremap <NL> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
-inoremap <silent>  :set iminsert=0
+inoremap <silent>  :set iminsert=0
 " window size
 nnoremap + 4<C-w>+
 nnoremap - 4<C-w>-
@@ -255,7 +255,7 @@ nnoremap x "_x
 
 "convert linefeed code
 "動かんかったので保留
-"vnoremap rr :s//\r/g<CR>
+"vnoremap rr :s//\r/g<CR>
 
 " for plugins----------------------------------------------------------------------
 " --------------------
