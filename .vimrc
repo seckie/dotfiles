@@ -80,7 +80,7 @@ set cmdheight=2
 
 " basic setting 2------------------------------------------------------------------
 " language & encoding
-set fileencodings=guess,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,utf-8,euc-jisx0213,euc-jp
+set fileencodings=guess,utf-8,ucs-bom,ucs-2le,ucs-2,iso-2022-jp-3,euc-jisx0213,euc-jp
 set helplang=ja
 set formatexpr=Format_Japanese()
 
@@ -104,7 +104,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
-colorscheme molokai
+colorscheme Tomorrow-Night-Bright
 	" title bar
 set title
 set wildmenu
