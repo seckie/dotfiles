@@ -40,12 +40,11 @@ endif
 " Coloring----------------------------------------------------------------------
 	"colorscheme
 if has('win32')
-	colorscheme molokai
+	colorscheme jellybeans_custom
 elseif has('gui_macvim')
 	colorscheme Tomorrow-Night-Bright
 endif
 "colorscheme solarized
-"colorscheme jellybeans_custom
 "colorscheme less
 
 " overwrite "less" colorscheme

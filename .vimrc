@@ -105,7 +105,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night-Bright
+
 	" title bar
 set title
 set wildmenu
