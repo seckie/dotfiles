@@ -168,9 +168,9 @@ endif
 " file and directory---------------------------------------------------------------
 
 " shortcut for vim config files
-nnoremap <Space>. <Esc>:<C-u>source ~/.vimrc<CR>:<C-u>source ~/.gvimrc<CR>
-nnoremap <Space>v :e ~/.vimrc<CR>
-nnoremap <Space>g :e ~/.gvimrc<CR>
+nnoremap <Space>. <Esc>:<C-u>source ~/dotfiles/.vimrc<CR>:<C-u>source ~/dotfiles/.gvimrc<CR>
+nnoremap <Space>v :e ~/dotfiles/.vimrc<CR>
+nnoremap <Space>g :e ~/dotfiles/.gvimrc<CR>
 if has('win32')
 	nnoremap <Space>sh :e D:/My Dropbox/vimfiles/snippets/html.snippets<CR>
 	nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
