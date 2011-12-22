@@ -27,30 +27,35 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-"Bundle 'vundle'
 
 " My Bundles
-"Bundle 'AutoComplPop'
 Bundle 'neocomplcache'
 Bundle 'EnhancedCommentify'
 Bundle 'FuzzyFinder'
-Bundle 'greplace'
 Bundle 'l9'
 Bundle 'ref'
 Bundle 'snipmate'
-Bundle 'str2htmlentity'
 Bundle 'template'
 Bundle 'YankRing'
 Bundle 'haml'
 Bundle 'autodate'
 
+Bundle 'vim-qfreplace'
+
+" 'textobj-user' is framework
 Bundle 'textobj-user'
 Bundle 'html-textobjects'
-Bundle 'matchit'
+Bundle 'vim-matchit'
 Bundle 'surround'
 
+" 'vim-operator-user' is framework
+Bundle 'vim-operator-user'
+Bundle 'operator-html-escape'
+
+Bundle 'vim-html5validator'
+
 " colorschemes
-Bundle 'vim-colors-solarized'
+"Bundle 'vim-colors-solarized'
 Bundle 'Tomorrow-Theme'
 
 filetype plugin indent on     " required! 
@@ -105,6 +110,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
+colorscheme darkblue
 
 	" title bar
 set title
@@ -547,6 +553,11 @@ endfunction
 nnoremap ,s2 :<C-u>call IndentStyle2()<CR>
 nnoremap ,s4 :<C-u>call IndentStyle4()<CR>
 nnoremap ,st :<C-u>call IndentStyleT()<CR>
+
+" --------------------
+"  html5validator.vim
+" --------------------
+nnoremap \v :<C-u>HTML5Validate<CR>
 
 " temp setting
 " --------------------------------------------------------------------------
