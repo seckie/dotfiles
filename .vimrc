@@ -559,6 +559,12 @@ nnoremap ,st :<C-u>call IndentStyleT()<CR>
 " --------------------
 nnoremap \v :<C-u>HTML5Validate<CR>
 
+" --------------------
+" for "operator html escape"
+" --------------------
+"nmap ,h <Plug>(operator-html-escape)
+"nmap ,t <Plug>(operator-html-unescape)
+
 " temp setting
 " --------------------------------------------------------------------------
 if has('win32')
