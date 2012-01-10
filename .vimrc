@@ -265,6 +265,10 @@ nnoremap x "_x
 "動かんかったので保留
 "vnoremap rr :s//\r/g<CR>
 
+" for file path that starts with slash 
+" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
 " for plugins----------------------------------------------------------------------
 " --------------------
 " for "Autodate" plugin
