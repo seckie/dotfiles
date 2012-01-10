@@ -41,6 +41,7 @@ Bundle 'haml'
 Bundle 'autodate'
 
 Bundle 'vim-qfreplace'
+Bundle 'zencoding-vim'
 
 " 'textobj-user' is framework
 Bundle 'textobj-user'
