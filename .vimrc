@@ -290,40 +290,6 @@ nnoremap <silent> fm :<C-u>FufMruFile!<CR>
 "nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
 
 " --------------------
-" for "str2htmlentity.vim" plugin
-" --------------------
-vnoremap <silent> sx :Str2HtmlEntity<CR>
-vnoremap <silent> sr :Entity2HtmlString<CR>
-
-" --------------------
-" for "autocomplpop.vim" plugin
-" --------------------
-"let g:acp_enableAtStartup=1
-"let g:acp_mappingDriven=0
-
-"let g:acp_ignorecaseOption = 1 
-"let g:acp_completeOption = '.,w,b,u,t,k'
-"let g:acp_completeoptPreview = 0 
-"let g:acp_behaviorUserDefinedPattern = '\k$'
-"let g:acp_behaviorKeywordCommand = "\<C-n>"
-"let g:acp_behaviorKeywordLength = 2 
-"let g:acp_behaviorFileLength = 0 
-"let g:acp_behaviorRubyOmniMethodLength = 1 
-"let g:acp_behaviorRubyOmniSymbolLength = 1 
-"let g:acp_behaviorPythonOmniLength = 1 
-"let g:acp_behaviorXmlOmniLength = 1 
-"let g:acp_behaviorHtmlOmniLength = 0 
-"let g:acp_behaviorCssOmniPropertyLength = 1 
-"let g:acp_behaviorCssOmniValueLength = 1 
-"let g:acp_behaviorSnipmateLength=1
-
-"nnoremap ,al :AcpLock<CR>
-"nnoremap ,au :AcpUnlock<CR>
-"inoremap <S-Space> <C-y>
-"inoremap <Space> <Space>
-"inoremap <expr> <S-Space> pumvisible() ? "\<C-Y>" : "\<S-Space>"
-
-" --------------------
 " for "neocomplcache" plugin
 " --------------------
 " Disable AutoComplPop.
