@@ -51,7 +51,6 @@ Bundle 'surround'
 
 " 'vim-operator-user' is framework
 Bundle 'vim-operator-user'
-Bundle 'operator-html-escape'
 
 Bundle 'vim-html5validator'
 
@@ -540,6 +539,29 @@ endfunction
 "}}}
 
 " --------------------
+" escape HTMl entities
+" @url http://vim.wikia.com/wiki/HTML_entities
+" --------------------
+function! HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+  silent s/"/\&quot;/eg
+  silent s/'/\&#039;/eg
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+  silent s/&quot;/"/eg
+  silent s/&#039;/'/eg
+endfunction
+
+map <silent> <c-h> :call HtmlEscape()<CR>
+map <silent> <c-u> :call HtmlUnEscape()<CR>
+
+" --------------------
 "  switch indent style
 " --------------------
 function! IndentStyle2() range
@@ -564,11 +586,6 @@ nnoremap ,st :<C-u>call IndentStyleT()<CR>
 " --------------------
 nnoremap \v :<C-u>HTML5Validate<CR>
 
-" --------------------
-" for "operator html escape"
-" --------------------
-"nmap ,h <Plug>(operator-html-escape)
-"nmap ,t <Plug>(operator-html-unescape)
 
 " temp setting
 " --------------------------------------------------------------------------
