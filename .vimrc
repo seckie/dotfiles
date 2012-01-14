@@ -519,13 +519,13 @@ endfunction
 function! HtmlUnEscape()
   silent s/&lt;/</eg
   silent s/&gt;/>/eg
-  silent s/&amp;/\&/eg
   silent s/&quot;/"/eg
   silent s/&#039;/'/eg
+  silent s/&amp;/\&/eg
 endfunction
 
-map <silent> <c-h> :call HtmlEscape()<CR>
-map <silent> <c-u> :call HtmlUnEscape()<CR>
+vnoremap <silent> <c-h> :call HtmlEscape()<CR>
+vnoremap <silent> <c-u> :call HtmlUnEscape()<CR>
 
 " --------------------
 "  switch indent style
