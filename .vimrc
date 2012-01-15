@@ -158,6 +158,12 @@ augroup resetAutocmd
 	autocmd!
 augroup END
 
+" file type
+au! BufNewFile,BufRead *.mtml setf html
+au! BufNewFile,BufRead *.scss setf scss
+au! BufNewFile,BufRead *.php setf html
+au! BufNewFile,BufRead *.less setf less
+
 " --------------------
 " for some plugin
 " "snipMate.vim", "Align.vim"
@@ -182,6 +188,7 @@ if has('win32')
 	nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
 	nnoremap <Space>sc :e D:/My Dropbox/vimfiles/snippets/css.snippets<CR>
 	nnoremap <Space>ss :e D:/My Dropbox/vimfiles/snippets/scss.snippets<CR>
+	nnoremap <Space>sl :e D:/My Dropbox/vimfiles/snippets/less.snippets<CR>
 	nnoremap <Space>sj :e D:/My Dropbox/vimfiles/snippets/javascript.snippets<CR>
 	nnoremap <Space>h :e C:/WINDOWS/system32/drivers/etc/hosts<CR>
 	nnoremap <Space>vh :e C:/xampp/apache/conf/extra/httpd-vhosts.conf<CR>
@@ -193,6 +200,7 @@ elseif has('gui_macvim')
 	nnoremap <Space>sp :e $HOME/Dropbox/vimfiles/snippets/php.snippets<CR>
 	nnoremap <Space>sc :e $HOME/Dropbox/vimfiles/snippets/css.snippets<CR>
 	nnoremap <Space>ss :e $HOME/Dropbox/vimfiles/snippets/scss.snippets<CR>
+	nnoremap <Space>sl :e $HOME/Dropbox/vimfiles/snippets/less.snippets<CR>
 	nnoremap <Space>sj :e $HOME/Dropbox/vimfiles/snippets/javascript.snippets<CR>
 	nnoremap <Space>h :e /etc/hosts<CR>
 	nnoremap <Space>log :<C-u>e /Applications/XAMPP/xamppfiles/logs<CR>
@@ -382,10 +390,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " --------------------
 " for "EnhCommentify" plugin
 " --------------------
-au! BufNewFile,BufRead *.mtml setf html
-au! BufNewFile,BufRead *.scss setf scss
-
-au! BufNewFile,BufRead *.php setf html
 "let g:EnhCommentifyUserBindings = 'yes'
 
 " --------------------
