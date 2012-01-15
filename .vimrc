@@ -41,6 +41,7 @@ Bundle 'haml'
 Bundle 'autodate'
 
 Bundle 'vim-qfreplace'
+Bundle 'zencoding-vim'
 
 " 'textobj-user' is framework
 Bundle 'textobj-user'
@@ -50,7 +51,6 @@ Bundle 'surround'
 
 " 'vim-operator-user' is framework
 Bundle 'vim-operator-user'
-Bundle 'operator-html-escape'
 
 Bundle 'vim-html5validator'
 
@@ -273,6 +273,10 @@ nnoremap x "_x
 "動かんかったので保留
 "vnoremap rr :s//\r/g<CR>
 
+" for file path that starts with slash 
+" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+
 " for plugins----------------------------------------------------------------------
 " --------------------
 " for "Autodate" plugin
@@ -292,40 +296,6 @@ nnoremap <silent> fm :<C-u>FufMruFile!<CR>
 "nnoremap <silent> tb :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderBuffer!<CR>
 "nnoremap <silent> tf :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderFile!<C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
 "nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
-
-" --------------------
-" for "str2htmlentity.vim" plugin
-" --------------------
-vnoremap <silent> sx :Str2HtmlEntity<CR>
-vnoremap <silent> sr :Entity2HtmlString<CR>
-
-" --------------------
-" for "autocomplpop.vim" plugin
-" --------------------
-"let g:acp_enableAtStartup=1
-"let g:acp_mappingDriven=0
-
-"let g:acp_ignorecaseOption = 1 
-"let g:acp_completeOption = '.,w,b,u,t,k'
-"let g:acp_completeoptPreview = 0 
-"let g:acp_behaviorUserDefinedPattern = '\k$'
-"let g:acp_behaviorKeywordCommand = "\<C-n>"
-"let g:acp_behaviorKeywordLength = 2 
-"let g:acp_behaviorFileLength = 0 
-"let g:acp_behaviorRubyOmniMethodLength = 1 
-"let g:acp_behaviorRubyOmniSymbolLength = 1 
-"let g:acp_behaviorPythonOmniLength = 1 
-"let g:acp_behaviorXmlOmniLength = 1 
-"let g:acp_behaviorHtmlOmniLength = 0 
-"let g:acp_behaviorCssOmniPropertyLength = 1 
-"let g:acp_behaviorCssOmniValueLength = 1 
-"let g:acp_behaviorSnipmateLength=1
-
-"nnoremap ,al :AcpLock<CR>
-"nnoremap ,au :AcpUnlock<CR>
-"inoremap <S-Space> <C-y>
-"inoremap <Space> <Space>
-"inoremap <expr> <S-Space> pumvisible() ? "\<C-Y>" : "\<S-Space>"
 
 " --------------------
 " for "neocomplcache" plugin
@@ -539,6 +509,29 @@ endfunction
 "}}}
 
 " --------------------
+" escape HTMl entities
+" @url http://vim.wikia.com/wiki/HTML_entities
+" --------------------
+function! HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+  silent s/"/\&quot;/eg
+  silent s/'/\&#039;/eg
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&quot;/"/eg
+  silent s/&#039;/'/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+vnoremap <silent> <c-h> :call HtmlEscape()<CR>
+vnoremap <silent> <c-u> :call HtmlUnEscape()<CR>
+
+" --------------------
 "  switch indent style
 " --------------------
 function! IndentStyle2() range
@@ -562,6 +555,7 @@ nnoremap ,st :<C-u>call IndentStyleT()<CR>
 "  html5validator.vim
 " --------------------
 nnoremap \v :<C-u>HTML5Validate<CR>
+
 
 " temp setting
 " --------------------------------------------------------------------------
