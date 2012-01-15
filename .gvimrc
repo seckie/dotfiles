@@ -42,7 +42,7 @@ endif
 if has('win32')
 	colorscheme jellybeans_custom
 elseif has('gui_macvim')
-	colorscheme Tomorrow-Night-Bright
+	colorscheme jellybeans_custom
 endif
 "colorscheme solarized
 "colorscheme less
