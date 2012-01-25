@@ -32,22 +32,22 @@ Bundle 'gmarik/vundle'
 Bundle 'neocomplcache'
 Bundle 'EnhancedCommentify'
 Bundle 'FuzzyFinder'
-Bundle 'l9'
-Bundle 'ref'
+Bundle 'vim-l9'
+Bundle 'vim-ref'
 Bundle 'snipmate'
-Bundle 'template'
+Bundle 'vim-template'
 Bundle 'YankRing'
-Bundle 'haml'
+Bundle 'vim-haml'
 Bundle 'autodate'
 
 Bundle 'vim-qfreplace'
 Bundle 'zencoding-vim'
 
 " 'textobj-user' is framework
-Bundle 'textobj-user'
+Bundle 'vim-textobj-user'
 Bundle 'html-textobjects'
 Bundle 'vim-matchit'
-Bundle 'surround'
+Bundle 'vim-surround'
 
 " 'vim-operator-user' is framework
 Bundle 'vim-operator-user'
@@ -56,7 +56,7 @@ Bundle 'vim-html5validator'
 
 " colorschemes
 "Bundle 'vim-colors-solarized'
-Bundle 'Tomorrow-Theme'
+Bundle 'Vim-Tomorrow-Theme'
 
 filetype plugin indent on     " required! 
 "
