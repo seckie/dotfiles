@@ -8,6 +8,9 @@ ModelSupport/
 contents/
 *.[0-9]+[a-z]+
 
+# apache log
+_logs/
+
 # Xcode
 build/*
 *.pbxuser
@@ -15,6 +18,10 @@ build/*
 
 # Subversion
 .svn
+
+# Git
+doc/tags
+doc/tags-ja
 
 # OS X
 .DS_Store
