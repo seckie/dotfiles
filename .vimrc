@@ -31,7 +31,8 @@ Bundle 'gmarik/vundle'
 " My Bundles
 Bundle 'neocomplcache'
 Bundle 'EnhancedCommentify'
-Bundle 'FuzzyFinder'
+"Bundle 'FuzzyFinder'
+Bundle 'unite'
 Bundle 'vim-l9'
 Bundle 'vim-ref'
 Bundle 'snipmate'
@@ -183,7 +184,7 @@ endif
 nnoremap <Space>. <Esc>:<C-u>source ~/dotfiles/.vimrc<CR>:<C-u>source ~/dotfiles/.gvimrc<CR>
 nnoremap <Space>v :e ~/dotfiles/.vimrc<CR>
 nnoremap <Space>g :e ~/dotfiles/.gvimrc<CR>
-if has('win32')
+if has('win32') || has('win64')
 	nnoremap <Space>sh :e D:/My Dropbox/vimfiles/snippets/html.snippets<CR>
 	nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
 	nnoremap <Space>sc :e D:/My Dropbox/vimfiles/snippets/css.snippets<CR>
@@ -287,15 +288,27 @@ let autodate_keyword_pre = '\cUpdate\s\s'
 " --------------------
 " for "FuzzyFinder.vim" plugin
 " --------------------
-nnoremap <Space>f f
-nnoremap f <Nop>
-nnoremap <silent> fb :<C-u>FufBuffer!<CR>
-nnoremap <silent> ff :<C-u>FufFile! <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-nnoremap <silent> fd :<C-u>FufDir!<CR>
-nnoremap <silent> fm :<C-u>FufMruFile!<CR>
+"nnoremap <Space>f f
+"nnoremap f <Nop>
+"nnoremap <silent> fb :<C-u>FufBuffer!<CR>
+"nnoremap <silent> ff :<C-u>FufFile! <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
+"nnoremap <silent> fd :<C-u>FufDir!<CR>
+"nnoremap <silent> fm :<C-u>FufMruFile!<CR>
 "nnoremap <silent> tb :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderBuffer!<CR>
 "nnoremap <silent> tf :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderFile!<C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
 "nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
+
+" --------------------
+" for "unite.vim" plugin
+" --------------------
+" バッファ一覧
+nnoremap <silent> <space>ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> <space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> <space>ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> <space>um :<C-u>Unite file_mru<CR>
 
 " --------------------
 " for "neocomplcache" plugin
