@@ -540,8 +540,8 @@ function! HtmlUnEscape()
   silent s/&amp;/\&/eg
 endfunction
 
-vnoremap <silent> <c-h> :call HtmlEscape()<CR>
-vnoremap <silent> <c-u> :call HtmlUnEscape()<CR>
+vnoremap <silent> he :call HtmlEscape()<CR>
+vnoremap <silent> hu :call HtmlUnEscape()<CR>
 
 " --------------------
 "  switch indent style
