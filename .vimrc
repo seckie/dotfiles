@@ -31,7 +31,6 @@ Bundle 'gmarik/vundle'
 " My Bundles
 Bundle 'neocomplcache'
 Bundle 'EnhancedCommentify'
-"Bundle 'FuzzyFinder'
 Bundle 'unite'
 Bundle 'vim-l9'
 Bundle 'vim-ref'
@@ -302,13 +301,13 @@ let autodate_keyword_pre = '\cUpdate\s\s'
 " for "unite.vim" plugin
 " --------------------
 " バッファ一覧
-nnoremap <silent> <space>ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> <space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> <space>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Space>ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> <space>um :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
 
 " --------------------
 " for "neocomplcache" plugin
