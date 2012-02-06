@@ -568,6 +568,10 @@ nnoremap ,st :<C-u>call IndentStyleT()<CR>
 " --------------------
 nnoremap \v :<C-u>HTML5Validate<CR>
 
+" --------------------
+"  zencoding.vim
+" --------------------
+let g:user_zen_leader_key = '<C-m>'
 
 " temp setting
 " --------------------------------------------------------------------------
