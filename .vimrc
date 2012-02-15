@@ -572,6 +572,7 @@ nnoremap \v :<C-u>HTML5Validate<CR>
 "  zencoding.vim
 " --------------------
 let g:user_zen_leader_key = '<C-m>'
+let g:user_zen_togglecomment_key = '<C-m>\/'
 
 " temp setting
 " --------------------------------------------------------------------------
