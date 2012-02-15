@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/unite"]
 	path = .vim/bundle/unite
 	url = git://github.com/Shougo/unite.vim.git
+[submodule ".vim/bundle/hatena-vim"]
+	path = .vim/bundle/hatena-vim
+	url = git://github.com/tyru/hatena-vim.git
