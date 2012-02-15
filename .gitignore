@@ -32,6 +32,7 @@ doc/tags-ja
 # vim
 *.swp
 .netrwhist
+script-names.vim-scripts.org.json
 
 # Windows
 Thumb.db
