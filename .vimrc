@@ -300,14 +300,16 @@ let autodate_keyword_pre = '\cUpdate\s\s'
 " --------------------
 " for "unite.vim" plugin
 " --------------------
+" インサートモードで開始
+let g:unite_enable_start_insert = 1
 " バッファ一覧
-nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
+nnoremap <silent>fb :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent>ff :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> <Space>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent>fr :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
+nnoremap <silent>fm :<C-u>Unite file_mru<CR>
 
 " --------------------
 " for "neocomplcache" plugin
