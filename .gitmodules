@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/vim-l9"]
 	path = .vim/bundle/vim-l9
 	url = git://github.com/git-mirror/vim-l9.git
-[submodule ".vim/bundle/FuzzyFinder"]
-	path = .vim/bundle/FuzzyFinder
-	url = git://github.com/wesbaker/FuzzyFinder.git
 [submodule ".vim/bundle/YankRing"]
 	path = .vim/bundle/YankRing
 	url = git://github.com/vim-scripts/YankRing.vim.git
