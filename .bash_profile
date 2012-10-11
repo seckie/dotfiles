@@ -9,4 +9,4 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/Users/naokis/android-sdk-macos
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export CLICOLOR=1
-export LSCOLOR=DxGxcxdxCxegedabagacad
+export LSCOLORS=DxGxcxdxCxegedabagacad
