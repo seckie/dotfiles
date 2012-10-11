@@ -239,6 +239,10 @@ nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0
 vmap <C-Del> "*d
 vmap <S-Del> "*d
 vmap <C-Insert> "*y
+
+nnoremap ; :
+nnoremap : ;
+
 map <S-Insert> <MiddleMouse>
 inoremap <C-H> <Left>
 inoremap <NL> <Down>
