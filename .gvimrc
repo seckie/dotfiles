@@ -10,8 +10,10 @@ if has('win32')
 	set columns=178
 	set lines=54
 elseif has('gui_macvim')
+"	set columns=174
+"	set lines=51
 	set columns=174
-	set lines=51
+	set lines=68
 endif
 set guioptions-=T
 
@@ -31,7 +33,7 @@ if has('win32')
 elseif has('gui_macvim')
 "  set guifont=Osaka-Mono:h16
 "  set guifontwide=Osaka-Mono:h16
-  set guifont=VL_Gothic:h15
+  set guifont=VL_Gothic:h16
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
 "  set guifontset=a14,r14,k14
