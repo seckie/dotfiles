@@ -260,6 +260,7 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap <C-@> `.
+noremap <CR> i<S-CR><Esc>
 
 nnoremap * y/<C-r>0<CR>
 nnoremap vv v$h
