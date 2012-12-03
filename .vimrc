@@ -7,6 +7,8 @@ if has('win32')
 	set runtimepath+=D:\My\ Dropbox\vimfiles
 elseif has('gui_macvim')
 	set runtimepath+=$HOME/Dropbox/vimfiles
+else
+	set runtimepath+=$HOME/Dropbox/vimfiles
 endif
 
 " $VIMRUNTIME directory resetting
@@ -14,6 +16,9 @@ if has('win32')
 	let $VF = 'D:/My\ Dropbox/vimfiles'
 	let $HTDOCS = 'D:/htdocs'
 elseif has('gui_macvim')
+	let $VF = $HOME . '/Dropbox/vimfiles'
+	let $HTDOCS = $HOME.'/Sites'
+else
 	let $VF = $HOME . '/Dropbox/vimfiles'
 	let $HTDOCS = $HOME.'/Sites'
 endif
@@ -26,7 +31,8 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
+Bundle 'vundle'
 
 " My Bundles
 Bundle 'neocomplcache'
@@ -242,6 +248,8 @@ vmap <C-Insert> "*y
 
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 map <S-Insert> <MiddleMouse>
 inoremap <C-H> <Left>
