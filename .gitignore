@@ -33,6 +33,7 @@ doc/tags-ja
 *.swp
 .netrwhist
 script-names.vim-scripts.org.json
+.vim/bundle/*
 
 # Windows
 Thumb.db

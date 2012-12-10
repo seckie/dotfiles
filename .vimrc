@@ -31,38 +31,41 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-"Bundle 'gmarik/vundle'
-Bundle 'vundle'
+Bundle 'gmarik/vundle'
+"Bundle 'vundle'
 
-" My Bundles
-Bundle 'neocomplcache'
-Bundle 'EnhancedCommentify'
-Bundle 'unite'
-Bundle 'vim-l9'
-Bundle 'vim-ref'
-Bundle 'snipmate'
-Bundle 'vim-template'
-Bundle 'YankRing'
-Bundle 'vim-haml'
-Bundle 'autodate'
-
-Bundle 'vim-qfreplace'
-Bundle 'zencoding-vim'
-
+"
+" My Bundles here:
+"
+" original repos on github
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'thinca/vim-template'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-qfreplace'
+Bundle 'hrp/EnhancedCommentify'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-haml'
+Bundle 'git-mirror/vim-l9'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'vim-scripts/autodate.vim'
 " 'textobj-user' is framework
-Bundle 'vim-textobj-user'
-Bundle 'html-textobjects'
-Bundle 'vim-matchit'
-Bundle 'vim-surround'
-
+Bundle 'kana/vim-textobj-user'
 " 'vim-operator-user' is framework
-Bundle 'vim-operator-user'
+Bundle 'kana/vim-operator-user'
+Bundle 'mjbrownie/html-textobjects'
+Bundle 'edsono/vim-matchit'
+Bundle 'hokaccha/vim-html5validator'
+Bundle 'mattn/zencoding-vim'
 
-Bundle 'vim-html5validator'
+" vim-scripts repos
+"Bundle '';
 
 " colorschemes
 "Bundle 'vim-colors-solarized'
-Bundle 'Vim-Tomorrow-Theme'
+"Bundle 'Vim-Tomorrow-Theme'
 
 filetype plugin indent on     " required! 
 "
