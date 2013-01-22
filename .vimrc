@@ -613,6 +613,14 @@ nnoremap \v :<C-u>HTML5Validate<CR>
 let g:user_zen_leader_key = '<C-m>'
 let g:user_zen_togglecomment_key = '<C-m>\/'
 
+" for quickfix list with :vimgrep
+" @url: http://d.hatena.ne.jp/ryochack/20110609/1307639604
+function! OpenModifiableQF()
+	cw
+	set modifiable
+endfunction
+autocmd QuickfixCmdPost vimgrep call OpenModifiableQF()
+
 " temp setting
 " --------------------------------------------------------------------------
 if has('win32')
