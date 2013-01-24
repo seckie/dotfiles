@@ -51,6 +51,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/autodate.vim'
+Bundle 'h1mesuke/vim-alignta.git'
 " 'textobj-user' is framework
 Bundle 'kana/vim-textobj-user'
 " 'vim-operator-user' is framework
