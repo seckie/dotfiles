@@ -8,6 +8,7 @@ export SVN_EDITOR=vim
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:/usr/local/mysql/bin:/Applications/XAMPP/xamppfiles/bin
 # Finished adapting your PATH environment variable for use with MacPorts.
 export XAMPPVHOST=/Applications/XAMPP/xamppfiles/etc/extra
+export MAMPVHOST=/Applications/MAMP/conf/apache/extra
 export JSTESTDRIVER_HOME=~/bin
 
 export CLICOLOR=1
