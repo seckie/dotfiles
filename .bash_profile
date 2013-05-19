@@ -18,3 +18,5 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Additional PATH
 export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:/Applications/MAMP/bin/php/php5.4.10/bin:$PATH
 
+# git subcommand completion
+source /usr/local/git/contrib/completion/git-completion.bash
