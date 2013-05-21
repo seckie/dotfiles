@@ -627,6 +627,17 @@ autocmd FileType javascript JSLintToggle
 nnoremap <Space>jl :<C-u>JSLintToggle<CR>
 nnoremap <Space>ju :<C-u>JSLintUpdate<CR>
 
+
+" --------------------
+"  quickfix: 編集許可と折り返し表示無効
+" --------------------
+function! OpenModifiableQF()
+	cw
+	set modifiable
+	set nowrap
+endfunction
+autocmd QuickfixCmdPost vimgrep call OpenModifiableQF()
+
 " temp setting
 " --------------------------------------------------------------------------
 if has('win32')
@@ -634,3 +645,5 @@ if has('win32')
 elseif has('gui_macvim')
 	nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
 endif
+
+
