@@ -63,7 +63,6 @@ Bundle 'mattn/zencoding-vim'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'hallettj/jslint.vim'
 
 
 " vim-scripts repos
@@ -618,14 +617,6 @@ nnoremap \v :<C-u>HTML5Validate<CR>
 " --------------------
 let g:user_zen_leader_key = '<C-m>'
 let g:user_zen_togglecomment_key = '<C-m>\/'
-
-
-" --------------------
-"  jslint.vim
-" --------------------
-autocmd FileType javascript JSLintToggle
-nnoremap <Space>jl :<C-u>JSLintToggle<CR>
-nnoremap <Space>ju :<C-u>JSLintUpdate<CR>
 
 
 " --------------------
