@@ -68,10 +68,6 @@ Bundle 'jelera/vim-javascript-syntax'
 " vim-scripts repos
 "Bundle '';
 
-" colorschemes
-"Bundle 'vim-colors-solarized'
-"Bundle 'Vim-Tomorrow-Theme'
-
 filetype plugin indent on     " required! 
 "
 " Brief help
@@ -124,7 +120,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
-colorscheme darkblue
+colorscheme jellybeans_custom
 
 	" title bar
 set title
