@@ -115,6 +115,7 @@ set backspace=2
 set formatoptions=tcqmM
 set ruler
 set laststatus=2
+set wrap
 	" for bracket
 set showmatch
 set printfont=MS_Mincho:h12:cSHIFTJIS
