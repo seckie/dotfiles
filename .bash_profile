@@ -7,6 +7,12 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export PS1="\[\e[1;34m\]\h:\w \u\$\[\e[00m\] "
 
+# keychain
+if [ -x /usr/bin/keychain ]; then
+    keychain ~/.ssh/id_rsa
+    . .keychain/${HOSTNAME}-sh
+fi
+
 ##
 # Your previous /Users/naokis/.bash_profile file was backed up as /Users/naokis/.bash_profile.macports-saved_2013-05-19_at_11:08:33
 ##
