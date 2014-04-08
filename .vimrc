@@ -181,19 +181,10 @@ set hlsearch
 cnoremap <expr> /
 \ getcmdtype() == '/' ? '\/' : '/'
 
-" auto set current directory
-au BufEnter * execute ":lcd " . expand("%:p:h")
-
 " reset autocmd
-augroup resetAutocmd
-	autocmd!
+augroup resetautocmd
+	au!
 augroup END
-
-" file type
-au! BufNewFile,BufRead *.mtml setf html
-au! BufNewFile,BufRead *.scss setf scss
-au! BufNewFile,BufRead *.php setf html
-au! BufNewFile,BufRead *.less setf less
 
 " --------------------
 " for some plugin
@@ -590,14 +581,17 @@ vnoremap <silent> ,u :call HtmlUnEscape()<CR>
 " --------------------
 function! IndentStyle2() range
 	setlocal shiftwidth=2
+	setlocal tabstop=2
 	setlocal expandtab
 endfunction
 function! IndentStyle4() range
 	setlocal shiftwidth=4
+	setlocal tabstop=4
 	setlocal expandtab
 endfunction
 function! IndentStyleT() range
     setlocal shiftwidth=4
+	setlocal tabstop=4
 	setlocal noexpandtab
 endfunction
 
@@ -643,4 +637,19 @@ elseif has('gui_macvim')
 	nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
 endif
 
+
+" --------------------
+"  autocmd
+" --------------------
+augroup initautocmd
+	" auto set current directory
+	au BufEnter * execute ":lcd " . expand("%:p:h")
+	" via file type
+	au BufNewFile,BufRead *.mtml setf html
+	au BufNewFile,BufRead *.scss setf scss
+	au BufNewFile,BufRead *.php setf html
+	au BufNewFile,BufRead *.less setf less
+	au BufNewFile,BufRead *.vim call IndentStyle2()
+	au BufNewFile,BufRead Gruntfile.js call IndentStyle2()
+augroup END
 
