@@ -60,6 +60,7 @@ Bundle 'mjbrownie/html-textobjects'
 Bundle 'edsono/vim-matchit'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'mattn/zencoding-vim'
+Bundle 'joonty/vdebug.git'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
@@ -625,6 +626,14 @@ function! OpenModifiableQF()
 	set nowrap
 endfunction
 autocmd QuickfixCmdPost vimgrep call OpenModifiableQF()
+
+
+" --------------------
+"  vdebug
+" --------------------
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9000
+
 
 " temp setting
 " --------------------------------------------------------------------------
