@@ -10,6 +10,7 @@ contents/
 
 # apache log
 _logs/
+logs/
 
 # Xcode
 build/*
@@ -44,3 +45,8 @@ Thumb.db
 # Dreamweaver
 dwsync.xml
 _notes/
+
+# node applications
+npm-debug.log
+bower_components/
+node_modules/
