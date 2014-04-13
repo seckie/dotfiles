@@ -41,13 +41,9 @@ endif
 
 " Coloring----------------------------------------------------------------------
 	"colorscheme
-if has('win32')
-	colorscheme jellybeans_custom
-elseif has('gui_macvim')
-	colorscheme jellybeans_custom
-endif
-"colorscheme solarized
+"colorscheme jellybeanscustom
 "colorscheme less
+colorscheme molokai
 
 " overwrite "less" colorscheme
 highlight Directory guifg=LightBlue
