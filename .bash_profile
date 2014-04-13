@@ -1,4 +1,5 @@
 export SVN_EDITOR=vim
+export EDITOR=vim
 
 export MAMPVHOST=/Applications/MAMP/conf/apache/extra
 export JSTESTDRIVER_HOME=~/bin
@@ -13,9 +14,6 @@ if [ -x /usr/bin/keychain ]; then
     . .keychain/${HOSTNAME}-sh
 fi
 
-##
-# Your previous /Users/naokis/.bash_profile file was backed up as /Users/naokis/.bash_profile.macports-saved_2013-05-19_at_11:08:33
-##
 
 # MacPorts Installer addition on 2013-05-19_at_11:08:33: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
