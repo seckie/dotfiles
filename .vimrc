@@ -61,6 +61,7 @@ Bundle 'edsono/vim-matchit'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'mattn/zencoding-vim'
 Bundle 'joonty/vdebug.git'
+Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
@@ -651,5 +652,8 @@ augroup initautocmd
 	au BufNewFile,BufRead *.less setf less
 	au BufNewFile,BufRead *.vim call IndentStyle2()
 	au BufNewFile,BufRead Gruntfile.js call IndentStyle2()
+	au BufNewFile,BufRead package.json call IndentStyle2()
+	au BufNewFile,BufRead bower.json call IndentStyle2()
+	au BufNewFile,BufRead *.coffee call IndentStyle2()
 augroup END
 
