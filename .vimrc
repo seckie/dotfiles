@@ -64,7 +64,7 @@ Bundle 'joonty/vdebug.git'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
-
+Bundle 'groenewege/vim-less'
 
 " vim-scripts repos
 "Bundle '';
@@ -122,7 +122,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
-colorscheme jellybeans_custom
+colorscheme jellybeanscustom
 
 	" title bar
 set title
