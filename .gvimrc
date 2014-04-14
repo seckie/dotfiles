@@ -7,13 +7,13 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 
 if has('win32')
-	set columns=178
-	set lines=54
+  set columns=178
+  set lines=54
 elseif has('gui_macvim')
 "    set columns=174
 "    set lines=62
-	set columns=190
-	set lines=66
+  set columns=190
+  set lines=66
 endif
 set guioptions-=T
 
@@ -40,7 +40,7 @@ elseif has('xfontset')
 endif
 
 " Coloring----------------------------------------------------------------------
-	"colorscheme
+  "colorscheme
 "colorscheme jellybeanscustom
 "colorscheme less
 colorscheme molokai
@@ -61,8 +61,8 @@ if has('win32')
 "    gui
 "    set transparency=246
 elseif has('gui_macvim')
-	gui
-	set transparency=2
+  gui
+  set transparency=2
 endif
 
 "---------------------------------------------------------------------------
@@ -76,19 +76,19 @@ nnoremap <Space>2m :<C-u>winpos -1276 0<CR>
 " note: 実行順序に注意。transparencyより後に実行しないとウィンドウ位置が再現できない
 let g:save_window_file = expand('~/.vimwinpos')
 augroup SaveWindow
-"    autocmd!
-    autocmd VimLeavePre * call s:save_window()
-    function! s:save_window()
-        let options = [
-                    \ 'set columns=' . &columns,
-                    \ 'set lines=' . &lines,
-                    \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
-                    \ ]
-        call writefile(options, g:save_window_file)
-    endfunction
+  au!
+  autocmd VimLeavePre * call s:save_window()
+  function! s:save_window()
+    let options = [
+      \ 'set columns=' . &columns,
+      \ 'set lines=' . &lines,
+      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+      \ ]
+    call writefile(options, g:save_window_file)
+  endfunction
 augroup END
 
 if filereadable(g:save_window_file)
-    execute 'source' g:save_window_file
+  execute 'source' g:save_window_file
 endif
 

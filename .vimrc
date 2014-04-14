@@ -4,23 +4,23 @@ let s:cpo_save=&cpo
 set cpo&vim
 
 if has('win32')
-	set runtimepath+=D:\My\ Dropbox\vimfiles
+  set runtimepath+=D:\My\ Dropbox\vimfiles
 elseif has('gui_macvim')
-	set runtimepath+=$HOME/Dropbox/vimfiles
+  set runtimepath+=$HOME/Dropbox/vimfiles
 else
-	set runtimepath+=$HOME/Dropbox/vimfiles
+  set runtimepath+=$HOME/Dropbox/vimfiles
 endif
 
 " $VIMRUNTIME directory resetting
 if has('win32')
-	let $VF = 'D:/My\ Dropbox/vimfiles'
-	let $HTDOCS = 'D:/htdocs'
+  let $VF = 'D:/My\ Dropbox/vimfiles'
+  let $HTDOCS = 'D:/htdocs'
 elseif has('gui_macvim')
-	let $VF = $HOME . '/Dropbox/vimfiles'
-	let $HTDOCS = $HOME.'/Sites'
+  let $VF = $HOME . '/Dropbox/vimfiles'
+  let $HTDOCS = $HOME.'/Sites'
 else
-	let $VF = $HOME . '/Dropbox/vimfiles'
-	let $HTDOCS = $HOME.'/Sites'
+  let $VF = $HOME . '/Dropbox/vimfiles'
+  let $HTDOCS = $HOME.'/Sites'
 endif
 
 " for "Vundle" plugin
@@ -106,7 +106,7 @@ set formatexpr=Format_Japanese()
 set clipboard=unnamed
 
 " format
-	" 自動改行させない
+  " 自動改行させない
 set textwidth=0
 set autoindent
 set backspace=2
@@ -114,7 +114,7 @@ set formatoptions=tcqmM
 set ruler
 set laststatus=2
 set wrap
-	" for bracket
+  " for bracket
 set showmatch
 set printfont=MS_Mincho:h12:cSHIFTJIS
 set ignorecase
@@ -125,7 +125,7 @@ syntax enable
 set background=dark
 colorscheme jellybeanscustom
 
-	" title bar
+  " title bar
 set title
 set wildmenu
 set window=61
@@ -171,14 +171,14 @@ set foldmethod=marker
 
 " backup
 set nobackup
-	" define backup dir
+  " define backup dir
 set directory=$HOME/vimbackup
 set backupdir=$HOME/vimbackup
 
 " search
 set incsearch
 set hlsearch
-	" when '/' search
+  " when '/' search
 cnoremap <expr> /
 \ getcmdtype() == '/' ? '\/' : '/'
 
@@ -190,9 +190,9 @@ filetype on
 filetype plugin on
 "set runtimepath+=$VIMRUNTIME/after
 if has('win32')
-	let snippets_dir='D:/My\ Dropbox/vimfiles/snippets'
+  let snippets_dir='D:/My\ Dropbox/vimfiles/snippets'
 elseif has('gui_macvim')
-	let snippets_dir=$HOME . '/Dropbox/vimfiles/snippets'
+  let snippets_dir=$HOME . '/Dropbox/vimfiles/snippets'
 endif
 
 " file and directory---------------------------------------------------------------
@@ -202,26 +202,26 @@ nnoremap <Space>. <Esc>:<C-u>source ~/dotfiles/.vimrc<CR>:<C-u>source ~/dotfiles
 nnoremap <Space>v :e ~/dotfiles/.vimrc<CR>
 nnoremap <Space>g :e ~/dotfiles/.gvimrc<CR>
 if has('win32') || has('win64')
-	nnoremap <Space>sh :e D:/My Dropbox/vimfiles/snippets/html.snippets<CR>
-	nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
-	nnoremap <Space>sc :e D:/My Dropbox/vimfiles/snippets/css.snippets<CR>
-	nnoremap <Space>ss :e D:/My Dropbox/vimfiles/snippets/scss.snippets<CR>
-	nnoremap <Space>sl :e D:/My Dropbox/vimfiles/snippets/less.snippets<CR>
-	nnoremap <Space>sj :e D:/My Dropbox/vimfiles/snippets/javascript.snippets<CR>
-	nnoremap <Space>h :e C:/WINDOWS/system32/drivers/etc/hosts<CR>
-	nnoremap <Space>vh :e C:/xampp/apache/conf/extra/httpd-vhosts.conf<CR>
-	"if has('kaoriya')
-	"endif
+  nnoremap <Space>sh :e D:/My Dropbox/vimfiles/snippets/html.snippets<CR>
+  nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
+  nnoremap <Space>sc :e D:/My Dropbox/vimfiles/snippets/css.snippets<CR>
+  nnoremap <Space>ss :e D:/My Dropbox/vimfiles/snippets/scss.snippets<CR>
+  nnoremap <Space>sl :e D:/My Dropbox/vimfiles/snippets/less.snippets<CR>
+  nnoremap <Space>sj :e D:/My Dropbox/vimfiles/snippets/javascript.snippets<CR>
+  nnoremap <Space>h :e C:/WINDOWS/system32/drivers/etc/hosts<CR>
+  nnoremap <Space>vh :e C:/xampp/apache/conf/extra/httpd-vhosts.conf<CR>
+  "if has('kaoriya')
+  "endif
 elseif has('gui_macvim')
 "    nnoremap <Space>. <Esc>:<C-u>source $HOME/Dropbox/vimfiles/vimrc.vim<CR>:<C-u>source $HOME/Dropbox/vimfiles/gvimrc.vim<CR>
-	nnoremap <Space>sh :e $HOME/Dropbox/vimfiles/snippets/html.snippets<CR>
-	nnoremap <Space>sp :e $HOME/Dropbox/vimfiles/snippets/php.snippets<CR>
-	nnoremap <Space>sc :e $HOME/Dropbox/vimfiles/snippets/css.snippets<CR>
-	nnoremap <Space>ss :e $HOME/Dropbox/vimfiles/snippets/scss.snippets<CR>
-	nnoremap <Space>sl :e $HOME/Dropbox/vimfiles/snippets/less.snippets<CR>
-	nnoremap <Space>sj :e $HOME/Dropbox/vimfiles/snippets/javascript.snippets<CR>
-	nnoremap <Space>h :e /etc/hosts<CR>
-	nnoremap <Space>log :<C-u>e /Applications/XAMPP/xamppfiles/logs<CR>
+  nnoremap <Space>sh :e $HOME/Dropbox/vimfiles/snippets/html.snippets<CR>
+  nnoremap <Space>sp :e $HOME/Dropbox/vimfiles/snippets/php.snippets<CR>
+  nnoremap <Space>sc :e $HOME/Dropbox/vimfiles/snippets/css.snippets<CR>
+  nnoremap <Space>ss :e $HOME/Dropbox/vimfiles/snippets/scss.snippets<CR>
+  nnoremap <Space>sl :e $HOME/Dropbox/vimfiles/snippets/less.snippets<CR>
+  nnoremap <Space>sj :e $HOME/Dropbox/vimfiles/snippets/javascript.snippets<CR>
+  nnoremap <Space>h :e /etc/hosts<CR>
+  nnoremap <Space>log :<C-u>e /Applications/XAMPP/xamppfiles/logs<CR>
 endif
 
 " keymap---------------------------------------------------------------------------
@@ -389,12 +389,12 @@ let g:neocomplcache_enable_auto_select = 1
 
 " Enable omni completion.
 aug neocomaug
-	au!
-	au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-	au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-	au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-	au FileType python setlocal omnifunc=pythoncomplete#Complete
-	au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  au!
+  au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  au FileType python setlocal omnifunc=pythoncomplete#Complete
+  au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 aug END
 
 " --------------------
@@ -407,7 +407,7 @@ aug END
 " --------------------
 if has('win32')
 "    let g:ref_phpmanual_path = $HOME . '/My Dropbox/Document/php-chunked-xhtml'
-	let g:ref_phpmanual_path = 'd:/php-chunked-xhtml'
+  let g:ref_phpmanual_path = 'd:/php-chunked-xhtml'
 elseif has('gui_macvim')
 "    let g:ref_phpmanual_path = $HOME/Dropbox/vimfiles/doc/php-bigxhtml.html
 endif
@@ -488,20 +488,20 @@ let g:copypath_copy_to_unnamed_register = 1
 " Modified by Naoki Sekiguchi
 " --------------------
 function! EleList(eleName) range
-	let l:count = a:firstline
-	while l:count <= a:lastline
-		let l:str = getline(l:count)
-		let l:out1 = substitute(l:str, '^\s\+', '', 'g')
-		let l:out2 = '<' . a:eleName
+  let l:count = a:firstline
+  while l:count <= a:lastline
+    let l:str = getline(l:count)
+    let l:out1 = substitute(l:str, '^\s\+', '', 'g')
+    let l:out2 = '<' . a:eleName
     if a:eleName == 'option'
       let l:out2 .= ' value="0"'
     endif
     let l:out2 .= ('>' . l:out1 . '</' . a:eleName . '>')
-		call setline(l:count, l:out2)
-		let l:count = l:count + 1
-	endwhile
-"	call append(a:lastline, '</ul>')
-"	call append(a:firstline - 1, '<ul>')
+    call setline(l:count, l:out2)
+    let l:count = l:count + 1
+  endwhile
+"  call append(a:lastline, '</ul>')
+"  call append(a:firstline - 1, '<ul>')
 endfunction
 
 vnoremap \td :call EleList("td")<CR>
@@ -512,16 +512,16 @@ vnoremap \dt :call EleList("dt")<CR>
 vnoremap \dd :call EleList("dd")<CR>
 
 function! EleLinkList(eleName) range
-	let l:count = a:firstline
-	while l:count <= a:lastline
-		let l:str = getline(l:count)
-		let l:out1 = substitute(l:str, '^\s\+', '', 'g')
-		let l:out2 = '<' . a:eleName . '><a href="#">' . l:out1 . '</a></' . a:eleName . '>'
-		call setline(l:count, l:out2)
-		let l:count = l:count + 1
-	endwhile
-"	call append(a:lastline, '</ul>')
-"	call append(a:firstline - 1, '<ul>')
+  let l:count = a:firstline
+  while l:count <= a:lastline
+    let l:str = getline(l:count)
+    let l:out1 = substitute(l:str, '^\s\+', '', 'g')
+    let l:out2 = '<' . a:eleName . '><a href="#">' . l:out1 . '</a></' . a:eleName . '>'
+    call setline(l:count, l:out2)
+    let l:count = l:count + 1
+  endwhile
+"  call append(a:lastline, '</ul>')
+"  call append(a:firstline - 1, '<ul>')
 endfunction
 vnoremap \tda :call EleLinkList("td")<CR>
 vnoremap \tha :call EleLinkList("th")<CR>
@@ -532,14 +532,14 @@ vnoremap \dda :call EleLinkList("dd")<CR>
 "vnoremap ,ap s<a href="<s-Insert>"><CR><Esc>
 
 function! LinkList() range
-	let l:count = a:firstline
-	while l:count <= a:lastline
-		let l:str = getline(l:count)
-		let l:out1 = substitute(l:str, '^\s\+', '', 'g')
-		let l:out2 = '<a href="#">' . l:out1 . '</a>'
-		call setline(l:count, l:out2)
-		let l:count = l:count + 1
-	endwhile
+  let l:count = a:firstline
+  while l:count <= a:lastline
+    let l:str = getline(l:count)
+    let l:out1 = substitute(l:str, '^\s\+', '', 'g')
+    let l:out2 = '<a href="#">' . l:out1 . '</a>'
+    call setline(l:count, l:out2)
+    let l:count = l:count + 1
+  endwhile
 endfunction
 vnoremap \ali :call LinkList()<CR>
 
@@ -549,13 +549,13 @@ vnoremap \ali :call LinkList()<CR>
 " http://webtech-walker.com/archive/2009/10/26021358.html
 " --------------------{{{
 function! SnipMateReload()
-	if &ft == 'snippet'
-		let ft = substitute(expand('%'), '.snippets', '', '')
-		if has_key(g:did_ft, ft)
-			unlet g:did_ft[ft]
-		endif
-		silent! call GetSnippets(g:snippets_dir, ft)
-	endif
+  if &ft == 'snippet'
+    let ft = substitute(expand('%'), '.snippets', '', '')
+    if has_key(g:did_ft, ft)
+      unlet g:did_ft[ft]
+    endif
+    silent! call GetSnippets(g:snippets_dir, ft)
+  endif
 endfunction
 "}}}
 
@@ -586,19 +586,19 @@ vnoremap <silent> ,u :call HtmlUnEscape()<CR>
 "  switch indent style
 " --------------------
 function! IndentStyle2() range
-	setlocal shiftwidth=2
-	setlocal tabstop=2
-	setlocal expandtab
+  setlocal shiftwidth=2
+  setlocal tabstop=2
+  setlocal expandtab
 endfunction
 function! IndentStyle4() range
-	setlocal shiftwidth=4
-	setlocal tabstop=4
-	setlocal expandtab
+  setlocal shiftwidth=4
+  setlocal tabstop=4
+  setlocal expandtab
 endfunction
 function! IndentStyleT() range
     setlocal shiftwidth=4
-	setlocal tabstop=4
-	setlocal noexpandtab
+  setlocal tabstop=4
+  setlocal noexpandtab
 endfunction
 
 nnoremap ,s2 :<C-u>call IndentStyle2()<CR>
@@ -621,9 +621,9 @@ let g:user_zen_togglecomment_key = '<C-m>\/'
 "  quickfix: 編集許可と折り返し表示無効
 " --------------------
 function! OpenModifiableQF()
-	cw
-	set modifiable
-	set nowrap
+  cw
+  set modifiable
+  set nowrap
 endfunction
 aug qfaug
   au!
@@ -641,9 +641,9 @@ let g:vdebug_options["port"] = 9000
 " temp setting
 " --------------------------------------------------------------------------
 if has('win32')
-	nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
+  nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
 elseif has('gui_macvim')
-	nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
+  nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
 endif
 
 
