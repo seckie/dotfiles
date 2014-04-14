@@ -486,23 +486,28 @@ let g:copypath_copy_to_unnamed_register = 1
 " Author: Yasuo Fukuda (@sigwyg)
 " http://archiva.jp/web/sugamo_css/sugamo_vim_01.html
 " Modified by Naoki Sekiguchi
-" --------------------{{{
+" --------------------
 function! EleList(eleName) range
 	let l:count = a:firstline
 	while l:count <= a:lastline
 		let l:str = getline(l:count)
 		let l:out1 = substitute(l:str, '^\s\+', '', 'g')
-		let l:out2 = '<' . a:eleName . '>' . l:out1 . '</' . a:eleName . '>'
+		let l:out2 = '<' . a:eleName
+    if a:eleName == 'option'
+      let l:out2 .= ' value="0"'
+    endif
+    let l:out2 .= ('>' . l:out1 . '</' . a:eleName . '>')
 		call setline(l:count, l:out2)
 		let l:count = l:count + 1
 	endwhile
 "	call append(a:lastline, '</ul>')
 "	call append(a:firstline - 1, '<ul>')
 endfunction
-"}}}
+
 vnoremap \td :call EleList("td")<CR>
 vnoremap \th :call EleList("th")<CR>
 vnoremap \li :call EleList("li")<CR>
+vnoremap \op :call EleList("option")<CR>
 vnoremap \dt :call EleList("dt")<CR>
 vnoremap \dd :call EleList("dd")<CR>
 
