@@ -182,11 +182,6 @@ set hlsearch
 cnoremap <expr> /
 \ getcmdtype() == '/' ? '\/' : '/'
 
-" reset autocmd
-augroup resetautocmd
-	au!
-augroup END
-
 " --------------------
 " for some plugin
 " "snipMate.vim", "Align.vim"
@@ -303,10 +298,6 @@ nnoremap x "_x
 "動かんかったので保留
 "vnoremap rr :s//\r/g<CR>
 
-" for file path that starts with slash 
-" http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
-
 " for plugins----------------------------------------------------------------------
 " --------------------
 " for "Autodate" plugin
@@ -397,11 +388,14 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 let g:neocomplcache_enable_auto_select = 1
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+aug neocomaug
+	au!
+	au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	au FileType python setlocal omnifunc=pythoncomplete#Complete
+	au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+aug END
 
 " --------------------
 " for "EnhCommentify" plugin
@@ -430,13 +424,17 @@ let g:yankring_n_keys = 'Y D'
 if has('gui_macvim')
 "    g:template_basedir=~/Dropbox/vimfiles
 endif
-autocmd FileType * execute 'TemplateLoad /filetype/' . &l:filetype
+
+aug templatevimaug
+  au!
+  au FileType * execute 'TemplateLoad /filetype/' . &l:filetype
+aug ENd
 
 " --------------------
 " for "surround.vim" plugin
 " Author: Kazuhito Hokamura (@hokaccha)
 " http://webtech-walker.com/archive/2009/02/08031540.html
-" --------------------{{{
+" --------------------
 " [key map]
 " 1 : <h1>|</h1>
 " 2 : <h2>|</h2>
@@ -456,24 +454,26 @@ autocmd FileType * execute 'TemplateLoad /filetype/' . &l:filetype
 " d : <div>|</div>
 " D : <div class="section">|</div>
 
-autocmd FileType html let b:surround_49  = "<h1>\r</h1>"
-autocmd FileType html let b:surround_50  = "<h2>\r</h2>"
-autocmd FileType html let b:surround_51  = "<h3>\r</h3>"
-autocmd FileType html let b:surround_52  = "<h4>\r</h4>"
-autocmd FileType html let b:surround_53  = "<h5>\r</h5>"
-autocmd FileType html let b:surround_54  = "<h6>\r</h6>"
+aug surroundvimaug
+  au!
+  au FileType html let b:surround_49  = "<h1>\r</h1>"
+  au FileType html let b:surround_50  = "<h2>\r</h2>"
+  au FileType html let b:surround_51  = "<h3>\r</h3>"
+  au FileType html let b:surround_52  = "<h4>\r</h4>"
+  au FileType html let b:surround_53  = "<h5>\r</h5>"
+  au FileType html let b:surround_54  = "<h6>\r</h6>"
 
-autocmd FileType html let b:surround_112 = "<p>\r</p>"
-autocmd FileType html let b:surround_117 = "<ul>\r</ul>"
-autocmd FileType html let b:surround_111 = "<ol>\r</ol>"
-autocmd FileType html let b:surround_108 = "<li>\r</li>"
-autocmd FileType html let b:surround_97  = "<a href=\"\">\r</a>"
-autocmd FileType html let b:surround_65  = "<a href=\"\r\"></a>"
-autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
-autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
-autocmd FileType html let b:surround_100 = "<div>\r</div>"
-autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
-"}}}
+  au FileType html let b:surround_112 = "<p>\r</p>"
+  au FileType html let b:surround_117 = "<ul>\r</ul>"
+  au FileType html let b:surround_111 = "<ol>\r</ol>"
+  au FileType html let b:surround_108 = "<li>\r</li>"
+  au FileType html let b:surround_97  = "<a href=\"\">\r</a>"
+  au FileType html let b:surround_65  = "<a href=\"\r\"></a>"
+  au FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
+  au FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
+  au FileType html let b:surround_100 = "<div>\r</div>"
+  au FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
+aug END
 
 " --------------------
 " "copypath.vim"
@@ -625,7 +625,10 @@ function! OpenModifiableQF()
 	set modifiable
 	set nowrap
 endfunction
-autocmd QuickfixCmdPost vimgrep call OpenModifiableQF()
+aug qfaug
+  au!
+  au QuickfixCmdPost vimgrep call OpenModifiableQF()
+aug END
 
 
 " --------------------
@@ -647,18 +650,23 @@ endif
 " --------------------
 "  autocmd
 " --------------------
-augroup initautocmd
-	" auto set current directory
-	au BufEnter * execute ":lcd " . expand("%:p:h")
-	" via file type
-	au BufNewFile,BufRead *.mtml setf html
-	au BufNewFile,BufRead *.scss setf scss
-	au BufNewFile,BufRead *.php setf html
-	au BufNewFile,BufRead *.less setf less
-	au BufNewFile,BufRead *.vim call IndentStyle2()
-	au BufNewFile,BufRead Gruntfile.js call IndentStyle2()
-	au BufNewFile,BufRead package.json call IndentStyle2()
-	au BufNewFile,BufRead bower.json call IndentStyle2()
-	au BufNewFile,BufRead *.coffee call IndentStyle2()
-augroup END
-
+aug initaug
+  au!
+  " auto set current directory
+  au BufEnter * execute ":lcd " . expand("%:p:h")
+  " for file path that starts with slash 
+  " http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
+  au FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
+  " via file type
+  au BufNewFile,BufRead *.vim call IndentStyle2()
+  au BufNewFile,BufRead .vimrc call IndentStyle2()
+  au BufNewFile,BufRead .gvimrc call IndentStyle2()
+  au BufNewFile,BufRead Gruntfile.js call IndentStyle2()
+  au BufNewFile,BufRead package.json call IndentStyle2()
+  au BufNewFile,BufRead bower.json call IndentStyle2()
+  au BufNewFile,BufRead *.coffee call IndentStyle2()
+  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
+  au BufNewFile,BufRead *.php setf html | call IndentStyleT()
+  au BufNewFile,BufRead *.scss setf scss | call IndentStyleT()
+  au BufNewFile,BufRead *.less setf less | call IndentStyleT()
+aug END
