@@ -66,6 +66,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
+
 
 " vim-scripts repos
 "Bundle '';
