@@ -666,7 +666,7 @@ aug initaug
   au BufNewFile,BufRead Gruntfile.js call IndentStyle2()
   au BufNewFile,BufRead package.json call IndentStyle2()
   au BufNewFile,BufRead bower.json call IndentStyle2()
-  au BufNewFile,BufRead *.coffee call IndentStyle2()
+  au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
   au BufNewFile,BufRead *.html call IndentStyleT()
   au BufNewFile,BufRead *.css call IndentStyleT()
   au BufNewFile,BufRead *.js call IndentStyleT()
