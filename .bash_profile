@@ -14,6 +14,9 @@ if [ -x /usr/bin/keychain ]; then
     . .keychain/${HOSTNAME}-sh
 fi
 
+# for HomeBrew
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 # Additional PATH
 export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:$PATH
 
