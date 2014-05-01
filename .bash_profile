@@ -14,13 +14,8 @@ if [ -x /usr/bin/keychain ]; then
     . .keychain/${HOSTNAME}-sh
 fi
 
-
-# MacPorts Installer addition on 2013-05-19_at_11:08:33: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # Additional PATH
-export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:/Applications/MAMP/bin/php/php5.4.10/bin:$PATH
+export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:$PATH
 
 # git subcommand completion
 source /usr/local/git/contrib/completion/git-completion.bash
