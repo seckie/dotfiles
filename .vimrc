@@ -60,12 +60,19 @@ Bundle 'mjbrownie/html-textobjects'
 Bundle 'edsono/vim-matchit'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'mattn/zencoding-vim'
+Bundle 'thinca/vim-quickrun.git'
+Bundle 'editorconfig/editorconfig-vim'
+
+" PHP Debug
 Bundle 'joonty/vdebug.git'
+" Coffee Script
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
+" LESS
 Bundle 'groenewege/vim-less'
+" Stylus
 Bundle 'wavded/vim-stylus'
 
 
@@ -176,6 +183,7 @@ set nobackup
   " define backup dir
 set directory=$HOME/vimbackup
 set backupdir=$HOME/vimbackup
+set undodir=$HOME/vimbackup
 
 " search
 set incsearch
