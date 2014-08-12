@@ -682,4 +682,6 @@ aug initaug
   au BufNewFile,BufRead *.php setf html | call IndentStyleT()
   au BufNewFile,BufRead *.scss setf scss | call IndentStyleT()
   au BufNewFile,BufRead *.less setf less | call IndentStyleT()
+  au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
+  au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
 aug END
