@@ -56,7 +56,7 @@ Bundle 'h1mesuke/vim-alignta.git'
 Bundle 'kana/vim-textobj-user'
 " 'vim-operator-user' is framework
 Bundle 'kana/vim-operator-user'
-Bundle 'mjbrownie/html-textobjects'
+"Bundle 'mjbrownie/html-textobjects'
 Bundle 'edsono/vim-matchit'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'mattn/zencoding-vim'
