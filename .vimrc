@@ -397,6 +397,10 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
 
+" Lock neocom when multi byte character insertation
+let g:neocomplcache_lock_iminsert = 1
+let g:neocomplcache_auto_completion_start_length = 3
+
 " Enable omni completion.
 aug neocomaug
   au!
