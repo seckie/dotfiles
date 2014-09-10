@@ -59,7 +59,7 @@ Bundle 'kana/vim-operator-user'
 "Bundle 'mjbrownie/html-textobjects'
 Bundle 'edsono/vim-matchit'
 Bundle 'hokaccha/vim-html5validator'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'thinca/vim-quickrun.git'
 Bundle 'editorconfig/editorconfig-vim'
 
@@ -625,10 +625,10 @@ nnoremap ,st :<C-u>call IndentStyleT()<CR>
 nnoremap \v :<C-u>HTML5Validate<CR>
 
 " --------------------
-"  zencoding.vim
+"  emmet.vim
 " --------------------
-let g:user_zen_leader_key = '<C-m>'
-let g:user_zen_togglecomment_key = '<C-m>\/'
+let g:user_emmet_leader_key = '<C-m>'
+let g:user_emmet_togglecomment_key = '<C-m>\/'
 
 
 " --------------------
