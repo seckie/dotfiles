@@ -74,6 +74,8 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'groenewege/vim-less'
 " Stylus
 Bundle 'wavded/vim-stylus'
+" Jade
+Bundle 'digitaltoad/vim-jade'
 
 
 " vim-scripts repos
