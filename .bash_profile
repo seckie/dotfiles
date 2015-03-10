@@ -23,5 +23,8 @@ export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-mac
 # git subcommand completion
 source /usr/local/git/contrib/completion/git-completion.bash
 
+# for Karma test
+ulimit -n 2048
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
