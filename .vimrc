@@ -261,7 +261,9 @@ inoremap <C-H> <Left>
 inoremap <NL> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
-inoremap <silent>  :set iminsert=0
+" force IME off when escape from inster mode
+inoremap <silent> <C-c> <C-c>:set iminsert=0<CR>
+inoremap <silent> <Esc> <Esc>:set iminsert=0<CR>
 " window size
 nnoremap + 4<C-w>+
 nnoremap - 4<C-w>-
