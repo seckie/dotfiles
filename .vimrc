@@ -134,7 +134,7 @@ set smartcase
 " visual
 syntax enable
 set background=dark
-colorscheme jellybeanscustom
+colorscheme molokai
 
   " title bar
 set title
