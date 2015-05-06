@@ -102,9 +102,9 @@ set title
 
 " basic setting 1------------------------------------------------------------------
 " indent style
-set shiftwidth=4
-set tabstop=4
-set noexpandtab
+set shiftwidth=2
+set tabstop=2
+set expandtab
 set cmdheight=2
 
 " basic setting 2------------------------------------------------------------------
@@ -684,12 +684,12 @@ aug initaug
   au BufNewFile,BufRead bower.json call IndentStyle2()
   au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
   au BufNewFile,BufRead *.html call IndentStyleT()
-  au BufNewFile,BufRead *.css call IndentStyleT()
-  au BufNewFile,BufRead *.js call IndentStyleT()
+  au BufNewFile,BufRead *.css call IndentStyle2()
+  au BufNewFile,BufRead *.js call IndentStyle2()
   au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
-  au BufNewFile,BufRead *.php setf html | call IndentStyleT()
-  au BufNewFile,BufRead *.scss setf scss | call IndentStyleT()
-  au BufNewFile,BufRead *.less setf less | call IndentStyleT()
+  au BufNewFile,BufRead *.php setf html | call IndentStyle2()
+  au BufNewFile,BufRead *.scss setf scss | call IndentStyle2()
+  au BufNewFile,BufRead *.less setf less | call IndentStyle2()
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
 aug END
