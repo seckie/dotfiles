@@ -303,6 +303,14 @@ nnoremap <C-J> Jdl
 "confrol registers
 nnoremap x "_x
 
+"dayly use note file
+if has('win32')
+  nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
+elseif has('gui_macvim')
+  nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
+endif
+
+
 " for plugins----------------------------------------------------------------------
 " --------------------
 " for "Autodate" plugin
@@ -637,16 +645,6 @@ aug END
 " --------------------
 let g:vdebug_options = {}
 let g:vdebug_options["port"] = 9000
-
-
-" temp setting
-" --------------------------------------------------------------------------
-if has('win32')
-  nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
-elseif has('gui_macvim')
-  nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
-endif
-
 
 " --------------------
 "  autocmd
