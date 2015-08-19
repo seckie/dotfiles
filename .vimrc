@@ -32,33 +32,28 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-"Bundle 'vundle'
 
 "
 " My Bundles here:
 "
 " original repos on github
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Framework & Library
+Bundle 'git-mirror/vim-l9'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-operator-user'
+
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/neocomplcache'
 Bundle 'thinca/vim-template'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'hrp/EnhancedCommentify'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-haml'
-Bundle 'git-mirror/vim-l9'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/neocomplcache'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'vim-scripts/autodate.vim'
 Bundle 'h1mesuke/vim-alignta.git'
-" 'textobj-user' is framework
-Bundle 'kana/vim-textobj-user'
-" 'vim-operator-user' is framework
-Bundle 'kana/vim-operator-user'
-"Bundle 'mjbrownie/html-textobjects'
 Bundle 'edsono/vim-matchit'
-Bundle 'hokaccha/vim-html5validator'
 Bundle 'mattn/emmet-vim'
 Bundle 'thinca/vim-quickrun.git'
 Bundle 'editorconfig/editorconfig-vim'
@@ -70,11 +65,11 @@ Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
-" LESS
+
+" Syntax
+Bundle 'tpope/vim-haml'
 Bundle 'groenewege/vim-less'
-" Stylus
 Bundle 'wavded/vim-stylus'
-" Jade
 Bundle 'digitaltoad/vim-jade'
 
 
