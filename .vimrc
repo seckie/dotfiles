@@ -328,6 +328,11 @@ let autodate_keyword_pre = '\cUpdate\s\s'
 "nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
 
 " --------------------
+" for "Simple Javascript Indenter" plugin
+" --------------------
+let g:SimpleJsIndenter_BriefMode = 1
+
+" --------------------
 " for "unite.vim" plugin
 " --------------------
 " インサートモードで開始
