@@ -303,29 +303,12 @@ nnoremap <C-J> Jdl
 "confrol registers
 nnoremap x "_x
 
-"convert linefeed code
-"動かんかったので保留
-"vnoremap rr :s//\r/g<CR>
-
 " for plugins----------------------------------------------------------------------
 " --------------------
 " for "Autodate" plugin
 " --------------------
 let autodate_format = '%Y-%m-%d %H:%M:%S'
 let autodate_keyword_pre = '\cUpdate\s\s'
-
-" --------------------
-" for "FuzzyFinder.vim" plugin
-" --------------------
-"nnoremap <Space>f f
-"nnoremap f <Nop>
-"nnoremap <silent> fb :<C-u>FufBuffer!<CR>
-"nnoremap <silent> ff :<C-u>FufFile! <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-"nnoremap <silent> fd :<C-u>FufDir!<CR>
-"nnoremap <silent> fm :<C-u>FufMruFile!<CR>
-"nnoremap <silent> tb :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderBuffer!<CR>
-"nnoremap <silent> tf :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderFile!<C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
-"nnoremap <silent> tm :<C-u>tabnew<CR>:tabmove<CR>:FuzzyFinderMruFile!<CR>
 
 " --------------------
 " for "Simple Javascript Indenter" plugin
@@ -565,7 +548,7 @@ vnoremap \ali :call LinkList()<CR>
 " snipMate.vim のsnippetを書いた時点で再読み込みする
 " Author: Kazuhito Hokamura (@hokaccha)
 " http://webtech-walker.com/archive/2009/10/26021358.html
-" --------------------{{{
+" --------------------
 function! SnipMateReload()
   if &ft == 'snippet'
     let ft = substitute(expand('%'), '.snippets', '', '')
@@ -575,7 +558,7 @@ function! SnipMateReload()
     silent! call GetSnippets(g:snippets_dir, ft)
   endif
 endfunction
-"}}}
+
 
 " --------------------
 " escape HTMl entities
