@@ -303,6 +303,9 @@ nnoremap <C-J> Jdl
 "confrol registers
 nnoremap x "_x
 
+" from WebGL shader program to JavaScript string
+vnoremap ,s :s/^\(\s\s\)\?\(.*[{};]\\|#ifdef.*\\|#endif.*\)$/  "\2\\n",/g<Enter>
+
 "dayly use note file
 if has('win32')
   nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
