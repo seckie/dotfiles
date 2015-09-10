@@ -628,6 +628,13 @@ nnoremap \v :<C-u>HTML5Validate<CR>
 let g:user_emmet_leader_key = '<C-m>'
 let g:user_emmet_togglecomment_key = '<C-m>\/'
 
+" --------------------
+"  Alignta
+" --------------------
+vnoremap a: :<C-u>'<,'>Alignta :<CR>
+vnoremap a; :<C-u>'<,'>Alignta ;<CR>
+vnoremap a, :<C-u>'<,'>Alignta ,<CR>
+vnoremap a= :<C-u>'<,'>Alignta =<CR>
 
 " --------------------
 "  quickfix: 編集許可と折り返し表示無効
