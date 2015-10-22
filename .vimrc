@@ -631,10 +631,10 @@ let g:user_emmet_togglecomment_key = '<C-m>\/'
 " --------------------
 "  Alignta
 " --------------------
-vnoremap a: :<C-u>'<,'>Alignta :<CR>
-vnoremap a; :<C-u>'<,'>Alignta ;<CR>
-vnoremap a, :<C-u>'<,'>Alignta ,<CR>
-vnoremap a= :<C-u>'<,'>Alignta =<CR>
+vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
+vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
+vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
+vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
 
 " --------------------
 "  quickfix: 編集許可と折り返し表示無効
