@@ -676,7 +676,7 @@ aug initaug
   au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
   au BufNewFile,BufRead *.html call IndentStyleT()
   au BufNewFile,BufRead *.css call IndentStyle2()
-  au BufNewFile,BufRead *.js call IndentStyle2()
+  au BufNewFile,BufRead *.js call IndentStyle2() | set tags=~/.node_modules.tags
   au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
   au BufNewFile,BufRead *.php setf html | call IndentStyle2()
   au BufNewFile,BufRead *.scss setf scss | call IndentStyle2()
@@ -684,3 +684,13 @@ aug initaug
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
 aug END
+
+
+" --------------------
+"  ctags
+" --------------------
+set tags=~/.tags
+if has("path_extra")
+  set tags+=tags;
+endif
+
