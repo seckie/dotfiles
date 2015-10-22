@@ -28,3 +28,6 @@ ulimit -n 2048
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# for jsctags
+export NODE_PATH=/usr/local/lib/jsctags:$NODE_PATH
