@@ -304,7 +304,7 @@ nnoremap <C-J> Jdl
 nnoremap x "_x
 
 " from WebGL shader program to JavaScript string
-vnoremap ,s :s/^\(\s\s\)\?\(.*[{};]\\|#ifdef.*\\|#endif.*\)$/  "\2\\n",/g<Enter>
+vnoremap ,s :s/^\(\s\s\)\?\(.*[{};]\\|#ifdef.*\\|#endif.*\)$/  "\2\",/g<Enter>
 
 "dayly use note file
 if has('win32')
