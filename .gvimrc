@@ -10,9 +10,7 @@ if has('win32')
   set columns=178
   set lines=54
 elseif has('gui_macvim')
-"    set columns=174
-"    set lines=62
-  set columns=190
+  set columns=237
   set lines=66
 endif
 set guioptions-=T
