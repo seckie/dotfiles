@@ -311,6 +311,7 @@ if has('win32')
   nnoremap <Space>m <Esc>:<C-u>e D:/My\ Dropbox/memo.txt<CR>
 elseif has('gui_macvim')
   nnoremap <Space>m <Esc>:<C-u>e $HOME/Dropbox/memo.txt<CR>
+  nnoremap <Space>p <Esc>:<C-u>e $HOME/Dropbox/Apps/Byword/pm-memo.md<CR>
 endif
 
 
