@@ -20,6 +20,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Additional PATH
 export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:$PATH
 
+# for Nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # git subcommand completion
 source /usr/local/git/contrib/completion/git-completion.bash
 
@@ -29,5 +32,5 @@ ulimit -n 2048
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# for jsctags
-export NODE_PATH=/usr/local/lib/jsctags:$NODE_PATH
+# for Node
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
