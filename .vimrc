@@ -60,17 +60,17 @@ Bundle 'editorconfig/editorconfig-vim'
 
 " PHP Debug
 Bundle 'joonty/vdebug.git'
-" Coffee Script
-Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'jiangmiao/simple-javascript-indenter'
 Bundle 'jelera/vim-javascript-syntax'
 
 " Syntax
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'leafgarland/typescript-vim'
 
 
 " vim-scripts repos
@@ -674,6 +674,7 @@ aug initaug
   au BufNewFile,BufRead package.json call IndentStyle2()
   au BufNewFile,BufRead bower.json call IndentStyle2()
   au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
+  au BufNewFile,BufRead *.ts setf typescript | call IndentStyle2()
   au BufNewFile,BufRead *.html call IndentStyleT()
   au BufNewFile,BufRead *.css call IndentStyle2()
   au BufNewFile,BufRead *.js call IndentStyle2() | set tags=~/.node_modules.tags
