@@ -53,3 +53,6 @@ node_modules/
 
 # PHP
 php_errors.log
+
+# Visual Studio Code
+.vscode
