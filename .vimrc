@@ -57,6 +57,7 @@ Bundle 'edsono/vim-matchit'
 Bundle 'mattn/emmet-vim'
 Bundle 'thinca/vim-quickrun.git'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'scrooloose/nerdtree'
 
 " PHP Debug
 Bundle 'joonty/vdebug.git'
@@ -636,6 +637,13 @@ vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
 vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
 vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
 vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
+
+" --------------------
+"  NERDTree
+" --------------------
+let NERDTreeShowHidden = 1
+nnoremap <Space>n :<C-u>NERDTreeToggle<CR>
+
 
 " --------------------
 "  quickfix: 編集許可と折り返し表示無効
