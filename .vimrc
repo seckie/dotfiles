@@ -662,8 +662,9 @@ aug END
 " --------------------
 "  vdebug
 " --------------------
-let g:vdebug_options = {}
-let g:vdebug_options["port"] = 9000
+let g:vdebug_options['port'] = 9000
+"let g:vdebug_keymap['get_context'] = '<F11>';
+"let g:vdebug_keymap['eval_under_cursor'] = '<F12>';
 
 " --------------------
 "  autocmd
