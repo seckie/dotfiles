@@ -420,10 +420,9 @@ aug END
 " for "ref.vim" plugin
 " --------------------
 if has('win32')
-"    let g:ref_phpmanual_path = $HOME . '/My Dropbox/Document/php-chunked-xhtml'
   let g:ref_phpmanual_path = 'd:/php-chunked-xhtml'
 elseif has('gui_macvim')
-"    let g:ref_phpmanual_path = $HOME/Dropbox/vimfiles/doc/php-bigxhtml.html
+  let g:ref_phpmanual_path = $HOME.'/.vim/vim-ref/php-chunked-xhtml'
 endif
 
 " --------------------
