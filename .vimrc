@@ -246,10 +246,6 @@ vnoremap ; :
 vnoremap : ;
 
 map <S-Insert> <MiddleMouse>
-inoremap <C-H> <Left>
-inoremap <NL> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
 " force IME off when escape from inster mode
 inoremap <silent> <C-c> <C-c>:set iminsert=0<CR>
 inoremap <silent> <Esc> <Esc>:set iminsert=0<CR>
@@ -264,14 +260,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap <C-@> `.
-noremap <CR> i<S-CR><Esc>
 
-nnoremap * y/<C-r>0<CR>
+"nnoremap * y/<C-r>0<CR>
 nnoremap vv v$h
-
-"set file encoding
-nnoremap ,enu :<C-u>set fenc=utf8<CR>
-nnoremap ,enc :<C-u>set fenc=cp932<CR>
 
 "encoding
 command! Cp932 edit ++enc=cp932
