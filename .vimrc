@@ -44,6 +44,7 @@ call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-operator-user')
 
 call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neocomplete')
 call dein#add('thinca/vim-template')
 call dein#add('thinca/vim-ref')
