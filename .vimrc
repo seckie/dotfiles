@@ -23,78 +23,72 @@ else
   let $HTDOCS = $HOME.'/Sites'
 endif
 
-" for "Vundle" plugin
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" Required:
+set runtimepath+=/Users/naokis/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
-"
-" My Bundles here:
-"
-" original repos on github
-" Framework & Library
-Bundle 'git-mirror/vim-l9'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-operator-user'
+" Required:
+call dein#begin('/Users/naokis/dotfiles/.vim/dein')
 
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'thinca/vim-template'
-Bundle 'thinca/vim-ref'
-Bundle 'thinca/vim-qfreplace'
-Bundle 'hrp/EnhancedCommentify'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'vim-scripts/autodate.vim'
-Bundle 'h1mesuke/vim-alignta.git'
-Bundle 'edsono/vim-matchit'
-Bundle 'mattn/emmet-vim'
-Bundle 'thinca/vim-quickrun.git'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'scrooloose/nerdtree'
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+"call dein#add('Shougo/neosnippet.vim')
+call dein#add('git-mirror/vim-l9')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-operator-user')
+
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neocomplcache')
+call dein#add('thinca/vim-template')
+call dein#add('thinca/vim-ref')
+call dein#add('thinca/vim-qfreplace')
+call dein#add('hrp/EnhancedCommentify')
+call dein#add('msanders/snipmate.vim')
+call dein#add('tpope/vim-surround')
+call dein#add('vim-scripts/YankRing.vim')
+call dein#add('vim-scripts/autodate.vim')
+call dein#add('h1mesuke/vim-alignta.git')
+call dein#add('edsono/vim-matchit')
+call dein#add('mattn/emmet-vim')
+call dein#add('thinca/vim-quickrun.git')
+call dein#add('editorconfig/editorconfig-vim')
+call dein#add('scrooloose/nerdtree')
 
 " PHP Debug
-Bundle 'joonty/vdebug.git'
-
-Bundle 'jiangmiao/simple-javascript-indenter'
-Bundle 'jelera/vim-javascript-syntax'
+call dein#add('joonty/vdebug.git')
 
 " Syntax
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-haml'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'leafgarland/typescript-vim'
+call dein#add('jiangmiao/simple-javascript-indenter')
+call dein#add('jelera/vim-javascript-syntax')
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('tpope/vim-haml')
+call dein#add('groenewege/vim-less')
+call dein#add('wavded/vim-stylus')
+call dein#add('digitaltoad/vim-jade')
+call dein#add('leafgarland/typescript-vim')
 
+" You can specify revision/branch/tag.
+" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" vim-scripts repos
-"Bundle '';
+" Required:
+call dein#end()
 
-filetype plugin indent on     " required! 
-"
-" Brief help
-"
-" :BundleInstall  - install bundles (won't update installed)
-" :BundleInstall! - update if installed
-"
-" :Bundles foo    - search for foo
-" :Bundles! foo   - refresh cached list and search for foo
-"
-" :BundleClean    - confirm removal of unused bundles
-" :BundleClean!   - remove without confirmation
-"
-" see :h vundle for more details
-" or wiki for FAQ
-" Note: comments after Bundle command are not allowed..
+" Required:
+filetype plugin indent on
 
-set title
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
 
 " basic setting 1------------------------------------------------------------------
 " indent style
