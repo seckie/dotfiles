@@ -29,33 +29,31 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/naokis/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/Users/naokis/dotfiles/.vim/dein')
+call dein#begin($HOME . '/dotfiles/.vim/dein')
 
 " Let dein manage dein
 " Required:
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-"call dein#add('Shougo/neosnippet.vim')
 call dein#add('git-mirror/vim-l9')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-operator-user')
 
 call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neoyank.vim')
 call dein#add('thinca/vim-template')
-call dein#add('thinca/vim-ref')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('hrp/EnhancedCommentify')
-call dein#add('msanders/snipmate.vim')
 call dein#add('tpope/vim-surround')
-call dein#add('vim-scripts/YankRing.vim')
-call dein#add('vim-scripts/autodate.vim')
 call dein#add('h1mesuke/vim-alignta.git')
-call dein#add('edsono/vim-matchit')
 call dein#add('mattn/emmet-vim')
 call dein#add('thinca/vim-quickrun.git')
 call dein#add('editorconfig/editorconfig-vim')
@@ -184,18 +182,6 @@ set hlsearch
 cnoremap <expr> /
 \ getcmdtype() == '/' ? '\/' : '/'
 
-" --------------------
-" for some plugin
-" "snipMate.vim", "Align.vim"
-" --------------------
-filetype on
-filetype plugin on
-"set runtimepath+=$VIMRUNTIME/after
-if has('win32')
-  let snippets_dir='D:/My\ Dropbox/vimfiles/snippets'
-elseif has('gui_macvim')
-  let snippets_dir=$HOME . '/Dropbox/vimfiles/snippets'
-endif
 
 " file and directory---------------------------------------------------------------
 
@@ -247,10 +233,6 @@ vnoremap ; :
 vnoremap : ;
 
 map <S-Insert> <MiddleMouse>
-inoremap <C-H> <Left>
-inoremap <NL> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
 " force IME off when escape from inster mode
 inoremap <silent> <C-c> <C-c>:set iminsert=0<CR>
 inoremap <silent> <Esc> <Esc>:set iminsert=0<CR>
@@ -265,14 +247,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap <C-@> `.
-noremap <CR> i<S-CR><Esc>
 
-nnoremap * y/<C-r>0<CR>
+"nnoremap * y/<C-r>0<CR>
 nnoremap vv v$h
-
-"set file encoding
-nnoremap ,enu :<C-u>set fenc=utf8<CR>
-nnoremap ,enc :<C-u>set fenc=cp932<CR>
 
 "encoding
 command! Cp932 edit ++enc=cp932
@@ -311,11 +288,6 @@ endif
 
 
 " for plugins----------------------------------------------------------------------
-" --------------------
-" for "Autodate" plugin
-" --------------------
-let autodate_format = '%Y-%m-%d %H:%M:%S'
-let autodate_keyword_pre = '\cUpdate\s\s'
 
 " --------------------
 " for "Simple Javascript Indenter" plugin
@@ -325,75 +297,63 @@ let g:SimpleJsIndenter_BriefMode = 1
 " --------------------
 " for "unite.vim" plugin
 " --------------------
-" インサートモードで開始
-let g:unite_enable_start_insert = 1
 " バッファ一覧
-nnoremap <silent>fb :<C-u>Unite buffer<CR>
+nnoremap <silent>fb :<C-u>Unite -start-insert buffer<CR>
 " ファイル一覧
-nnoremap <silent>ff :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent>ff :<C-u>UniteWithBufferDir -start-insert -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent>fr :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent>fr :<C-u>Unite -start-insert -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent>fm :<C-u>Unite file_mru<CR>
+nnoremap <silent>fm :<C-u>Unite -start-insert file_mru<CR>
+" yank history
+nnoremap <silent>fy :<C-u>Unite history/yank<CR>
 
 " --------------------
-" for "neocomplcache" plugin
+" for "neocomplete" plugin
 " --------------------
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-"inoremap <expr><C-CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 
 " <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" AutoComplPop like behavior.
-let g:neocomplcache_enable_auto_select = 1
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " Lock neocom when multi byte character insertation
-let g:neocomplcache_lock_iminsert = 1
-let g:neocomplcache_auto_completion_start_length = 3
+let g:neocomplete#lock_iminsert = 1
+"let g:neocomplete#auto_completion_start_length = 3
 
 " Enable omni completion.
 aug neocomaug
@@ -405,33 +365,40 @@ aug neocomaug
   au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 aug END
 
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" --------------------
+" for "neosnippet" plugin
+" --------------------
+" Plugin key-mappings
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expend_target)
+
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
+
 " --------------------
 " for "EnhCommentify" plugin
 " --------------------
 "let g:EnhCommentifyUserBindings = 'yes'
 
 " --------------------
-" for "ref.vim" plugin
-" --------------------
-if has('win32')
-  let g:ref_phpmanual_path = 'd:/php-chunked-xhtml'
-elseif has('gui_macvim')
-  let g:ref_phpmanual_path = $HOME.'/.vim/vim-ref/php-chunked-xhtml'
-endif
-
-" --------------------
-" for "yankring.vim" plugin
-" --------------------
-let g:yankring_n_keys = 'Y D'
-
-
-" --------------------
 " template.vim
 " --------------------
-if has('gui_macvim')
-"    g:template_basedir=~/Dropbox/vimfiles
-endif
-
 aug templatevimaug
   au!
   au FileType * execute 'TemplateLoad /filetype/' . &l:filetype
@@ -483,9 +450,38 @@ aug surroundvimaug
 aug END
 
 " --------------------
-" "copypath.vim"
+"  html5validator.vim
 " --------------------
-let g:copypath_copy_to_unnamed_register = 1
+nnoremap \v :<C-u>HTML5Validate<CR>
+
+" --------------------
+"  emmet.vim
+" --------------------
+let g:user_emmet_leader_key = '<C-m>'
+let g:user_emmet_togglecomment_key = '<C-m>\/'
+
+" --------------------
+"  Alignta
+" --------------------
+vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
+vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
+vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
+vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
+
+" --------------------
+"  NERDTree
+" --------------------
+let NERDTreeShowHidden = 1
+nnoremap <Space>n :<C-u>NERDTreeToggle<CR>
+
+" --------------------
+"  vdebug
+" --------------------
+if has('gui_macvim')
+  let g:vdebug_options['port'] = 9000
+"let g:vdebug_keymap['get_context'] = '<F11>';
+"let g:vdebug_keymap['eval_under_cursor'] = '<F12>';
+endif
 
 " custom scripts------------------------------------------------------------------
 " --------------------
@@ -551,22 +547,6 @@ endfunction
 vnoremap \ali :call LinkList()<CR>
 
 " --------------------
-" snipMate.vim のsnippetを書いた時点で再読み込みする
-" Author: Kazuhito Hokamura (@hokaccha)
-" http://webtech-walker.com/archive/2009/10/26021358.html
-" --------------------
-function! SnipMateReload()
-  if &ft == 'snippet'
-    let ft = substitute(expand('%'), '.snippets', '', '')
-    if has_key(g:did_ft, ft)
-      unlet g:did_ft[ft]
-    endif
-    silent! call GetSnippets(g:snippets_dir, ft)
-  endif
-endfunction
-
-
-" --------------------
 " escape HTMl entities
 " @url http://vim.wikia.com/wiki/HTML_entities
 " --------------------
@@ -613,32 +593,6 @@ nnoremap ,s4 :<C-u>call IndentStyle4()<CR>
 nnoremap ,st :<C-u>call IndentStyleT()<CR>
 
 " --------------------
-"  html5validator.vim
-" --------------------
-nnoremap \v :<C-u>HTML5Validate<CR>
-
-" --------------------
-"  emmet.vim
-" --------------------
-let g:user_emmet_leader_key = '<C-m>'
-let g:user_emmet_togglecomment_key = '<C-m>\/'
-
-" --------------------
-"  Alignta
-" --------------------
-vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
-vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
-vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
-vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
-
-" --------------------
-"  NERDTree
-" --------------------
-let NERDTreeShowHidden = 1
-nnoremap <Space>n :<C-u>NERDTreeToggle<CR>
-
-
-" --------------------
 "  quickfix: 編集許可と折り返し表示無効
 " --------------------
 function! OpenModifiableQF()
@@ -651,16 +605,6 @@ aug qfaug
   au QuickfixCmdPost vimgrep call OpenModifiableQF()
 aug END
 
-
-" --------------------
-"  vdebug
-" --------------------
-if has('gui_macvim')
-  let g:vdebug_options['port'] = 9000
-"let g:vdebug_keymap['get_context'] = '<F11>';
-"let g:vdebug_keymap['eval_under_cursor'] = '<F12>';
-endif
-
 " --------------------
 "  autocmd
 " --------------------
@@ -668,9 +612,6 @@ aug initaug
   au!
   " auto set current directory
   au BufEnter * execute ":lcd " . expand("%:p:h")
-  " for file path that starts with slash 
-  " http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-  au FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
   " via file type
   au BufNewFile,BufRead *.vim call IndentStyle2()
   au BufNewFile,BufRead .vimrc call IndentStyle2()
@@ -680,23 +621,14 @@ aug initaug
   au BufNewFile,BufRead bower.json call IndentStyle2()
   au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
   au BufNewFile,BufRead *.ts setf typescript | call IndentStyle2()
-  au BufNewFile,BufRead *.html call IndentStyleT()
   au BufNewFile,BufRead *.css call IndentStyle2()
   au BufNewFile,BufRead *.js call IndentStyle2() | set tags=~/.node_modules.tags
-  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
   au BufNewFile,BufRead *.php setf html | call IndentStyle2()
   au BufNewFile,BufRead *.scss setf scss | call IndentStyle2()
   au BufNewFile,BufRead *.less setf less | call IndentStyle2()
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
+  au BufNewFile,BufRead *.html call IndentStyleT()
+  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
 aug END
-
-
-" --------------------
-"  ctags
-" --------------------
-set tags=~/.tags
-if has("path_extra")
-  set tags+=tags;
-endif
 
