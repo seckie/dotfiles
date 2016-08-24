@@ -307,6 +307,12 @@ nnoremap <silent>fr :<C-u>Unite -start-insert -buffer-name=register register<CR>
 nnoremap <silent>fm :<C-u>Unite -start-insert file_mru<CR>
 " yank history
 nnoremap <silent>fy :<C-u>Unite history/yank<CR>
+aug unite
+  au!
+  " <C-c> then exit Unite
+  au FileType unite imap <silent> <buffer> <C-c> <Plug>(unite_exit)
+aug END
+
 
 " --------------------
 " for "neocomplete" plugin
