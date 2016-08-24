@@ -408,12 +408,7 @@ let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
 aug templatevimaug
   au!
   au FileType * execute 'TemplateLoad /filetype/' . &l:filetype
-aug ENd
-
-" --------------------
-"  html5validator.vim
-" --------------------
-nnoremap \v :<C-u>HTML5Validate<CR>
+aug END
 
 " --------------------
 "  emmet.vim
