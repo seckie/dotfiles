@@ -186,25 +186,13 @@ nnoremap <Space>ss :e $VF/snippets/scss.snippets<CR>
 nnoremap <Space>sj :e $VF/snippets/javascript.snippets<CR>
 
 " keymap---------------------------------------------------------------------------
-" shortcut for help
-nnoremap <C-h> :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
-
-map! <S-Insert> <MiddleMouse>
-vmap  "*d
-
-map Q gq
-nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0)
-vmap <C-Del> "*d
-vmap <S-Del> "*d
-vmap <C-Insert> "*y
-
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
+" shortcut for help
+nnoremap <C-h> :<C-u>help<Space>
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
 map <S-Insert> <MiddleMouse>
 " force IME off when escape from inster mode
 inoremap <silent> <C-c> <C-c>:set iminsert=0<CR>
@@ -220,8 +208,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap <C-@> `.
-
-"nnoremap * y/<C-r>0<CR>
 nnoremap vv v$h
 
 "encoding
