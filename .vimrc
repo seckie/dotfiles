@@ -423,10 +423,6 @@ let g:yankring_n_keys = 'Y D'
 " --------------------
 " template.vim
 " --------------------
-if has('gui_macvim')
-"    g:template_basedir=~/Dropbox/vimfiles
-endif
-
 aug templatevimaug
   au!
   au FileType * execute 'TemplateLoad /filetype/' . &l:filetype
@@ -478,9 +474,38 @@ aug surroundvimaug
 aug END
 
 " --------------------
-" "copypath.vim"
+"  html5validator.vim
 " --------------------
-let g:copypath_copy_to_unnamed_register = 1
+nnoremap \v :<C-u>HTML5Validate<CR>
+
+" --------------------
+"  emmet.vim
+" --------------------
+let g:user_emmet_leader_key = '<C-m>'
+let g:user_emmet_togglecomment_key = '<C-m>\/'
+
+" --------------------
+"  Alignta
+" --------------------
+vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
+vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
+vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
+vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
+
+" --------------------
+"  NERDTree
+" --------------------
+let NERDTreeShowHidden = 1
+nnoremap <Space>n :<C-u>NERDTreeToggle<CR>
+
+" --------------------
+"  vdebug
+" --------------------
+if has('gui_macvim')
+  let g:vdebug_options['port'] = 9000
+"let g:vdebug_keymap['get_context'] = '<F11>';
+"let g:vdebug_keymap['eval_under_cursor'] = '<F12>';
+endif
 
 " custom scripts------------------------------------------------------------------
 " --------------------
@@ -592,32 +617,6 @@ nnoremap ,s4 :<C-u>call IndentStyle4()<CR>
 nnoremap ,st :<C-u>call IndentStyleT()<CR>
 
 " --------------------
-"  html5validator.vim
-" --------------------
-nnoremap \v :<C-u>HTML5Validate<CR>
-
-" --------------------
-"  emmet.vim
-" --------------------
-let g:user_emmet_leader_key = '<C-m>'
-let g:user_emmet_togglecomment_key = '<C-m>\/'
-
-" --------------------
-"  Alignta
-" --------------------
-vnoremap a: :<C-u>'<,'>Alignta 0:1 :<CR>
-vnoremap a; :<C-u>'<,'>Alignta 0:1 ;<CR>
-vnoremap a, :<C-u>'<,'>Alignta 0:1 ,<CR>
-vnoremap a= :<C-u>'<,'>Alignta 1:1 =<CR>
-
-" --------------------
-"  NERDTree
-" --------------------
-let NERDTreeShowHidden = 1
-nnoremap <Space>n :<C-u>NERDTreeToggle<CR>
-
-
-" --------------------
 "  quickfix: 編集許可と折り返し表示無効
 " --------------------
 function! OpenModifiableQF()
@@ -630,16 +629,6 @@ aug qfaug
   au QuickfixCmdPost vimgrep call OpenModifiableQF()
 aug END
 
-
-" --------------------
-"  vdebug
-" --------------------
-if has('gui_macvim')
-  let g:vdebug_options['port'] = 9000
-"let g:vdebug_keymap['get_context'] = '<F11>';
-"let g:vdebug_keymap['eval_under_cursor'] = '<F12>';
-endif
-
 " --------------------
 "  autocmd
 " --------------------
@@ -647,9 +636,6 @@ aug initaug
   au!
   " auto set current directory
   au BufEnter * execute ":lcd " . expand("%:p:h")
-  " for file path that starts with slash 
-  " http://hail2u.net/blog/software/only-one-line-life-changing-vimrc-setting.html
-  au FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
   " via file type
   au BufNewFile,BufRead *.vim call IndentStyle2()
   au BufNewFile,BufRead .vimrc call IndentStyle2()
@@ -659,23 +645,14 @@ aug initaug
   au BufNewFile,BufRead bower.json call IndentStyle2()
   au BufNewFile,BufRead *.coffee setf coffee | call IndentStyle2()
   au BufNewFile,BufRead *.ts setf typescript | call IndentStyle2()
-  au BufNewFile,BufRead *.html call IndentStyleT()
   au BufNewFile,BufRead *.css call IndentStyle2()
   au BufNewFile,BufRead *.js call IndentStyle2() | set tags=~/.node_modules.tags
-  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
   au BufNewFile,BufRead *.php setf html | call IndentStyle2()
   au BufNewFile,BufRead *.scss setf scss | call IndentStyle2()
   au BufNewFile,BufRead *.less setf less | call IndentStyle2()
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
+  au BufNewFile,BufRead *.html call IndentStyleT()
+  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
 aug END
-
-
-" --------------------
-"  ctags
-" --------------------
-set tags=~/.tags
-if has("path_extra")
-  set tags+=tags;
-endif
 
