@@ -297,16 +297,16 @@ let g:SimpleJsIndenter_BriefMode = 1
 " --------------------
 " for "unite.vim" plugin
 " --------------------
-" インサートモードで開始
-let g:unite_enable_start_insert = 1
 " バッファ一覧
-nnoremap <silent>fb :<C-u>Unite buffer<CR>
+nnoremap <silent>fb :<C-u>Unite -start-insert buffer<CR>
 " ファイル一覧
-nnoremap <silent>ff :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent>ff :<C-u>UniteWithBufferDir -start-insert -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent>fr :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent>fr :<C-u>Unite -start-insert -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent>fm :<C-u>Unite file_mru<CR>
+nnoremap <silent>fm :<C-u>Unite -start-insert file_mru<CR>
+" yank history
+nnoremap <silent>fy :<C-u>Unite history/yank<CR>
 
 " --------------------
 " for "neocomplete" plugin
@@ -390,11 +390,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
-
-" --------------------
-" for "neoyank" plugin
-" --------------------
-nnoremap <silent><C-p> :<C-u>Unite history/yank<CR>
 
 " --------------------
 " for "EnhCommentify" plugin
