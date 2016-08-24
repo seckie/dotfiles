@@ -479,16 +479,12 @@ function! EleLinkList(eleName) range
     call setline(l:count, l:out2)
     let l:count = l:count + 1
   endwhile
-"  call append(a:lastline, '</ul>')
-"  call append(a:firstline - 1, '<ul>')
 endfunction
 vnoremap \tda :call EleLinkList("td")<CR>
 vnoremap \tha :call EleLinkList("th")<CR>
 vnoremap \lia :call EleLinkList("li")<CR>
 vnoremap \dta :call EleLinkList("dt")<CR>
 vnoremap \dda :call EleLinkList("dd")<CR>
-
-"vnoremap ,ap s<a href="<s-Insert>"><CR><Esc>
 
 function! LinkList() range
   let l:count = a:firstline
