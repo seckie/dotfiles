@@ -411,51 +411,6 @@ aug templatevimaug
 aug ENd
 
 " --------------------
-" for "surround.vim" plugin
-" Author: Kazuhito Hokamura (@hokaccha)
-" http://webtech-walker.com/archive/2009/02/08031540.html
-" --------------------
-" [key map]
-" 1 : <h1>|</h1>
-" 2 : <h2>|</h2>
-" 3 : <h3>|</h3>
-" 4 : <h4>|</h4>
-" 5 : <h5>|</h5>
-" 6 : <h6>|</h6>
-"
-" p : <p>|</p>
-" u : <ul>|</ul>
-" o : <ol>|</ol>
-" l : <li>|</li>
-" a : <a href="">|</a>
-" A : <a href="|"></a>
-" i : <img src="|" alt="" />
-" I : <img src="" alt"|" />
-" d : <div>|</div>
-" D : <div class="section">|</div>
-
-aug surroundvimaug
-  au!
-  au FileType html let b:surround_49  = "<h1>\r</h1>"
-  au FileType html let b:surround_50  = "<h2>\r</h2>"
-  au FileType html let b:surround_51  = "<h3>\r</h3>"
-  au FileType html let b:surround_52  = "<h4>\r</h4>"
-  au FileType html let b:surround_53  = "<h5>\r</h5>"
-  au FileType html let b:surround_54  = "<h6>\r</h6>"
-
-  au FileType html let b:surround_112 = "<p>\r</p>"
-  au FileType html let b:surround_117 = "<ul>\r</ul>"
-  au FileType html let b:surround_111 = "<ol>\r</ol>"
-  au FileType html let b:surround_108 = "<li>\r</li>"
-  au FileType html let b:surround_97  = "<a href=\"\">\r</a>"
-  au FileType html let b:surround_65  = "<a href=\"\r\"></a>"
-  au FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
-  au FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
-  au FileType html let b:surround_100 = "<div>\r</div>"
-  au FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
-aug END
-
-" --------------------
 "  html5validator.vim
 " --------------------
 nnoremap \v :<C-u>HTML5Validate<CR>
