@@ -328,9 +328,9 @@ nnoremap <silent>fr :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent>fm :<C-u>Unite file_mru<CR>
 
 " --------------------
-" for "neocomplcache" plugin
+" for "neocomplete" plugin
 " --------------------
-" Use neocomplcache.
+" Use neocomplete
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
