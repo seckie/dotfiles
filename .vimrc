@@ -48,12 +48,12 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neocomplete')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neoyank.vim')
 call dein#add('thinca/vim-template')
 call dein#add('thinca/vim-ref')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('hrp/EnhancedCommentify')
 call dein#add('tpope/vim-surround')
-call dein#add('vim-scripts/YankRing.vim')
 call dein#add('vim-scripts/autodate.vim')
 call dein#add('h1mesuke/vim-alignta.git')
 call dein#add('edsono/vim-matchit')
@@ -399,6 +399,10 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
 
+" --------------------
+" for "neoyank" plugin
+" --------------------
+nnoremap <silent><C-p> :<C-u>Unite history/yank<CR>
 
 " --------------------
 " for "EnhCommentify" plugin
@@ -413,12 +417,6 @@ if has('win32')
 elseif has('gui_macvim')
   let g:ref_phpmanual_path = $HOME.'/.vim/vim-ref/php-chunked-xhtml'
 endif
-
-" --------------------
-" for "yankring.vim" plugin
-" --------------------
-let g:yankring_n_keys = 'Y D'
-
 
 " --------------------
 " template.vim
