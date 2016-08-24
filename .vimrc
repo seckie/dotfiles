@@ -46,11 +46,12 @@ call dein#add('kana/vim-operator-user')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
 call dein#add('thinca/vim-template')
 call dein#add('thinca/vim-ref')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('hrp/EnhancedCommentify')
-call dein#add('msanders/snipmate.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('vim-scripts/YankRing.vim')
 call dein#add('vim-scripts/autodate.vim')
@@ -184,18 +185,6 @@ set hlsearch
 cnoremap <expr> /
 \ getcmdtype() == '/' ? '\/' : '/'
 
-" --------------------
-" for some plugin
-" "snipMate.vim", "Align.vim"
-" --------------------
-filetype on
-filetype plugin on
-"set runtimepath+=$VIMRUNTIME/after
-if has('win32')
-  let snippets_dir='D:/My\ Dropbox/vimfiles/snippets'
-elseif has('gui_macvim')
-  let snippets_dir=$HOME . '/Dropbox/vimfiles/snippets'
-endif
 
 " file and directory---------------------------------------------------------------
 
@@ -390,6 +379,28 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 " --------------------
+" for "neosnippet" plugin
+" --------------------
+" Plugin key-mappings
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expend_target)
+
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
+
+
+" --------------------
 " for "EnhCommentify" plugin
 " --------------------
 "let g:EnhCommentifyUserBindings = 'yes'
@@ -533,22 +544,6 @@ function! LinkList() range
   endwhile
 endfunction
 vnoremap \ali :call LinkList()<CR>
-
-" --------------------
-" snipMate.vim のsnippetを書いた時点で再読み込みする
-" Author: Kazuhito Hokamura (@hokaccha)
-" http://webtech-walker.com/archive/2009/10/26021358.html
-" --------------------
-function! SnipMateReload()
-  if &ft == 'snippet'
-    let ft = substitute(expand('%'), '.snippets', '', '')
-    if has_key(g:did_ft, ft)
-      unlet g:did_ft[ft]
-    endif
-    silent! call GetSnippets(g:snippets_dir, ft)
-  endif
-endfunction
-
 
 " --------------------
 " escape HTMl entities
