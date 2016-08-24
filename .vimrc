@@ -50,7 +50,6 @@ call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neoyank.vim')
 call dein#add('thinca/vim-template')
-call dein#add('thinca/vim-ref')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('hrp/EnhancedCommentify')
 call dein#add('tpope/vim-surround')
@@ -408,15 +407,6 @@ nnoremap <silent><C-p> :<C-u>Unite history/yank<CR>
 " for "EnhCommentify" plugin
 " --------------------
 "let g:EnhCommentifyUserBindings = 'yes'
-
-" --------------------
-" for "ref.vim" plugin
-" --------------------
-if has('win32')
-  let g:ref_phpmanual_path = 'd:/php-chunked-xhtml'
-elseif has('gui_macvim')
-  let g:ref_phpmanual_path = $HOME.'/.vim/vim-ref/php-chunked-xhtml'
-endif
 
 " --------------------
 " template.vim
