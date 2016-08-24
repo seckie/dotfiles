@@ -53,7 +53,6 @@ call dein#add('thinca/vim-template')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('hrp/EnhancedCommentify')
 call dein#add('tpope/vim-surround')
-call dein#add('vim-scripts/autodate.vim')
 call dein#add('h1mesuke/vim-alignta.git')
 call dein#add('edsono/vim-matchit')
 call dein#add('mattn/emmet-vim')
@@ -290,11 +289,6 @@ endif
 
 
 " for plugins----------------------------------------------------------------------
-" --------------------
-" for "Autodate" plugin
-" --------------------
-let autodate_format = '%Y-%m-%d %H:%M:%S'
-let autodate_keyword_pre = '\cUpdate\s\s'
 
 " --------------------
 " for "Simple Javascript Indenter" plugin
