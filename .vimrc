@@ -3,24 +3,16 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 
+" runtimepath
 if has('win32')
   set runtimepath+=D:\My\ Dropbox\vimfiles
-elseif has('gui_macvim')
-  set runtimepath+=$HOME/Dropbox/vimfiles
-else
-  set runtimepath+=$HOME/Dropbox/vimfiles
-endif
-
-" $VIMRUNTIME directory resetting
-if has('win32')
   let $VF = 'D:/My\ Dropbox/vimfiles'
-  let $HTDOCS = 'D:/htdocs'
 elseif has('gui_macvim')
+  set runtimepath+=$HOME/Dropbox/vimfiles
   let $VF = $HOME . '/Dropbox/vimfiles'
-  let $HTDOCS = $HOME.'/Sites'
 else
+  set runtimepath+=$HOME/Dropbox/vimfiles
   let $VF = $HOME . '/Dropbox/vimfiles'
-  let $HTDOCS = $HOME.'/Sites'
 endif
 
 "dein Scripts-----------------------------
@@ -135,7 +127,6 @@ set listchars=tab:\|-,extends:$
 set magic
 
 " Display filename, encoding, bomb and ff in statusline
-"set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc)(&bomb?':BOM':'').']['.&ff.']'}%=%l,%c%V%8P
 if has('iconv')
   set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).(&bomb?':BOM':':NOBOM').']['.&ff.']'}%=[0x%{FencB()}]\ (%v,%l)/%L%8P\ 
 else
@@ -166,7 +157,6 @@ set foldenable
 set foldclose=all
 set foldlevel=0
 set foldmethod=marker
-"set foldmarker="{{{,}}}"
 
 " backup
 set nobackup
@@ -189,28 +179,11 @@ cnoremap <expr> /
 nnoremap <Space>. <Esc>:<C-u>source ~/dotfiles/.vimrc<CR>:<C-u>source ~/dotfiles/.gvimrc<CR>
 nnoremap <Space>v :e ~/dotfiles/.vimrc<CR>
 nnoremap <Space>g :e ~/dotfiles/.gvimrc<CR>
-if has('win32') || has('win64')
-  nnoremap <Space>sh :e D:/My Dropbox/vimfiles/snippets/html.snippets<CR>
-  nnoremap <Space>sp :e D:/My Dropbox/vimfiles/snippets/php.snippets<CR>
-  nnoremap <Space>sc :e D:/My Dropbox/vimfiles/snippets/css.snippets<CR>
-  nnoremap <Space>ss :e D:/My Dropbox/vimfiles/snippets/scss.snippets<CR>
-  nnoremap <Space>sl :e D:/My Dropbox/vimfiles/snippets/less.snippets<CR>
-  nnoremap <Space>sj :e D:/My Dropbox/vimfiles/snippets/javascript.snippets<CR>
-  nnoremap <Space>h :e C:/WINDOWS/system32/drivers/etc/hosts<CR>
-  nnoremap <Space>vh :e C:/xampp/apache/conf/extra/httpd-vhosts.conf<CR>
-  "if has('kaoriya')
-  "endif
-elseif has('gui_macvim')
-"    nnoremap <Space>. <Esc>:<C-u>source $HOME/Dropbox/vimfiles/vimrc.vim<CR>:<C-u>source $HOME/Dropbox/vimfiles/gvimrc.vim<CR>
-  nnoremap <Space>sh :e $HOME/Dropbox/vimfiles/snippets/html.snippets<CR>
-  nnoremap <Space>sp :e $HOME/Dropbox/vimfiles/snippets/php.snippets<CR>
-  nnoremap <Space>sc :e $HOME/Dropbox/vimfiles/snippets/css.snippets<CR>
-  nnoremap <Space>ss :e $HOME/Dropbox/vimfiles/snippets/scss.snippets<CR>
-  nnoremap <Space>sl :e $HOME/Dropbox/vimfiles/snippets/less.snippets<CR>
-  nnoremap <Space>sj :e $HOME/Dropbox/vimfiles/snippets/javascript.snippets<CR>
-  nnoremap <Space>h :e /etc/hosts<CR>
-  nnoremap <Space>log :<C-u>e /Applications/XAMPP/xamppfiles/logs<CR>
-endif
+nnoremap <Space>sh :e $VF/snippets/html.snippets<CR>
+nnoremap <Space>sp :e $VF/snippets/php.snippets<CR>
+nnoremap <Space>sc :e $VF/snippets/css.snippets<CR>
+nnoremap <Space>ss :e $VF/snippets/scss.snippets<CR>
+nnoremap <Space>sj :e $VF/snippets/javascript.snippets<CR>
 
 " keymap---------------------------------------------------------------------------
 " shortcut for help
