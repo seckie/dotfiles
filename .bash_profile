@@ -1,9 +1,6 @@
 export SVN_EDITOR=vim
 export EDITOR=vim
 
-export MAMPVHOST=/Applications/MAMP/conf/apache/extra
-export JSTESTDRIVER_HOME=~/bin
-
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export PS1="\[\e[1;34m\]\h:\w \u\$\[\e[00m\] "
