@@ -1,0 +1,59 @@
+# Function
+snippet fun
+	(${1}) ->
+	  ${2}
+# Anonymous Function
+# if
+snippet if
+	if ${1}
+	  ${2}
+# if ... else
+# tertiary conditional
+# switch
+snippet switch
+	switch ${1:expression}
+	  when '${2:case}' then ${3:// code}
+	  else ${5:// code}
+# Object Method
+snippet $
+	$('${1}').${2}
+snippet ###
+	###
+	  ${1}
+	###
+	${2}
+snippet ###-
+	### ${1}
+	 * ---------------------------------------- ###
+	${2}
+snippet cons
+	console.log ${1:''}
+snippet [
+	[ ${1} ]
+snippet consoleobj
+	# "console" object for Legacy Browsers
+	if !window.console
+	  window.console =
+	    log: ->
+	      s = ''
+	      s += arg for arg in arguments
+	      alert(s)
+snippet view
+	${1:some_class_name} = Backbone.View.extend(
+		options:
+		tagName: ''
+		className: ''
+		id: ''
+		events:
+		initialize: (options) ->
+			this.opt = {}
+			_.extend(this.opt, options)
+			this.render()
+		render: () ->
+	)
+snippet th
+	THREE.
+snippet nth
+	new THREE.
+snippet req
+	require "${1}"${2}

@@ -4,16 +4,16 @@ let s:cpo_save=&cpo
 set cpo&vim
 
 " runtimepath
-if has('win32')
-  set runtimepath+=D:\My\ Dropbox\vimfiles
-  let $VF = 'D:/My\ Dropbox/vimfiles'
-elseif has('gui_macvim')
-  set runtimepath+=$HOME/Dropbox/vimfiles
-  let $VF = $HOME . '/Dropbox/vimfiles'
-else
-  set runtimepath+=$HOME/Dropbox/vimfiles
-  let $VF = $HOME . '/Dropbox/vimfiles'
-endif
+"if has('win32')
+"  set runtimepath+=D:\My\ Dropbox\vimfiles
+"  let $VF = 'D:/My\ Dropbox/vimfiles'
+"elseif has('gui_macvim')
+"  set runtimepath+=$HOME/Dropbox/vimfiles
+"  let $VF = $HOME . '/Dropbox/vimfiles'
+"else
+"  set runtimepath+=$HOME/Dropbox/vimfiles
+"  let $VF = $HOME . '/Dropbox/vimfiles'
+"endif
 
 "dein Scripts-----------------------------
 if &compatible
@@ -179,11 +179,11 @@ cnoremap <expr> /
 nnoremap <Space>. <Esc>:<C-u>source ~/dotfiles/.vimrc<CR>:<C-u>source ~/dotfiles/.gvimrc<CR>
 nnoremap <Space>v :e ~/dotfiles/.vimrc<CR>
 nnoremap <Space>g :e ~/dotfiles/.gvimrc<CR>
-nnoremap <Space>sh :e $VF/snippets/html.snippets<CR>
-nnoremap <Space>sp :e $VF/snippets/php.snippets<CR>
-nnoremap <Space>sc :e $VF/snippets/css.snippets<CR>
-nnoremap <Space>ss :e $VF/snippets/scss.snippets<CR>
-nnoremap <Space>sj :e $VF/snippets/javascript.snippets<CR>
+nnoremap <Space>sh :e ~/.vim/snippets/html.snippets<CR>
+nnoremap <Space>sp :e ~/.vim/snippets/php.snippets<CR>
+nnoremap <Space>sc :e ~/.vim/snippets/css.snippets<CR>
+nnoremap <Space>ss :e ~/.vim/snippets/scss.snippets<CR>
+nnoremap <Space>sj :e ~/.vim/snippets/javascript.snippets<CR>
 
 " keymap---------------------------------------------------------------------------
 nnoremap ; :
@@ -356,7 +356,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory = '~/Dropbox/vimfiles/snippets'
+let g:neosnippet#snippets_directory = '~/.vim/snippets'
 
 " --------------------
 " for "EnhCommentify" plugin

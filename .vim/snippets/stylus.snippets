@@ -1,0 +1,209 @@
+snippet /*
+	/**
+	 * ${1}
+	 */
+	${2}
+snippet /*-
+	/* ${1}
+	 * ----------------------------------------*/
+	${2}
+snippet /**
+	 /** ${1}
+	  * ----------------------------------------*/
+	${2}
+snippet /***
+	  /*** ${1}
+	   * ----------------------------------------*/
+	${2}
+snippet /****
+	   /**** ${1}
+	    * ----------------------------------------*/
+	${2}
+snippet {
+	{
+		${1}
+	}
+snippet pos
+	position ${1}${2}
+snippet posa
+	position absolute${1}
+snippet posr
+	position relative${2}
+snippet fl
+	float ${1}${2}
+snippet fll
+	float left${1}
+snippet flr
+	float right${1}
+snippet cl
+	clear both${1}
+snippet di
+	display ${1}${2}
+snippet ov
+	overflow ${1}${2}
+snippet wi
+	width ${1}${2}
+snippet he
+	height ${1}${2}
+snippet mm
+	margin ${1}${2}
+snippet mt
+	margin-top ${1}${2}
+snippet mr
+	margin-right ${1}${2}
+snippet mb
+	margin-bottom ${1}${2}
+snippet ml
+	margin-left ${1}${2}
+snippet pp
+	padding ${1}${2}
+snippet pt
+	padding-top ${1}${2}
+snippet pr
+	padding-right ${1}${2}
+snippet pb
+	padding-bottom ${1}${2}
+snippet pl
+	padding-left ${1}${2}
+snippet bd
+	border ${1}${2}
+snippet bdt
+	border-top ${1}${2}
+snippet bdr
+	border-right ${1}${2}
+snippet bdb
+	border-bottom ${1}${2}
+snippet bdl
+	border-left ${1}${2}
+snippet bdtest
+	border 1px solid red${1}
+snippet bg
+	background ${1}${2}
+snippet bg+
+	background url(${1}) ${2:no-repeat} ${3:0} ${4:0}${5}
+snippet bgtest
+	background #FCC${1}
+snippet bgi
+	background-image url(${1})${2}
+snippet bgc
+	background-color #${1}${2}
+snippet bgr
+	background-repeat ${1:no-repeat}${2}
+snippet bgp
+	background-position ${1:0} ${2:0}${3}
+snippet co
+	color ${1}${2}
+snippet cored
+	color red${1}
+snippet ta
+	text-align ${1}${2}
+snippet td
+	text-decoration ${1}${2}
+snippet ti
+	text-indent ${1}${2}
+snippet va
+	vertical-align ${1}${2}
+snippet lh
+	line-height ${1}${2}
+snippet fw
+	font-weight ${1}${2}
+snippet fs
+	font-size ${1}${2}
+snippet ff
+	font-family ${1}${2}
+snippet ie
+	/* ie${1} */${2}
+snippet hidden
+	position absolute
+	width 0
+	height 0
+	overflow hidden${1}
+snippet cf
+	clearfix()
+snippet clf
+	clearfix()
+snippet bdra
+	-moz-border-radius $1
+	-webkit-border-radius $1
+	-o-border-radius $1
+	border-radius ${1:px}
+	${2}
+snippet bdratr
+	-moz-border-radius-topright $1
+	-webkit-border-top-right-radius $1
+	-o-border-top-right-radius $1
+	border-top-right-radius ${1:px}
+	${2}
+snippet bdrabr
+	-moz-border-radius-bottomright $1
+	-webkit-border-bottom-right-radius $1
+	-o-border-bottom-right-radius $1
+	border-bottom-right-radius ${1:px}
+	${2}
+snippet bdrabl
+	-moz-border-radius-bottomleft $1
+	-webkit-border-bottom-left-radius $1
+	-o-border-bottom-left-radius $1
+	border-bottom-left-radius ${1:px}
+	${2}
+snippet bdratl
+	-moz-border-radius-topleft $1
+	-webkit-border-top-left-radius $1
+	-o-border-top-left-radius $1
+	border-top-left-radius ${1:px}
+	${2}
+snippet ts
+	text-shadow 1px 1px 0 ${1}${2}
+snippet opa
+	@include opacity(${1})
+snippet bggra
+	background-image -moz-linear-gradient(top, rgb(${1}), rgb(${2}))
+	background-image -webkit-gradient(linear, left top, left bottom, color-stop(0,rgb($1)), color-stop(1, rgb($2)))
+	filter progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#${3}", EndColorStr="#${4}")
+	background-image linear-gradient(top, rgb($1), rgb($2))
+snippet bggra#
+	background-image -moz-linear-gradient(top, ${1}, ${2})
+	background-image -webkit-gradient(linear, left top, left bottom, color-stop(0,$1), color-stop(1, $2))
+	filter progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#${3}", EndColorStr="#${4}")
+	background-image linear-gradient(top, $1, $2)
+snippet btn
+	display block
+	height ${1}
+	overflow hidden
+	background url(${2}) no-repeat ${3:0} ${4:0}
+	text-indent -9999px${5}
+snippet hover
+	background-image url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") // Trick IE into showing hover
+	&:hover, &:focus, &:active {
+		${1}
+	}
+snippet abs
+	absolute-box(${1:auto}, ${2:auto}, ${3:auto}, ${4:auto}, ${5:1})
+	${6}
+snippet spr
+	sprite-box(${1:width}, ${2:height})
+	${3}
+snippet rw
+	retina-width(${1})${2}
+snippet rh
+	retina-height(${1})${2}
+snippet rspr
+	retina-sprite-box(${1:width}, ${2:height})
+	${3}
+snippet rabs
+	retina-absolute-box(${1:auto}, ${2:auto}, ${3:auto}, ${4:auto}, ${5:1})
+	${6}
+snippet font
+	font(${1}, ${2})
+	${3}
+snippet rfont
+	retina-font(${1}, ${2})
+	${3}
+snippet before
+	&:before
+		content ""
+		{$1}
+snippet after
+	&:after
+		content ""
+		{$1}

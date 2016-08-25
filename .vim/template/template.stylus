@@ -1,0 +1,168 @@
+@charset "UTF-8"
+/*!*
+ * Style for ""
+ *
+ * @author     
+ * @copyright  2016 
+ * @url        http://
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @since      2016-00-00
+ * @update     2016-00-00
+ */
+
+// libraries
+@import "nib"
+
+// sprite
+//@import "sprite/xxx"
+
+// reset
+global-reset()
+reset-html5()
+
+// utilities
+half(number1)
+  if number1 is auto
+    return number1
+  else if unit(number1) is '%'
+    return number1
+  else
+    return (number1 / 2)
+
+//  @mixin modules
+sprite-box(w, h)
+  display: block
+  width: w
+  height: h
+  overflow: hidden
+  text-indent: -9999px
+
+absolute-box(t, l, z)
+  position: absolute
+  top: t
+  left: l
+  z-index: z
+
+offleft() {
+  position: absolute
+  width: 0 !important
+  height: 0 !important
+  margin: 0 !important
+  padding: 0 !important
+  overflow: hidden
+
+hidden()
+  position: absolute
+  width: 0 !important
+  height: 0 !important
+  margin: 0 !important
+  padding: 0 !important
+  overflow: hidden
+
+old-opacity(val)
+  opacity: val
+  -ms-filter: "alpha(opacity=#{$val * 100})"
+
+fix-android-image-bug()
+  &:after // for android bug
+    content:"."
+    display: block
+    margin-bottom: -1px
+    height: 1px
+    font-size: 1px
+    overflow: hidden
+    color: transparent
+
+// for retinafy
+retina-width(w)
+  width: half(w)
+
+retina-height(h)
+  height: half(h)
+
+retina-sprite-box(w, h)
+  display: block
+  width: half(w)
+  height: half(h)
+  background-size: 50% auto
+  overflow: hidden
+  text-indent: -9999px
+
+retina-box(w, h)
+  display: block
+  width: half(w)
+  height: half(h)
+
+retina-absolute-box(t, l, z)
+  position: absolute
+  top: half(t)
+  left: half(l)
+  z-index: z
+
+retina-background(path, x:0, y:0, repeat:no-repeat)
+  background: image-url(path, false , false) repeat x y
+  background-size: image-width(path) / 2) auto
+
+/*! style for element selector
+ * ----------------------------------------*/
+html
+  height: 100%
+  background: #fff
+  color: #333
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Helvetica, Meiryo, "メイリオ", Osaka, 'ＭＳ Ｐゴシック', sans-serif
+  font-size: 14px
+  line-height: 1.5
+  -webkit-text-size-adjust: 100%
+body
+  min-height: 100%
+
+// sectioning
+section
+  padding: 0 0 1em
+
+// heading
+h1, h2, h3, h4, h5, h6 
+  font-weight: bold
+h1
+  font-size: 24px
+h2 
+  font-size: 20px
+h3 
+  font-size: 16px
+h4, h5, h6
+  font-size: 14px;
+
+// inline
+img, object
+  vertical-align: bottom
+a
+  text-decoration: none
+  &:hover, &:focus, &:active
+    text-decoration: underline
+em
+  font-style: normal
+
+// forms
+textarea
+  font-size: 100%
+button, input[type="submit"]
+  cursor: pointer
+
+/*! common modules
+ * ----------------------------------------*/
+
+/*! layout container
+ * ----------------------------------------*/
+.area_container
+  position: relative
+  min-height: 100%
+  overflow: hidden
+
+ /*!* header
+  * ----------------------------------------*/
+
+ /*!* content
+  * ----------------------------------------*/
+
+ /*!* footer
+  * ----------------------------------------*/

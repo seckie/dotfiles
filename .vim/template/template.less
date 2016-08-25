@@ -1,0 +1,252 @@
+@charset "UTF-8";
+/**
+ * Style for ""
+ *
+ * @author     
+ * @copyright  2016 
+ * @url        http://
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @since      2016-00-00
+ * @update     2016-00-00
+ */
+
+//@import "_mixin";
+//@import "_reset";
+//@import "_base";
+
+//  @mixin modules
+.radius(@len) {
+	-moz-border-radius: @len;
+	-webkit-border-radius: @len;
+	-o-border-radius: @len;
+	border-radius: @len;
+}
+.radius-tr(@len) {
+	-moz-border-radius-topright: @len;
+	-webkit-border-top-right-radius: @len;
+	-o-border-top-right-radius: @len;
+	border-top-right-radius: @len;
+}
+.radius-br(@len) {
+	-moz-border-radius-bottomright: @len;
+	-webkit-border-bottom-right-radius: @len;
+	-o-border-bottom-right-radius: @len;
+	border-bottom-right-radius: @len;
+}
+.radius-bl(@len) {
+	-moz-border-radius-bottomleft: @len;
+	-webkit-border-bottom-left-radius: @len;
+	-o-border-bottom-left-radius: @len;
+	border-bottom-left-radius: @len;
+}
+.radius-tl(@len) {
+	-moz-border-radius-topleft: @len;
+	-webkit-border-top-left-radius: @len;
+	-o-border-top-left-radius: @len;
+	border-top-left-radius: @len;
+}
+.bg-gradient(@start, @stop) {
+	background-color: @start;
+	background-image: -moz-linear-gradient(top, @start, @stop);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @start), color-stop(1, @stop));
+	background-image: linear-gradient(top, @start, @stop);
+}
+.bg-size(@w, @h) {
+	-moz-background-size: @w @h;
+	-webkit-background-size: @w @h;
+	-o-background-size: @w @h;
+	background-size: @w @h;
+}
+.box-shadow(@inset, @horizontal, @vertical, @blur, @color) {
+	-moz-box-shadow: @horizontal, @vertical, @blur, @color;
+	-webkit-box-shadow: @horizontal, @vertical, @blur, @color;
+	box-shadow: @horizontal, @vertical, @blur, @color;
+}
+.box-shadow-in(@horizontal, @vertical, @blur, @color) {
+	-moz-box-shadow: inset, @horizontal, @vertical, @blur, @color;
+	-webkit-box-shadow: inset, @horizontal, @vertical, @blur, @color;
+	box-shadow: inset, @horizontal, @vertical, @blur, @color;
+}
+.box-sizing(@val: border-box) {
+	-moz-box-sizing: @val;
+	-webkit-box-sizing: @val;
+	-ms-box-sizing: @val;
+	box-sizing: @val;
+}
+.text-shadow(@horizontal, @vertical, @size, @color) {
+	text-shadow: @horizontal @vertical @size @color;
+}
+.transition(@property, @duration, @easing) {
+	-webkit-transition: @property @duration @easing;
+	-moz-transition: @property @duration @easing;
+	transition: @property @duration @easing;
+}
+.clearfix {
+	*zoom: 1;
+	&:after { content:""; display:block; clear:both; }
+}
+.inline-block {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+// {{{
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; }
+body { line-height:1; }
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { display:block; }
+nav ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none;
+}
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent;
+}
+// change colours to suit your needs
+ins { background-color:#ff9; color:#000; text-decoration:none;
+}
+// change colours to suit your needs
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+table { border-collapse:collapse; border-spacing:0; }
+// change border colour to suit your needs
+hr { display:block; height:1px; border:0;   border-top:1px solid #cccccc; margin:1em 0; padding:0; }
+input, select { vertical-align:middle; }
+// }}}
+
+/* style for element selector
+ * ----------------------------------------*/
+html { height: 100%; }
+body {
+	min-height: 100%;
+	background: #fff;
+    color: #333;
+	font-family: Meiryo, "メイリオ", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic", Osaka, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/**
+ * sectioning contents
+ */
+section {
+}
+article {
+}
+
+/**
+ * heading contents
+ */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+h4, h5, h6 { font-size: 14px; }
+
+/**
+ * flow contents
+ */
+img, object { border: 0; vertical-align: bottom; }
+a:link, a:visited {  }
+em { font-style: normal; }
+
+	/**
+	 * forms
+	 */
+textarea { font-size: 100%; }
+button, input[type="submit"] { cursor: pointer; }
+
+
+/* common modules
+ * ----------------------------------------*/
+
+/**
+ * mod_dataTable
+ */
+.mod_dataTable table,
+.mod_dataTable th,
+.mod_dataTable td {
+	border: 1px solid #999;
+}
+.mod_dataTable th {
+	padding: 2px 10px;
+	background-color: #EEE;
+	background-image: linear-gradient(top, #f6f6f6, #ccc);
+	background-image: -moz-linear-gradient(top, #f6f6f6, #ccc);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#ccc));
+	text-shadow: 1px 1px 0 #fff;
+	line-height: 1.25;
+}
+.mod_dataTable td {
+	padding: 5px 5px 5px 10px;
+}
+.mod_dataTable .colh {
+	width: 1%;
+	white-space: nowrap;
+}
+
+/**
+ * mod_datebasedTable
+ */
+.mod_datebasedTable table,
+.mod_datebasedTable th,
+.mod_datebasedTable td {
+}
+.mod_datebasedTable th {
+	background-color: #EEE;
+}
+.mod_datebasedTable td {
+	padding: 5px 10px;
+}
+.mod_datebasedTable .colh td {
+	width: 1%;
+	white-space: nowrap;
+}
+
+/* layout container
+ * ----------------------------------------*/
+.area_container {
+    position: relative;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+ /** header
+  * ----------------------------------------*/
+.area_hd {
+	.clearfix;
+}
+
+ /** content
+  * ----------------------------------------*/
+.area_bd {
+	position: relative;
+	.clearfix;
+}
+
+ /** footer
+  * ----------------------------------------*/
+.area_ft {
+	.clearfix;
+}
+
