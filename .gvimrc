@@ -37,6 +37,33 @@ elseif has('xfontset')
 "  set guifontset=a14,r14,k14
 endif
 
+"---------------------------------------------------------------------------
+" Window Positioning
+"
+nnoremap <Space>1m :<C-u>winpos 0 0<CR>
+nnoremap <Space>2m :<C-u>winpos -1276 0<CR>
+
+" Vim-users.jp - Hack #120: gVim でウィンドウの位置とサイズを記憶する
+" http://vim-jp.org/vim-users-jp/2010/01/28/Hack-120.html
+" note: 実行順序に注意。transparencyより後に実行しないとウィンドウ位置が再現できない
+let g:save_window_file = expand('~/.vimwinpos')
+augroup SaveWindow
+  au!
+  autocmd VimLeavePre * call s:save_window()
+  function! s:save_window()
+    let options = [
+      \ 'set columns=' . &columns,
+      \ 'set lines=' . &lines,
+      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+      \ ]
+    call writefile(options, g:save_window_file)
+  endfunction
+augroup END
+
+if filereadable(g:save_window_file)
+  execute 'source' g:save_window_file
+endif
+
 " Coloring----------------------------------------------------------------------
   "colorscheme
 "colorscheme jellybeanscustom
@@ -62,31 +89,3 @@ elseif has('gui_macvim')
   gui
   set transparency=2
 endif
-
-"---------------------------------------------------------------------------
-" Window Positioning
-"
-nnoremap <Space>1m :<C-u>winpos 0 0<CR>
-nnoremap <Space>2m :<C-u>winpos -1276 0<CR>
-
-" Vim-users.jp - Hack #120: gVim でウィンドウの位置とサイズを記憶する
-" http://vim-users.jp/2010/01/hack120/
-" note: 実行順序に注意。transparencyより後に実行しないとウィンドウ位置が再現できない
-let g:save_window_file = expand('~/.vimwinpos')
-augroup SaveWindow
-  au!
-  autocmd VimLeavePre * call s:save_window()
-  function! s:save_window()
-    let options = [
-      \ 'set columns=' . &columns,
-      \ 'set lines=' . &lines,
-      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
-      \ ]
-    call writefile(options, g:save_window_file)
-  endfunction
-augroup END
-
-if filereadable(g:save_window_file)
-  execute 'source' g:save_window_file
-endif
-
