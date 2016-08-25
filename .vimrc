@@ -346,9 +346,10 @@ xmap <C-k> <Plug>(neosnippet_expend_target)
 
 
 " SuperTab like snippets behavior.
-imap <expr><TAB> pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"imap <expr><TAB> pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
