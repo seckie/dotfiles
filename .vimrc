@@ -270,6 +270,7 @@ aug unite
   au!
   " <C-c> then exit Unite
   au FileType unite imap <silent> <buffer> <C-c> <Plug>(unite_exit)
+  au FileType unite nmap <silent> <buffer> <C-c> <Plug>(unite_exit)
 aug END
 
 
