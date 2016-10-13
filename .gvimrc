@@ -10,7 +10,7 @@ if has('win32')
   set columns=178
   set lines=54
 elseif has('gui_macvim')
-  set columns=237
+  set columns=190
   set lines=66
 endif
 set guioptions-=T
@@ -42,6 +42,7 @@ endif
 "
 nnoremap <Space>1m :<C-u>winpos 0 0<CR>
 nnoremap <Space>2m :<C-u>winpos -1276 0<CR>
+nnoremap <Space>w :<C-u>set columns=190 lines=66<CR>
 
 " Vim-users.jp - Hack #120: gVim でウィンドウの位置とサイズを記憶する
 " http://vim-jp.org/vim-users-jp/2010/01/28/Hack-120.html
