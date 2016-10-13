@@ -265,7 +265,7 @@ nnoremap <silent>fr :<C-u>Unite -start-insert -buffer-name=register register<CR>
 " 最近使用したファイル一覧
 nnoremap <silent>fm :<C-u>Unite -start-insert file_mru<CR>
 " yank history
-nnoremap <silent>fy :<C-u>Unite history/yank<CR>
+nnoremap <silent>fp :<C-u>Unite history/yank<CR>
 aug unite
   au!
   " <C-c> then exit Unite
