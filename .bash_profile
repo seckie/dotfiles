@@ -21,7 +21,8 @@ export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-mac
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # git subcommand completion
-source /usr/local/git/contrib/completion/git-completion.bash
+. /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+. /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
 
 # for Karma test
 ulimit -n 2048
