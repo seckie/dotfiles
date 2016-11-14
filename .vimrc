@@ -63,6 +63,7 @@ call dein#add('groenewege/vim-less')
 call dein#add('wavded/vim-stylus')
 call dein#add('digitaltoad/vim-jade')
 call dein#add('leafgarland/typescript-vim')
+call dein#add('nikvdp/ejs-syntax')
 
 " You can specify revision/branch/tag.
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -542,6 +543,6 @@ aug initaug
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.html call IndentStyleT()
-  au BufNewFile,BufRead *.mtml setf html | call IndentStyleT()
+  au BufNewFile,BufRead *.mtml setf html | call IndentStyle2()
 aug END
 
