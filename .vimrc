@@ -24,55 +24,60 @@ endif
 set runtimepath+=$HOME/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin($HOME . '/dotfiles/.vim/dein')
+if dein#load_state($HOME . '/dotfiles/.vim/dein')
+  " Required:
+  call dein#begin($HOME . '/dotfiles/.vim/dein')
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
+  " Let dein manage dein
+  " Required:
+  call dein#add($HOME . '/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-" Add or remove your plugins here:
-call dein#add('git-mirror/vim-l9')
-call dein#add('kana/vim-textobj-user')
-call dein#add('kana/vim-operator-user')
+  " Add or remove your plugins here:
+  call dein#add('git-mirror/vim-l9')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kana/vim-operator-user')
 
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neocomplete')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neoyank.vim')
-call dein#add('thinca/vim-template')
-call dein#add('thinca/vim-qfreplace')
-call dein#add('hrp/EnhancedCommentify')
-call dein#add('tpope/vim-surround')
-call dein#add('h1mesuke/vim-alignta.git')
-call dein#add('mattn/emmet-vim')
-call dein#add('thinca/vim-quickrun.git')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('scrooloose/nerdtree')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neocomplete')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neoyank.vim')
+  call dein#add('thinca/vim-template')
+  call dein#add('thinca/vim-qfreplace')
+  call dein#add('hrp/EnhancedCommentify')
+  call dein#add('tpope/vim-surround')
+  call dein#add('h1mesuke/vim-alignta.git')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('thinca/vim-quickrun.git')
+  call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('scrooloose/nerdtree')
 
-" PHP Debug
-call dein#add('joonty/vdebug.git')
+  " PHP Debug
+  call dein#add('joonty/vdebug.git')
 
-" Syntax
-call dein#add('jiangmiao/simple-javascript-indenter')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('kchmck/vim-coffee-script')
-call dein#add('tpope/vim-haml')
-call dein#add('groenewege/vim-less')
-call dein#add('wavded/vim-stylus')
-call dein#add('digitaltoad/vim-jade')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('nikvdp/ejs-syntax')
+  " Syntax
+  call dein#add('jiangmiao/simple-javascript-indenter')
+  call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('kchmck/vim-coffee-script')
+  call dein#add('tpope/vim-haml')
+  call dein#add('groenewege/vim-less')
+  call dein#add('wavded/vim-stylus')
+  call dein#add('digitaltoad/vim-jade')
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('nikvdp/ejs-syntax')
 
-" You can specify revision/branch/tag.
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  " You can specify revision/branch/tag.
+  " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" Required:
-call dein#end()
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
+syntax enable
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
@@ -113,7 +118,6 @@ set ignorecase
 set smartcase
 
 " visual
-syntax enable
 set background=dark
 colorscheme molokai
 
