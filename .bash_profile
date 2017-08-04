@@ -31,4 +31,4 @@ ulimit -n 2048
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # for Node
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:/Users/naokis/.nodebrew/node/v6.9.4/lib/node_modules
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:/Users/naokis/.nodebrew/current/lib/node_modules
