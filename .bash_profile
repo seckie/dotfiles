@@ -32,3 +32,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # for Node
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:/Users/naokis/.nodebrew/current/lib/node_modules
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/naokis/google-cloud-sdk/path.bash.inc' ]; then source '/Users/naokis/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/naokis/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/naokis/google-cloud-sdk/completion.bash.inc'; fi
