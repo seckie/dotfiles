@@ -88,5 +88,5 @@ if has('win32')
 "    set transparency=246
 elseif has('gui_macvim')
   gui
-  set transparency=2
+  set transparency=10
 endif
