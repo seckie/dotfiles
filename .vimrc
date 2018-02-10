@@ -66,6 +66,8 @@ if dein#load_state($HOME . '/dotfiles/.vim/dein')
   call dein#add('digitaltoad/vim-jade')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('nikvdp/ejs-syntax')
+  call dein#add('posva/vim-vue')
+
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
