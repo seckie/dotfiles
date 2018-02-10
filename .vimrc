@@ -548,7 +548,7 @@ aug initaug
   au BufNewFile,BufRead *.less setf less | call IndentStyle2()
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
-  au BufNewFile,BufRead *.html call IndentStyleT()
+  au BufNewFile,BufRead *.html call IndentStyle2()
   au BufNewFile,BufRead *.mtml setf html | call IndentStyle2()
 aug END
 
