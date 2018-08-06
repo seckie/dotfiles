@@ -366,7 +366,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory = '~/.vim/snippets'
 " conceal
 if has('conceal')
-  set conceallevel=1 concealcursor=i
+  set conceallevel=0 concealcursor=i
 endif
 
 " --------------------
