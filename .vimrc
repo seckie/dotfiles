@@ -66,6 +66,8 @@ if dein#load_state($HOME . '/dotfiles/.vim/dein')
   call dein#add('digitaltoad/vim-jade')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('nikvdp/ejs-syntax')
+  call dein#add('posva/vim-vue')
+
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -550,7 +552,7 @@ aug initaug
   au BufNewFile,BufRead *.less setf less | call IndentStyle2()
   au BufNewFile,BufRead *.styl setf stylus | call IndentStyle2()
   au BufNewFile,BufRead *.stylus setf stylus | call IndentStyle2()
-  au BufNewFile,BufRead *.html call IndentStyleT()
+  au BufNewFile,BufRead *.html call IndentStyle2()
   au BufNewFile,BufRead *.mtml setf html | call IndentStyle2()
 aug END
 
