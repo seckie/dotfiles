@@ -43,3 +43,5 @@ if [ -f '/Users/naokis/google-cloud-sdk/completion.bash.inc' ]; then source '/Us
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

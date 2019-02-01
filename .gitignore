@@ -50,6 +50,7 @@ _notes/
 npm-debug.log
 bower_components/
 node_modules/
+.node-version
 
 # PHP
 php_errors.log
