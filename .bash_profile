@@ -17,9 +17,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Additional PATH
 export PATH=/Users/naokis/android-sdk-macosx/tools:/Users/naokis/android-sdk-macosx/platform-tools:$PATH
 
-# for Nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # git subcommand completion
 if [ -f '/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash' ]; then . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash; fi
 if [ -f '/Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh' ]; then . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh; fi
