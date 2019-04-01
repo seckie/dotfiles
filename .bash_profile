@@ -39,9 +39,7 @@ if [ -f '/Users/naokis/google-cloud-sdk/path.bash.inc' ]; then source '/Users/na
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/naokis/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/naokis/google-cloud-sdk/completion.bash.inc'; fi
 
-# rbenv PATH
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+# Load nodenv automatically by appending
+# the following to ~/.bash_profile:
+
+eval "$(nodenv init -)"
