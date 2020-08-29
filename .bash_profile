@@ -43,3 +43,6 @@ if [ -f '/Users/naokis/google-cloud-sdk/completion.bash.inc' ]; then source '/Us
 # the following to ~/.bash_profile:
 
 eval "$(nodenv init -)"
+
+alias python=/usr/local/bin/python3
+
