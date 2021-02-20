@@ -46,3 +46,6 @@ eval "$(nodenv init -)"
 
 alias python=/usr/local/bin/python3
 
+export PATH="/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages:$PATH"
+
+
