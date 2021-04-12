@@ -156,6 +156,7 @@ endfunction
 set history=50
 
 " IME
+set noimdisable
 set iminsert=0
 set imsearch=0
 
@@ -285,7 +286,7 @@ aug END
 " for "neocomplete" plugin
 " --------------------
 " Use neocomplete
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
