@@ -19,3 +19,5 @@ if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc'; fi
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
