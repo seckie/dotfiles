@@ -21,3 +21,8 @@ if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc' ]; then . '
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# Read private settings
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
