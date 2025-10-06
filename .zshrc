@@ -11,3 +11,11 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # NPM
 # export NPM_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/naoki.sekiguchi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc'; fi
+
