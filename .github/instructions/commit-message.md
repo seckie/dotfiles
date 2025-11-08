@@ -1,0 +1,2 @@
+- Write messages in English.
+- Follow the rules of Conventional Commits.
