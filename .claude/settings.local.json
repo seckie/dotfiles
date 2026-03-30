@@ -1,6 +1,9 @@
 {
   "permissions": {
     "allow": [
+      "Bash(chezmoi diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

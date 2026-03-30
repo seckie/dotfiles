@@ -35,13 +35,15 @@ chezmoi uses filename prefixes to control behavior:
 
 ## Managed Files
 
-| Repository file | Installed as |
+| Repository path | Installed as |
 |---|---|
 | `dot_zshrc` | `~/.zshrc` |
 | `dot_bash_profile` | `~/.bash_profile` |
 | `dot_vimrc` | `~/.vimrc` |
 | `dot_gvimrc` | `~/.gvimrc` |
 | `dot_gitignore` | `~/.gitignore` |
+| `dot_zsh/` | `~/.zsh/` (git completion scripts) |
+| `private_dot_config/nvim/` | `~/.config/nvim/` |
 
 ## Shell Environment (dot_zshrc)
 
@@ -50,6 +52,7 @@ chezmoi uses filename prefixes to control behavior:
 - Loads private settings from `~/.zshrc.local` (not tracked in this repo)
 - Includes Google Cloud SDK and Terraform completion
 - Rust environment sourced from `~/.cargo/env`
+- Git completion via `dot_zsh/` (git-prompt.sh, git-completion.bash, _git)
 
 ## Vim Configuration (dot_vimrc)
 
@@ -57,3 +60,10 @@ chezmoi uses filename prefixes to control behavior:
 - Key plugins: unite.vim, neocomplete, neosnippet, NERDTree, emmet-vim, editorconfig-vim
 - Default indent: 2 spaces, expandtab
 - Colorscheme: molokai
+
+## Neovim Configuration (private_dot_config/nvim/)
+
+- Plugin manager: **pckr.nvim** (auto-bootstraps from GitHub)
+- Colorscheme: kanagawa
+- Default indent: 4 spaces, expandtab
+- Relative line numbers enabled
