@@ -42,6 +42,7 @@ opt.shiftwidth = 4        -- インデント幅
 opt.expandtab = true      -- タブをスペースに変換　
 opt.smartindent = true    -- 賢いインデント
 opt.termguicolors = true  -- 24bitカラーを有効化
+opt.clipboard = 'unnamedplus' -- yankをシステムクリップボードに連携
 opt.cursorline = true     -- カーソル業をハイライト
 
 --
