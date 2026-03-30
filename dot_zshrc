@@ -1,16 +1,16 @@
 export PATH="$HOME/.local/bin:$PATH"
 
-# Completion
-autoload -U +X bashcompinit && bashcompinit
-# Completion for Terraform
-complete -o nospace -C /usr/local/bin/terraform terraform
-
 # Git Completion
 source ~/.zsh/git-prompt.sh
 
 fpath=(~/.zsh $fpath)
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+
+# Completion
 autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+# Completion for Terraform
+complete -o nospace -C /usr/local/bin/terraform terraform
 
 # Volta
 export VOLTA_HOME="$HOME/.volta"
@@ -26,9 +26,6 @@ if [ -f '/Users/naoki.sekiguchi/google-cloud-sdk/completion.zsh.inc' ]; then . '
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
-
-# mise
-eval "$(~/.local/bin/mise activate zsh)"
 
 # rust
 . "$HOME/.cargo/env"
