@@ -3,7 +3,17 @@
     "allow": [
       "Bash(chezmoi diff:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:www.chezmoi.io)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(chezmoi execute-template:*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(chezmoi documentation:*)",
+      "Bash(gh search:*)",
+      "Bash(gh api:*)",
+      "Bash(python3 -c \"import json,sys; [print\\(x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")"
     ]
   }
 }

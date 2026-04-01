@@ -1,1 +1,1 @@
-chore(chezmoi): update {{ range .SourcePathInfos }}{{ .Path }} {{ end }}
+chore(chezmoi): update {{ with .chezmoi.status }}{{ range .Ordinary }}{{ .Path | targetRelPath }} {{ end }}{{ range .RenamedOrCopied }}{{ .Path | targetRelPath }} {{ end }}{{ range .Untracked }}{{ .Path | targetRelPath }} {{ end }}{{ end }}
