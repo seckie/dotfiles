@@ -1,0 +1,17 @@
+{{/* chezmoi.toml.tmpl - Generated on chezmoi init */}}
+[data]
+    name = {{ promptStringOnce . "name" "Full name" | quote }}
+    email = {{ promptStringOnce . "email" "Email address" | quote }}
+    is_work = {{ promptBoolOnce . "is_work" "Is this a work machine?" }}
+
+[git]
+    autoCommit = true
+    autoPush = true
+    commitMessageTemplateFile = ".commit-message.tmpl"
+
+[diff]
+    command = "git"
+    args = ["diff", "--no-index"]
+
+[edit]
+    command = "nvim"
