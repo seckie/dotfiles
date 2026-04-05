@@ -13,7 +13,11 @@
       "Bash(chezmoi documentation:*)",
       "Bash(gh search:*)",
       "Bash(gh api:*)",
-      "Bash(python3 -c \"import json,sys; [print\\(x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")"
+      "Bash(python3 -c \"import json,sys; [print\\(x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")",
+      "Bash(zsh -x -c 'source ~/.zshrc')",
+      "Read(~/.local/share/pckr/**)",
+      "Read(~/.local/share/nvim/pckr/pckr.nvim/**)",
+      "Bash(nvim --version)"
     ]
   }
 }

@@ -21,11 +21,19 @@ end
 bootstrap_pckr()
 
 require('pckr').add{
-  -- My plugins here
-  -- 'foo1/bar1.nvim';
-  -- 'foo2/bar2.nvim';
+  -- Themes
   'folke/tokyonight.nvim',
   'rebelot/kanagawa.nvim',
+
+  -- Syntax highlighting
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', start = true,
+    config = function()
+      require('nvim-treesitter.config').setup{
+        ensure_installed = { 'python', 'lua' },
+        highlight = { enable = true },
+      }
+    end
+  },
 }
 
 
