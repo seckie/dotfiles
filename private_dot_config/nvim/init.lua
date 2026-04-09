@@ -52,6 +52,7 @@ opt.smartindent = true    -- 賢いインデント
 opt.termguicolors = true  -- 24bitカラーを有効化
 opt.clipboard = 'unnamedplus' -- yankをシステムクリップボードに連携
 opt.cursorline = true     -- カーソル業をハイライト
+opt.autochdir = true      -- ファイルのディレクトリに自動で移動
 
 --
 -- Keymaps
