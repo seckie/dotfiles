@@ -17,7 +17,8 @@
       "Bash(zsh -x -c 'source ~/.zshrc')",
       "Read(~/.local/share/pckr/**)",
       "Read(~/.local/share/nvim/pckr/pckr.nvim/**)",
-      "Bash(nvim --version)"
+      "Bash(nvim --version)",
+      "Bash(git checkout:*)"
     ]
   }
 }
