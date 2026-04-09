@@ -1,3 +1,6 @@
+require('options')
+require('keymaps')
+
 --
 -- Plugin management
 --
@@ -35,18 +38,6 @@ require('pckr').add{
     end
   },
 }
-
-
--- 
--- Basic options
--- 
-require('options')
-
-
---
--- Keymaps
---
-require('keymaps')
 
 --
 -- Color schema
