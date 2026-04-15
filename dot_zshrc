@@ -30,3 +30,6 @@ fi
 # rust
 . "$HOME/.cargo/env"
 
+# mise
+eval "$(mise activate zsh)"
+
