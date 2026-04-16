@@ -24,3 +24,9 @@ chezmoi diff           # Preview changes
 chezmoi add ~/.somerc  # Track a new dotfile
 chezmoi re-add ~/.zshrc  # Sync home directory changes back
 ```
+
+## References
+
+* [cmux config](https://cmux.com/ja/docs/configuration)
+* [Ghostty config](https://ghostty.org/docs/config/reference)
+
