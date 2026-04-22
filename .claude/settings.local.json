@@ -4,6 +4,8 @@
       "Bash(chezmoi diff:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
       "WebFetch(domain:www.chezmoi.io)",
       "WebSearch",
       "WebFetch(domain:raw.githubusercontent.com)",
