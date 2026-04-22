@@ -30,5 +30,37 @@ require('pckr').add{
       }
     end
   },
+
+  -- Git integration (signcolumn markers + inline blame)
+  { 'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup{
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = 'eol',
+          delay = 500,
+        },
+        current_line_blame_formatter = '<abbrev_sha> · <author>, <author_time:%Y-%m-%d> · <summary>',
+        on_attach = function(bufnr)
+          local gs = require('gitsigns')
+          local function map(mode, lhs, rhs)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, expr = true })
+          end
+
+          map('n', ']c', function()
+            if vim.wo.diff then return ']c' end
+            vim.schedule(function() gs.next_hunk() end)
+            return '<Ignore>'
+          end)
+          map('n', '[c', function()
+            if vim.wo.diff then return '[c' end
+            vim.schedule(function() gs.prev_hunk() end)
+            return '<Ignore>'
+          end)
+        end,
+      }
+    end
+  },
 }
 
