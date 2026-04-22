@@ -62,5 +62,18 @@ require('pckr').add{
       }
     end
   },
+
+  -- Open/copy GitHub URLs for current line or blame commit
+  { 'linrongbin16/gitlinker.nvim',
+    config = function()
+      require('gitlinker').setup()
+      local map = vim.keymap.set
+      local function opts(desc) return { silent = true, noremap = true, desc = desc } end
+      map({'n','v'}, '<leader>gl', '<cmd>GitLink<cr>',        opts('Copy GitHub URL for current line'))
+      map({'n','v'}, '<leader>gL', '<cmd>GitLink!<cr>',       opts('Open current line on GitHub'))
+      map({'n','v'}, '<leader>gb', '<cmd>GitLink blame<cr>',  opts('Copy GitHub URL for blame commit'))
+      map({'n','v'}, '<leader>gB', '<cmd>GitLink! blame<cr>', opts('Open blame commit on GitHub'))
+    end
+  },
 }
 
