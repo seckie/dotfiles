@@ -41,6 +41,7 @@ require('pckr').add{
           virt_text_pos = 'eol',
           delay = 500,
         },
+        current_line_blame_formatter = '<abbrev_sha> · <author>, <author_time:%Y-%m-%d> · <summary>',
         on_attach = function(bufnr)
           local gs = require('gitsigns')
           local function map(mode, lhs, rhs)
