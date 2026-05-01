@@ -63,6 +63,22 @@ require('pckr').add{
     end
   },
 
+  -- File tree
+  { 'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      require('nvim-tree').setup{
+        view = { width = 35 },
+        renderer = { group_empty = true },
+        filters = { dotfiles = false },
+      }
+      vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', { silent = true, desc = 'Toggle file tree' })
+      vim.keymap.set('n', '<leader>o', '<cmd>NvimTreeFindFile<cr>', { silent = true, desc = 'Reveal current file in tree' })
+    end
+  },
+
   -- Open/copy GitHub URLs for current line or blame commit
   { 'linrongbin16/gitlinker.nvim',
     config = function()
