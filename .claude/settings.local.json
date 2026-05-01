@@ -24,7 +24,8 @@
       "Read(~/.local/share/pckr/**)",
       "Read(~/.local/share/nvim/pckr/pckr.nvim/**)",
       "Bash(nvim --version)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(wait)"
     ]
   }
 }
