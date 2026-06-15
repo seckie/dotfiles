@@ -79,6 +79,13 @@ require('pckr').add{
     end
   },
 
+  -- Surround pairs (add/change/delete quotes, brackets, tags)
+  { 'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end
+  },
+
   -- Open/copy GitHub URLs for current line or blame commit
   { 'linrongbin16/gitlinker.nvim',
     config = function()
