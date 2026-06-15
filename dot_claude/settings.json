@@ -17,5 +17,16 @@
       }
     }
   },
+  "sandbox": {
+      "enabled": true,
+      "allowUnsandboxedCommands": false,
+      "excludedCommands": ["gh *"],
+      "network": {
+          "allowedDomains": [
+              "github.com",
+              "api.github.com"
+          ]
+      }
+  },
   "theme": "auto"
 }
