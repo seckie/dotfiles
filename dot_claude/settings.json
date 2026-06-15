@@ -17,5 +17,8 @@
       }
     }
   },
+  "sandbox": {
+      "enabled": true
+  },
   "theme": "auto"
 }
