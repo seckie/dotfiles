@@ -25,7 +25,9 @@
       "Read(~/.local/share/nvim/pckr/pckr.nvim/**)",
       "Bash(nvim --version)",
       "Bash(git checkout:*)",
-      "Bash(wait)"
+      "Bash(wait)",
+      "Bash(command -v gh)",
+      "Bash(gh --version)"
     ]
   }
 }
