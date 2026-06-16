@@ -17,6 +17,9 @@
       }
     }
   },
+  "permissions": {
+    "allow": ["Bash(gh *)"]
+  },
   "sandbox": {
       "enabled": true,
       "allowUnsandboxedCommands": false,
