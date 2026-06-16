@@ -1,5 +1,8 @@
 {
   "model": "sonnet",
+  "env": {
+    "SSL_CERT_FILE": "/etc/ssl/cert.pem"
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
