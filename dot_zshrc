@@ -33,3 +33,5 @@ fi
 # mise
 eval "$(mise activate zsh)"
 
+[[ -x "$HOME/.local/bin/update-ghostty-fontsize" ]] && "$HOME/.local/bin/update-ghostty-fontsize"
+

@@ -1,5 +1,5 @@
 font-family = "Hack Nerd Font Mono"
-font-size = 12
+config-file = ~/.config/ghostty/display.conf
 window-save-state = none
 
 # "TokyoNight" theme
