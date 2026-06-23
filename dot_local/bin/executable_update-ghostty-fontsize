@@ -1,0 +1,14 @@
+#!/bin/bash
+DISPLAY_COUNT=$(system_profiler SPDisplaysDataType 2>/dev/null | grep -c "Resolution:")
+if [ "$DISPLAY_COUNT" -gt 1 ]; then
+  NEW_FONT_SIZE=14
+else
+  NEW_FONT_SIZE=12
+fi
+
+CONF_FILE="$HOME/.config/ghostty/display.conf"
+CURRENT_CONTENT="font-size = $NEW_FONT_SIZE"
+
+if [ "$(cat "$CONF_FILE" 2>/dev/null)" != "$CURRENT_CONTENT" ]; then
+  echo "$CURRENT_CONTENT" > "$CONF_FILE"
+fi
