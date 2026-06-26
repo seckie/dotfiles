@@ -74,7 +74,7 @@ require('pckr').add{
         renderer = { group_empty = true },
         filters = { dotfiles = false },
       }
-      vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', { silent = true, desc = 'Toggle file tree' })
+      vim.keymap.set('n', '<leader>t', '<cmd>NvimTreeToggle<cr>', { silent = true, desc = 'Toggle file tree' })
       vim.keymap.set('n', '<leader>o', '<cmd>NvimTreeFindFile<cr>', { silent = true, desc = 'Reveal current file in tree' })
     end
   },
