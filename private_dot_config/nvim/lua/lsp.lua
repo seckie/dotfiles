@@ -1,5 +1,8 @@
 vim.lsp.enable({ 'pyright' })
 
+-- 補完メニューは自動で出すが、先頭候補を自動選択しない (noselect)
+vim.o.completeopt = 'menu,menuone,noselect'
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
