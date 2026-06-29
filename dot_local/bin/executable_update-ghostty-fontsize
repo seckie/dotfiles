@@ -1,6 +1,13 @@
 #!/bin/bash
-DISPLAY_COUNT=$(system_profiler SPDisplaysDataType 2>/dev/null | grep -c "Resolution:")
-if [ "$DISPLAY_COUNT" -gt 1 ]; then
+# Use 14 whenever an external (non-built-in) display is connected, otherwise 12.
+# Counting displays alone fails in clamshell mode (lid closed = external only = 1 display),
+# so subtract the built-in panel from the total instead.
+DISPLAY_INFO=$(system_profiler SPDisplaysDataType 2>/dev/null)
+TOTAL_DISPLAYS=$(echo "$DISPLAY_INFO" | grep -c "Resolution:")
+BUILTIN_DISPLAYS=$(echo "$DISPLAY_INFO" | grep -ciE "Display Type:.*Built-?In")
+EXTERNAL_DISPLAYS=$((TOTAL_DISPLAYS - BUILTIN_DISPLAYS))
+
+if [ "$EXTERNAL_DISPLAYS" -ge 1 ]; then
   NEW_FONT_SIZE=14
 else
   NEW_FONT_SIZE=12
