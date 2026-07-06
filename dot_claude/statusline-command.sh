@@ -41,6 +41,9 @@ else
   usage_str=""
 fi
 
+# Session cost (client-side estimate)
+cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
+
 # Rate limits
 five_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 five_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
@@ -59,11 +62,15 @@ format_reset() {
 five_reset_time=$(format_reset "$five_resets" "+%H:%M")
 seven_reset_time=$(format_reset "$seven_resets" "+%-m/%-d %H:%M")
 
-# Output: model | [####----] 20% | in:X out:Y | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
+# Output: model | [####----] 20% | in:X out:Y | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
 printf "\033[1;36m%s\033[0m" "$model"
 printf " \033[2m[\033[0m\033[1;33m%s\033[0m\033[2m]\033[0m \033[1;33m%s\033[0m" "$bar" "$pct_display"
 if [ -n "$usage_str" ]; then
   printf " \033[2m%s\033[0m" "$usage_str"
+fi
+if [ -n "$cost_usd" ]; then
+  cost_fmt=$(printf "%.2f" "$cost_usd")
+  printf " \033[2m|\033[0m \033[1;32m\$%s\033[0m" "$cost_fmt"
 fi
 if [ -n "$five_pct" ]; then
   five_pct_fmt=$(printf "%.0f" "$five_pct")
