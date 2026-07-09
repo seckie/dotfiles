@@ -38,18 +38,7 @@
       "enabled": true,
       "allowUnsandboxedCommands": false,
       "excludedCommands": [
-          "gh pr view*",
-          "gh pr list*",
-          "gh pr create*",
-          "gh pr checkout*",
-          "gh pr comment*",
-          "gh pr edit*",
-          "gh issue view*",
-          "gh issue list*",
-          "gh repo view*",
-          "gh search*",
-          "gh auth status",
-          "gh --version"
+          "gh *"
       ],
       "network": {
           "allowedDomains": [
