@@ -1,23 +1,4 @@
 {
-  "model": "sonnet",
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "security-guidance@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "emoffice-team@revcomm": true
-  },
-  "extraKnownMarketplaces": {
-    "anthropic-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/skills"
-      }
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(gh pr view:*)",
@@ -34,18 +15,39 @@
       "Bash(gh --version)"
     ]
   },
-  "sandbox": {
-      "enabled": true,
-      "allowUnsandboxedCommands": false,
-      "excludedCommands": [
-          "gh *"
-      ],
-      "network": {
-          "allowedDomains": [
-              "github.com",
-              "api.github.com"
-          ]
-      }
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "security-guidance@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "emoffice-team@revcomm": true,
+    "softphone-team@revcomm": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    }
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com"
+      ]
+    },
+    "excludedCommands": [
+      "gh *"
+    ]
+  },
+  "effortLevel": "high",
   "theme": "auto"
 }
