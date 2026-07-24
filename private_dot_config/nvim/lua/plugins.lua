@@ -25,9 +25,19 @@ require('pckr').add{
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', start = true,
     config = function()
       require('nvim-treesitter.config').setup{
-        ensure_installed = { 'python', 'lua' },
+        ensure_installed = { 'python', 'lua', 'markdown' },
         highlight = { enable = true },
       }
+    end
+  },
+
+  -- Markdown preview (browser-based, auto-reload)
+  { 'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    ft = { 'markdown' },
+    config = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+      vim.keymap.set('n', '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', { silent = true, desc = 'Toggle Markdown preview' })
     end
   },
 
