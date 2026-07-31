@@ -1,0 +1,10 @@
+# Files that document the chezmoi source repository itself.
+# They are not dotfiles, so without this list chezmoi would deploy them
+# verbatim to the home directory (e.g. CLAUDE.md -> ~/CLAUDE.md).
+#
+# Patterns are matched with doublestar against the TARGET path, so a bare
+# `CLAUDE.md` only matches ~/CLAUDE.md and leaves ~/.claude/CLAUDE.md
+# (from dot_claude/CLAUDE.md) managed.
+CLAUDE.md
+README.md
+nvim.log
