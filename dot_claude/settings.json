@@ -49,5 +49,17 @@
     ]
   },
   "effortLevel": "high",
-  "theme": "auto"
+  "theme": "auto",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと\"}}'"
+          }
+        ]
+      }
+    ]
+  }
 }
