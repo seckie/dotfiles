@@ -25,7 +25,7 @@ require('pckr').add{
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', start = true,
     config = function()
       require('nvim-treesitter.config').setup{
-        ensure_installed = { 'python', 'lua', 'markdown' },
+        ensure_installed = { 'python', 'lua', 'markdown', 'hcl', 'terraform' },
         highlight = { enable = true },
       }
     end
