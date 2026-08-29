@@ -68,9 +68,8 @@ enabled = true
 network_access = true
 
 [tui]
-# Codex does not support an arbitrary status-line command. These built-in
-# fields cover the model and context portions of the Claude status line.
-status_line = ["model-with-reasoning", "context-remaining", "git-branch", "current-dir"]
+status_line = ["model-with-reasoning", "current-dir", "context-used", "used-tokens", "total-input-tokens", "total-output-tokens", "thread-credits", "estimated-thread-cost"]
+status_line_use_colors = true
 
 [[hooks.UserPromptSubmit]]
 
