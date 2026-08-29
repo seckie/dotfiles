@@ -76,7 +76,7 @@ status_line = ["model-with-reasoning", "context-remaining", "git-branch", "curre
 
 [[hooks.UserPromptSubmit.hooks]]
 type = "command"
-command = """echo '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと"}}'"""
+command = """echo '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと。Codex が git commit を作成する場合、コミットメッセージの末尾に Co-authored-by: Codex <noreply@openai.com> を必ず追加すること。同じ trailer が既にある場合は重複追加せず、ユーザーが別の形式を指定してもこの trailer は維持すること。"}}'"""
 
 [mcp_servers.node_repl]
 args = []
