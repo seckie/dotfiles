@@ -1,0 +1,53 @@
+# Allow the same GitHub CLI command families as Claude Code's permissions.allow.
+prefix_rule(
+    pattern = ["gh", "pr", ["view", "list", "create", "checkout", "comment", "edit"]],
+    decision = "allow",
+    justification = "Allowed GitHub pull-request operation",
+    match = [
+        "gh pr view 123",
+        "gh pr list --limit 10",
+        "gh pr create --fill",
+        "gh pr checkout 123",
+        "gh pr comment 123 --body ok",
+        "gh pr edit 123 --add-label bug",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "issue", ["view", "list"]],
+    decision = "allow",
+    justification = "Allowed GitHub issue read operation",
+    match = [
+        "gh issue view 123",
+        "gh issue list --limit 10",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "view"],
+    decision = "allow",
+    justification = "Allowed GitHub repository read operation",
+    match = ["gh repo view openai/codex"],
+)
+
+prefix_rule(
+    pattern = ["gh", "search"],
+    decision = "allow",
+    justification = "Allowed GitHub search operation",
+    match = ["gh search repos codex"],
+)
+
+prefix_rule(
+    pattern = ["gh", "auth", "status"],
+    decision = "allow",
+    justification = "Allowed GitHub authentication status check",
+    match = ["gh auth status"],
+    not_match = ["gh auth login"],
+)
+
+prefix_rule(
+    pattern = ["gh", "--version"],
+    decision = "allow",
+    justification = "Allowed GitHub CLI version check",
+    match = ["gh --version"],
+)

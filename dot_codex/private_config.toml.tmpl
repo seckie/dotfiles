@@ -1,0 +1,116 @@
+notify = ["{{ .chezmoi.homeDir }}/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
+# Claude Code's "sonnet" has no one-to-one Codex model equivalent.
+# GPT-5.6 Terra is the closest balanced intelligence/cost choice.
+model = "gpt-5.6-terra"
+model_reasoning_effort = "high"
+service_tier = "default"
+
+# Keep commands sandboxed and limit outbound access to GitHub.
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-08-21T01:49:44Z"
+source_type = "local"
+source = "{{ .chezmoi.homeDir }}/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-08-27T08:56:30Z"
+source_type = "local"
+source = "{{ .chezmoi.homeDir }}/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[features]
+js_repl = false
+hooks = true
+
+[features.network_proxy]
+enabled = true
+
+[features.network_proxy.domains]
+"github.com" = "allow"
+"api.github.com" = "allow"
+
+[sandbox_workspace_write]
+network_access = true
+
+[tui]
+# Codex does not support an arbitrary status-line command. These built-in
+# fields cover the model and context portions of the Claude status line.
+status_line = ["model-with-reasoning", "context-remaining", "git-branch", "current-dir"]
+
+[[hooks.UserPromptSubmit]]
+
+[[hooks.UserPromptSubmit.hooks]]
+type = "command"
+command = """echo '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと。Codex が git commit を作成する場合、コミットメッセージの末尾に Co-authored-by: Codex <noreply@openai.com> を必ず追加すること。同じ trailer が既にある場合は重複追加せず、ユーザーが別の形式を指定してもこの trailer は維持すること。"}}'"""
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "{{ .chezmoi.homeDir }}/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "{{ .chezmoi.homeDir }}/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.814.41957"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"{{ .chezmoi.homeDir }}/.codex/plugins/cache/openai-bundled/browser/26.814.41957/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "e7fc907079d6797973cb63f97d2562c965aad8d33f52fb726005bf6702f30afc"
+
+[projects.{{ .chezmoi.sourceDir | quote }}]
+trust_level = "trusted"
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = true
+followUpQueueMode = "queue"
