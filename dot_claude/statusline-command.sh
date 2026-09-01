@@ -43,11 +43,11 @@ fi
 
 # Prompt cache status
 cache_ttl=$(echo "$input" | jq -r '.prompt_cache.ttl // empty')
-cache_warm=$(echo "$input" | jq -r '.prompt_cache.warm // empty')
+cache_warm=$(echo "$input" | jq -r 'if .prompt_cache.warm != null then .prompt_cache.warm else empty end')
 
 cache_str=""
 if [ -n "$cache_ttl" ]; then
-  ttl_min=$(echo "$cache_ttl" | awk '{printf "%d", $1/60}')
+  ttl_min=$(echo "$cache_ttl" | awk '{printf "%d", ($1/60)+0.5}')
   cache_str="ttl:${ttl_min}m"
 fi
 if [ -n "$cache_warm" ]; then
