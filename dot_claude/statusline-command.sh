@@ -41,6 +41,27 @@ else
   usage_str=""
 fi
 
+# Prompt cache status
+cache_ttl=$(echo "$input" | jq -r '.prompt_cache.ttl // empty')
+cache_warm=$(echo "$input" | jq -r 'if .prompt_cache.warm != null then .prompt_cache.warm else empty end')
+
+cache_str=""
+if [ -n "$cache_ttl" ]; then
+  cache_str="ttl:${cache_ttl}"
+fi
+if [ -n "$cache_warm" ]; then
+  case "$cache_warm" in
+    true) warm_label="warm" ;;
+    false) warm_label="cold" ;;
+    *) warm_label="$cache_warm" ;;
+  esac
+  if [ -n "$cache_str" ]; then
+    cache_str="${cache_str} ${warm_label}"
+  else
+    cache_str="$warm_label"
+  fi
+fi
+
 # Session cost (client-side estimate)
 cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 
@@ -62,11 +83,14 @@ format_reset() {
 five_reset_time=$(format_reset "$five_resets" "+%H:%M")
 seven_reset_time=$(format_reset "$seven_resets" "+%-m/%-d %H:%M")
 
-# Output: model | [####----] 20% | in:X out:Y | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
+# Output: model | [####----] 20% | in:X out:Y | cache:ttl:5m warm | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
 printf "\033[1;36m%s\033[0m" "$model"
 printf " \033[2m[\033[0m\033[1;33m%s\033[0m\033[2m]\033[0m \033[1;33m%s\033[0m" "$bar" "$pct_display"
 if [ -n "$usage_str" ]; then
   printf " \033[2m%s\033[0m" "$usage_str"
+fi
+if [ -n "$cache_str" ]; then
+  printf " \033[2m|\033[0m \033[1;34mcache:%s\033[0m" "$cache_str"
 fi
 if [ -n "$cost_usd" ]; then
   cost_fmt=$(printf "%.2f" "$cost_usd")
