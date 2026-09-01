@@ -41,6 +41,28 @@ else
   usage_str=""
 fi
 
+# Prompt cache status
+cache_ttl=$(echo "$input" | jq -r '.prompt_cache.ttl // empty')
+cache_warm=$(echo "$input" | jq -r '.prompt_cache.warm // empty')
+
+cache_str=""
+if [ -n "$cache_ttl" ]; then
+  ttl_min=$(echo "$cache_ttl" | awk '{printf "%d", $1/60}')
+  cache_str="ttl:${ttl_min}m"
+fi
+if [ -n "$cache_warm" ]; then
+  case "$cache_warm" in
+    true) warm_label="warm" ;;
+    false) warm_label="cold" ;;
+    *) warm_label="$cache_warm" ;;
+  esac
+  if [ -n "$cache_str" ]; then
+    cache_str="${cache_str} ${warm_label}"
+  else
+    cache_str="$warm_label"
+  fi
+fi
+
 # Session cost (client-side estimate)
 cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 
@@ -67,6 +89,9 @@ printf "\033[1;36m%s\033[0m" "$model"
 printf " \033[2m[\033[0m\033[1;33m%s\033[0m\033[2m]\033[0m \033[1;33m%s\033[0m" "$bar" "$pct_display"
 if [ -n "$usage_str" ]; then
   printf " \033[2m%s\033[0m" "$usage_str"
+fi
+if [ -n "$cache_str" ]; then
+  printf " \033[2m|\033[0m \033[1;34mcache:%s\033[0m" "$cache_str"
 fi
 if [ -n "$cost_usd" ]; then
   cost_fmt=$(printf "%.2f" "$cost_usd")
