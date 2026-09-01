@@ -47,8 +47,7 @@ cache_warm=$(echo "$input" | jq -r 'if .prompt_cache.warm != null then .prompt_c
 
 cache_str=""
 if [ -n "$cache_ttl" ]; then
-  ttl_min=$(echo "$cache_ttl" | awk '{printf "%d", ($1/60)+0.5}')
-  cache_str="ttl:${ttl_min}m"
+  cache_str="ttl:${cache_ttl}"
 fi
 if [ -n "$cache_warm" ]; then
   case "$cache_warm" in
@@ -84,7 +83,7 @@ format_reset() {
 five_reset_time=$(format_reset "$five_resets" "+%H:%M")
 seven_reset_time=$(format_reset "$seven_resets" "+%-m/%-d %H:%M")
 
-# Output: model | [####----] 20% | in:X out:Y | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
+# Output: model | [####----] 20% | in:X out:Y | cache:ttl:5m warm | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
 printf "\033[1;36m%s\033[0m" "$model"
 printf " \033[2m[\033[0m\033[1;33m%s\033[0m\033[2m]\033[0m \033[1;33m%s\033[0m" "$bar" "$pct_display"
 if [ -n "$usage_str" ]; then
