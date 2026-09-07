@@ -44,10 +44,34 @@ fi
 # Prompt cache status
 cache_ttl=$(echo "$input" | jq -r '.prompt_cache.ttl // empty')
 cache_warm=$(echo "$input" | jq -r 'if .prompt_cache.warm != null then .prompt_cache.warm else empty end')
+# expires_at is a unix timestamp (seconds) of when the current cache entry lapses
+cache_expires=$(echo "$input" | jq -r '.prompt_cache.expires_at // empty')
+
+# Format a duration in seconds as 1h05m / 42m / 30s
+format_duration() {
+  awk -v s="$1" 'BEGIN {
+    if (s >= 3600) printf "%dh%02dm", int(s / 3600), int((s % 3600) / 60);
+    else if (s >= 60) printf "%dm", int(s / 60);
+    else printf "%ds", int(s);
+  }'
+}
 
 cache_str=""
 if [ -n "$cache_ttl" ]; then
   cache_str="ttl:${cache_ttl}"
+fi
+if [ -n "$cache_expires" ]; then
+  remaining=$((cache_expires - $(date +%s)))
+  if [ "$remaining" -gt 0 ]; then
+    left_str="left:$(format_duration "$remaining")"
+  else
+    left_str="expired"
+  fi
+  if [ -n "$cache_str" ]; then
+    cache_str="${cache_str} ${left_str}"
+  else
+    cache_str="$left_str"
+  fi
 fi
 if [ -n "$cache_warm" ]; then
   case "$cache_warm" in
@@ -83,7 +107,7 @@ format_reset() {
 five_reset_time=$(format_reset "$five_resets" "+%H:%M")
 seven_reset_time=$(format_reset "$seven_resets" "+%-m/%-d %H:%M")
 
-# Output: model | [####----] 20% | in:X out:Y | cache:ttl:5m warm | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
+# Output: model | [####----] 20% | in:X out:Y | cache:ttl:1h left:42m warm | $0.42 | 5h:XX% resets HH:MM | 7d:XX% resets HH:MM
 printf "\033[1;36m%s\033[0m" "$model"
 printf " \033[2m[\033[0m\033[1;33m%s\033[0m\033[2m]\033[0m \033[1;33m%s\033[0m" "$bar" "$pct_display"
 if [ -n "$usage_str" ]; then
