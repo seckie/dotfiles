@@ -51,3 +51,12 @@ prefix_rule(
     justification = "Allowed GitHub CLI version check",
     match = ["gh --version"],
 )
+
+prefix_rule(pattern=["git", "commit"], decision="allow")
+prefix_rule(pattern=["git", "switch"], decision="allow")
+prefix_rule(pattern=["git", "add"], decision="allow")
+prefix_rule(pattern=["git", "diff", "--cached", "--check"], decision="allow")
+prefix_rule(pattern=["git", "diff", "--cached", "--stat"], decision="allow")
+prefix_rule(pattern=["git", "status", "--short"], decision="allow")
+prefix_rule(pattern=["curl", "-L"], decision="allow")
+
