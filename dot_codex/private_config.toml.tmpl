@@ -72,16 +72,42 @@ network_access = true
 status_line = ["model-with-reasoning", "current-dir", "context-used", "used-tokens", "total-input-tokens", "total-output-tokens", "thread-credits", "estimated-thread-cost"]
 status_line_use_colors = true
 
-[[hooks.UserPromptSubmit]]
-
-[[hooks.UserPromptSubmit.hooks]]
-type = "command"
-command = """echo '{"hookSpecificOutput"{{ .chezmoi.pathListSeparator }}{"hookEventName"{{ .chezmoi.pathListSeparator }}"UserPromptSubmit","additionalContext"{{ .chezmoi.pathListSeparator }}"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと。"{{ "}}" }}'"""
-
 [hooks.state]
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}config.toml{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}cd77fc7b1061db527b37801d43a99c98967ebb1176e8fddf2424f0cf8aee161b"
+
+# cmux hooks are installed persistently so the wrapper does not need
+# --dangerously-bypass-hook-trust for each Codex invocation.
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}pre_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}71b0737829fc3c264360877963888784cb017992aef2c7e8e90981bbca54d995"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}permission_request{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}7080d3da57e1af481591a0a9871069a7fe5da59dbcdc36ade6091a938102e216"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}post_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}53ed621f3f758de47c8abd666ad7f0af9927bf1e0bdfe916a4b42cb379574e99"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}pre_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}2bee0efc545724d17c030d7d297da32853c21f47cb88e5f20ef49b564b1fcf3e"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}post_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}2d19bf530c61be78ec19b2db9d80b76ecef82cbc20e844462bb228991bd0d7a1"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}session_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}fa82b71b34ba1c311ba57fd53bb2a91a4b184121160cdb2a7c570b53874c37be"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}subagent_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}585e18dc209c5feb4c338ce99b52fca19e664c8372c2b3c8c41232816d37977c"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}subagent_stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}7e1c831c96dda7067fb6c96671ad083f91714493717746b777428620ca5be4de"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}1{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}c036deaa225839cc8185e69a329327d99b4a536cb51eb8930ec4ae74cf308490"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}e23dd75baf1fb103e76632a086c95c291780a90867c901e719c2ee4c862be2a1"
 
 [mcp_servers.node_repl]
 args = []
