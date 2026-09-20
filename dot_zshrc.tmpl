@@ -1,0 +1,40 @@
+export PATH="$HOME{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+
+# Git Completion
+source ~{{ .chezmoi.pathSeparator }}.zsh{{ .chezmoi.pathSeparator }}{{ .chezmoi.config.git.command }}-prompt.sh
+
+fpath=(~{{ .chezmoi.pathSeparator }}.zsh $fpath)
+zstyle '{{ .chezmoi.pathListSeparator }}completion{{ .chezmoi.pathListSeparator }}*{{ .chezmoi.pathListSeparator }}*{{ .chezmoi.pathListSeparator }}{{ .chezmoi.config.git.command }}{{ .chezmoi.pathListSeparator }}*' script ~{{ .chezmoi.pathSeparator }}.zsh{{ .chezmoi.pathSeparator }}{{ .chezmoi.config.git.command }}-completion.bash
+
+# Completion
+autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+# Completion for Terraform
+complete -o nospace -C {{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}terraform terraform
+
+# Volta
+export VOLTA_HOME="$HOME{{ .chezmoi.pathSeparator }}.volta"
+export PATH="$VOLTA_HOME{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc' ]; then . '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc' ]; then . '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc'; fi
+
+# Read private settings
+if [[ -f ~{{ .chezmoi.pathSeparator }}.zshrc.local ]]; then
+  source ~{{ .chezmoi.pathSeparator }}.zshrc.local
+fi
+
+# rust
+. "$HOME{{ .chezmoi.pathSeparator }}.cargo{{ .chezmoi.pathSeparator }}env"
+
+# mise
+eval "$(mise activate zsh)"
+
+[[ -x "$HOME{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}update-ghostty-fontsize" ]] && "$HOME{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}update-ghostty-fontsize"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.rd{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
