@@ -1,0 +1,77 @@
+{
+  "permissions"{{ .chezmoi.pathListSeparator }} {
+    "allow"{{ .chezmoi.pathListSeparator }} [
+      "Bash(gh pr view{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh pr list{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh pr create{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh pr checkout{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh pr comment{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh pr edit{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh issue view{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh issue list{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh repo view{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh search{{ .chezmoi.pathListSeparator }}*)",
+      "Bash(gh auth status)",
+      "Bash(gh --version)"
+    ]
+  },
+  "model"{{ .chezmoi.pathListSeparator }} "opus[1m]",
+  "hooks"{{ .chezmoi.pathListSeparator }} {
+    "UserPromptSubmit"{{ .chezmoi.pathListSeparator }} [
+      {
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "type"{{ .chezmoi.pathListSeparator }} "command",
+            "command"{{ .chezmoi.pathListSeparator }} "echo '{\"hookSpecificOutput\"{{ .chezmoi.pathListSeparator }}{\"hookEventName\"{{ .chezmoi.pathListSeparator }}\"UserPromptSubmit\",\"additionalContext\"{{ .chezmoi.pathListSeparator }}\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと\"{{ "}}" }}'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse"{{ .chezmoi.pathListSeparator }} [
+      {
+        "matcher"{{ .chezmoi.pathListSeparator }} "Bash",
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "type"{{ .chezmoi.pathListSeparator }} "command",
+            "command"{{ .chezmoi.pathListSeparator }} "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine"{{ .chezmoi.pathListSeparator }} {
+    "type"{{ .chezmoi.pathListSeparator }} "command",
+    "command"{{ .chezmoi.pathListSeparator }} "bash ~{{ .chezmoi.pathSeparator }}.claude{{ .chezmoi.pathSeparator }}statusline-command.sh",
+    "refreshInterval"{{ .chezmoi.pathListSeparator }} 30
+  },
+  "enabledPlugins"{{ .chezmoi.pathListSeparator }} {
+    "security-guidance@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "commit-commands@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "skill-creator@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "emoffice-team@revcomm"{{ .chezmoi.pathListSeparator }} true,
+    "softphone-team@revcomm"{{ .chezmoi.pathListSeparator }} true
+  },
+  "extraKnownMarketplaces"{{ .chezmoi.pathListSeparator }} {
+    "anthropic-agent-skills"{{ .chezmoi.pathListSeparator }} {
+      "source"{{ .chezmoi.pathListSeparator }} {
+        "source"{{ .chezmoi.pathListSeparator }} "github",
+        "repo"{{ .chezmoi.pathListSeparator }} "anthropics{{ .chezmoi.pathSeparator }}skills"
+      }
+    }
+  },
+  "sandbox"{{ .chezmoi.pathListSeparator }} {
+    "enabled"{{ .chezmoi.pathListSeparator }} true,
+    "allowUnsandboxedCommands"{{ .chezmoi.pathListSeparator }} false,
+    "network"{{ .chezmoi.pathListSeparator }} {
+      "allowedDomains"{{ .chezmoi.pathListSeparator }} [
+        "github.com",
+        "api.github.com"
+      ]
+    },
+    "excludedCommands"{{ .chezmoi.pathListSeparator }} [
+      "gh *"
+    ]
+  },
+  "effortLevel"{{ .chezmoi.pathListSeparator }} "high",
+  "theme"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.config.color }}"
+}
