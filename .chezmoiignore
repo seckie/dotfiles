@@ -7,4 +7,5 @@
 # (from dot_claude/CLAUDE.md) managed.
 CLAUDE.md
 README.md
+AGENTS.md
 nvim.log
