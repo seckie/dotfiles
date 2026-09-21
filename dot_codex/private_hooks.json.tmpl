@@ -33,6 +33,18 @@
         ]
       }
     ],
+    "SessionEnd" : [
+      {
+        "matcher" : "other",
+        "hooks" : [
+          {
+            "command" : "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync",
+            "timeout" : 3,
+            "type" : "command"
+          }
+        ]
+      }
+    ],
     "PreCompact" : [
       {
         "hooks" : [

@@ -74,15 +74,6 @@ status_line_use_colors = true
 
 [hooks.state]
 
-# Keep Codex's project trust entries in the separate local profile file.
-[[hooks.SessionEnd]]
-matcher = "other"
-
-[[hooks.SessionEnd.hooks]]
-type = "command"
-command = "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync"
-timeout = 3
-
 [hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}cd77fc7b1061db527b37801d43a99c98967ebb1176e8fddf2424f0cf8aee161b"
 
