@@ -2,8 +2,8 @@ notify = ["{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.p
 
 # Claude Code's "sonnet" has no one-to-one Codex model equivalent.
 # GPT-5.6 Terra is the closest balanced intelligence{{ .chezmoi.pathSeparator }}cost choice.
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
+model = "gpt-5.6-luna"
+model_reasoning_effort = "xhigh"
 service_tier = "default"
 
 # Keep commands sandboxed and limit outbound access to GitHub.
@@ -74,39 +74,48 @@ status_line_use_colors = true
 
 [hooks.state]
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+# Keep Codex's project trust entries in the separate local profile file.
+[[hooks.SessionEnd]]
+matcher = "other"
+
+[[hooks.SessionEnd.hooks]]
+type = "command"
+command = "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync"
+timeout = 3
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}cd77fc7b1061db527b37801d43a99c98967ebb1176e8fddf2424f0cf8aee161b"
 
 # cmux hooks are installed persistently so the wrapper does not need
 # --dangerously-bypass-hook-trust for each Codex invocation.
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}pre_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}pre_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}71b0737829fc3c264360877963888784cb017992aef2c7e8e90981bbca54d995"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}permission_request{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}permission_request{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}7080d3da57e1af481591a0a9871069a7fe5da59dbcdc36ade6091a938102e216"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}post_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}post_tool_use{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}53ed621f3f758de47c8abd666ad7f0af9927bf1e0bdfe916a4b42cb379574e99"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}pre_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}pre_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}2bee0efc545724d17c030d7d297da32853c21f47cb88e5f20ef49b564b1fcf3e"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}post_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}post_compact{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}2d19bf530c61be78ec19b2db9d80b76ecef82cbc20e844462bb228991bd0d7a1"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}session_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}session_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}fa82b71b34ba1c311ba57fd53bb2a91a4b184121160cdb2a7c570b53874c37be"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}subagent_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}subagent_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}585e18dc209c5feb4c338ce99b52fca19e664c8372c2b3c8c41232816d37977c"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}subagent_stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}subagent_stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}7e1c831c96dda7067fb6c96671ad083f91714493717746b777428620ca5be4de"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}1{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}1{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}c036deaa225839cc8185e69a329327d99b4a536cb51eb8930ec4ae74cf308490"
 
-[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.json{{ .chezmoi.pathListSeparator }}stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}stop{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}e23dd75baf1fb103e76632a086c95c291780a90867c901e719c2ee4c862be2a1"
 
 [mcp_servers.node_repl]
@@ -133,7 +142,7 @@ CODEX_CLI_PATH = "{{ .chezmoi.pathSeparator }}Applications{{ .chezmoi.pathSepara
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "e7fc907079d6797973cb63f97d2562c965aad8d33f52fb726005bf6702f30afc"
 
 # Keep Codex's per-project trust decisions machine-local. Codex adds them to
-# ~/.codex/config.toml when a directory is trusted; do not manage them here.
+# ~{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}config.toml when a directory is trusted; do not manage them here.
 
 [desktop]
 conversationDetailMode = "STEPS_COMMANDS"
