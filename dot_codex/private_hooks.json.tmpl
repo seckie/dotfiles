@@ -38,7 +38,7 @@
         "matcher" : "other",
         "hooks" : [
           {
-            "command" : "/Users/naoki.sekiguchi/.local/bin/codex-project-trust-sync",
+            "command" : "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync",
             "timeout" : 3,
             "type" : "command"
           }
