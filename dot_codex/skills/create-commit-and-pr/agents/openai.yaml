@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Commit and PR"
+  short_description: "Commit changes and create or update a GitHub PR"
+  default_prompt: "Use $create-commit-and-pr to commit the current changes and create or update a GitHub pull request."
