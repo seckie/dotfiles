@@ -21,6 +21,18 @@ require('pckr').add{
   'folke/tokyonight.nvim',
   'rebelot/kanagawa.nvim',
 
+  -- Keymap helper
+  { 'folke/which-key.nvim', start = true,
+    config = function()
+      local wk = require('which-key')
+      wk.setup()
+      wk.add{
+        { '<leader>c', group = 'Chezmoi' },
+        { '<leader>g', group = 'Git' },
+      }
+    end
+  },
+
   -- Syntax highlighting
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', start = true,
     config = function()
@@ -109,4 +121,3 @@ require('pckr').add{
     end
   },
 }
-
