@@ -7,9 +7,8 @@ vim.g.mapleader = " "
 keymap.set("n", ";", ":")
 
 -- メモファイルを開く
-keymap.set("n", "<Leader>m", ":edit ~/Dropbox/memo.txt<CR>")
+keymap.set("n", "<Leader>m", ":edit ~/Dropbox/memo.txt<CR>", { desc = "Open memo" })
 -- init.luaを開く
-keymap.set("n", "<Leader>i", ":edit ~/.local/share/chezmoi/private_dot_config/nvim/init.lua<CR>")
+keymap.set("n", "<Leader>i", ":edit ~/.local/share/chezmoi/private_dot_config/nvim/init.lua<CR>", { desc = "Open init.lua" })
 -- chezmoi applyする
-keymap.set("n", "<Leader>ca", ":!chezmoi apply<CR>")
-
+keymap.set("n", "<Leader>ca", ":!chezmoi apply<CR>", { desc = "Apply chezmoi" })
