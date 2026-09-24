@@ -17,10 +17,10 @@ export VOLTA_HOME="$HOME{{ .chezmoi.pathSeparator }}.volta"
 export PATH="$VOLTA_HOME{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc' ]; then . '{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc'; fi
+if [ -f '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc' ]; then . '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc' ]; then . '{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc'; fi
+if [ -f '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc' ]; then . '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}google-cloud-sdk{{ .chezmoi.pathSeparator }}completion.zsh.inc'; fi
 
 # Read private settings
 if [[ -f ~{{ .chezmoi.pathSeparator }}.zshrc.local ]]; then
@@ -39,9 +39,8 @@ eval "$(mise activate zsh)"
 [[ -x "$HOME{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}update-ghostty-fontsize" ]] && "$HOME{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}update-ghostty-fontsize"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}.rd{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+export PATH="{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.rd{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 export PYENV_ROOT="$HOME{{ .chezmoi.pathSeparator }}.pyenv"
 export PATH="$PYENV_ROOT{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
 eval "$(pyenv init -)"
