@@ -41,3 +41,6 @@ eval "$(mise activate zsh)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.rd{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PYENV_ROOT="$HOME{{ .chezmoi.pathSeparator }}.pyenv"
+export PATH="$PYENV_ROOT{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+eval "$(pyenv init -)"
