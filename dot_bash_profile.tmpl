@@ -1,0 +1,21 @@
+export SVN_EDITOR=vim
+export EDITOR=vim
+
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
+export PS1="\[\e[1;34m\]\h{{ .chezmoi.pathListSeparator }}\w \u\$\[\e[00m\] "
+
+# keychain
+if [ -x {{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}keychain ]; then
+    keychain ~{{ .chezmoi.pathSeparator }}.ssh{{ .chezmoi.pathSeparator }}id_rsa
+    . .keychain{{ .chezmoi.pathSeparator }}${HOSTNAME}-sh
+fi
+
+# for HomeBrew
+export PATH="{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}local{{ .chezmoi.pathSeparator }}sbin{{ .chezmoi.pathListSeparator }}$PATH"
+
+alias python={{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}{{ .chezmoi.config.interpreters.py.command }}
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.rd{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathListSeparator }}$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
