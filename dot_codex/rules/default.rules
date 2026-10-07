@@ -61,3 +61,5 @@ prefix_rule(pattern=["git", "status", "--short"], decision="allow")
 prefix_rule(pattern=["curl", "-L"], decision="allow")
 
 prefix_rule(pattern=["git", "fetch"], decision="allow")
+prefix_rule(pattern=["git", "push", "-u", "origin"], decision="allow")
+prefix_rule(pattern=["gh", "run", "view"], decision="allow")

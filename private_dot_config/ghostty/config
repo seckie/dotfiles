@@ -1,6 +1,6 @@
 font-family = "Hack Nerd Font Mono"
 config-file = ~/.config/ghostty/display.conf
-window-save-state = none
+window-save-state = never
 
 # "TokyoNight" theme
 foreground = #c0caf5

@@ -1,4 +1,44 @@
 {
+  "effortLevel"{{ .chezmoi.pathListSeparator }} "high",
+  "enabledPlugins"{{ .chezmoi.pathListSeparator }} {
+    "commit-commands@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "emoffice-team@revcomm"{{ .chezmoi.pathListSeparator }} true,
+    "security-guidance@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "skill-creator@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
+    "softphone-team@revcomm"{{ .chezmoi.pathListSeparator }} true
+  },
+  "extraKnownMarketplaces"{{ .chezmoi.pathListSeparator }} {
+    "anthropic-agent-skills"{{ .chezmoi.pathListSeparator }} {
+      "source"{{ .chezmoi.pathListSeparator }} {
+        "repo"{{ .chezmoi.pathListSeparator }} "anthropics{{ .chezmoi.pathSeparator }}skills",
+        "source"{{ .chezmoi.pathListSeparator }} "github"
+      }
+    }
+  },
+  "hooks"{{ .chezmoi.pathListSeparator }} {
+    "PreToolUse"{{ .chezmoi.pathListSeparator }} [
+      {
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "command"{{ .chezmoi.pathListSeparator }} "rtk hook claude",
+            "type"{{ .chezmoi.pathListSeparator }} "command"
+          }
+        ],
+        "matcher"{{ .chezmoi.pathListSeparator }} "Bash"
+      }
+    ],
+    "UserPromptSubmit"{{ .chezmoi.pathListSeparator }} [
+      {
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "command"{{ .chezmoi.pathListSeparator }} "echo '{\"hookSpecificOutput\"{{ .chezmoi.pathListSeparator }}{\"hookEventName\"{{ .chezmoi.pathListSeparator }}\"UserPromptSubmit\",\"additionalContext\"{{ .chezmoi.pathListSeparator }}\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと\"{{ "}}" }}'",
+            "type"{{ .chezmoi.pathListSeparator }} "command"
+          }
+        ]
+      }
+    ]
+  },
+  "model"{{ .chezmoi.pathListSeparator }} "sonnet",
   "permissions"{{ .chezmoi.pathListSeparator }} {
     "allow"{{ .chezmoi.pathListSeparator }} [
       "Bash(gh pr view{{ .chezmoi.pathListSeparator }}*)",
@@ -15,62 +55,22 @@
       "Bash(gh --version)"
     ]
   },
-  "model"{{ .chezmoi.pathListSeparator }} "sonnet",
-  "hooks"{{ .chezmoi.pathListSeparator }} {
-    "UserPromptSubmit"{{ .chezmoi.pathListSeparator }} [
-      {
-        "hooks"{{ .chezmoi.pathListSeparator }} [
-          {
-            "type"{{ .chezmoi.pathListSeparator }} "command",
-            "command"{{ .chezmoi.pathListSeparator }} "echo '{\"hookSpecificOutput\"{{ .chezmoi.pathListSeparator }}{\"hookEventName\"{{ .chezmoi.pathListSeparator }}\"UserPromptSubmit\",\"additionalContext\"{{ .chezmoi.pathListSeparator }}\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと\"{{ "}}" }}'"
-          }
-        ]
-      }
-    ],
-    "PreToolUse"{{ .chezmoi.pathListSeparator }} [
-      {
-        "matcher"{{ .chezmoi.pathListSeparator }} "Bash",
-        "hooks"{{ .chezmoi.pathListSeparator }} [
-          {
-            "type"{{ .chezmoi.pathListSeparator }} "command",
-            "command"{{ .chezmoi.pathListSeparator }} "rtk hook claude"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine"{{ .chezmoi.pathListSeparator }} {
-    "type"{{ .chezmoi.pathListSeparator }} "command",
-    "command"{{ .chezmoi.pathListSeparator }} "bash ~{{ .chezmoi.pathSeparator }}.claude{{ .chezmoi.pathSeparator }}statusline-command.sh",
-    "refreshInterval"{{ .chezmoi.pathListSeparator }} 30
-  },
-  "enabledPlugins"{{ .chezmoi.pathListSeparator }} {
-    "security-guidance@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
-    "commit-commands@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
-    "skill-creator@claude-plugins-official"{{ .chezmoi.pathListSeparator }} true,
-    "emoffice-team@revcomm"{{ .chezmoi.pathListSeparator }} true,
-    "softphone-team@revcomm"{{ .chezmoi.pathListSeparator }} true
-  },
-  "extraKnownMarketplaces"{{ .chezmoi.pathListSeparator }} {
-    "anthropic-agent-skills"{{ .chezmoi.pathListSeparator }} {
-      "source"{{ .chezmoi.pathListSeparator }} {
-        "source"{{ .chezmoi.pathListSeparator }} "github",
-        "repo"{{ .chezmoi.pathListSeparator }} "anthropics{{ .chezmoi.pathSeparator }}skills"
-      }
-    }
-  },
   "sandbox"{{ .chezmoi.pathListSeparator }} {
-    "enabled"{{ .chezmoi.pathListSeparator }} true,
     "allowUnsandboxedCommands"{{ .chezmoi.pathListSeparator }} false,
+    "enabled"{{ .chezmoi.pathListSeparator }} true,
+    "excludedCommands"{{ .chezmoi.pathListSeparator }} [
+      "gh *"
+    ],
     "network"{{ .chezmoi.pathListSeparator }} {
       "allowedDomains"{{ .chezmoi.pathListSeparator }} [
         "github.com",
         "api.github.com"
       ]
-    },
-    "excludedCommands"{{ .chezmoi.pathListSeparator }} [
-      "gh *"
-    ]
+    }
   },
-  "effortLevel"{{ .chezmoi.pathListSeparator }} "high"
+  "statusLine"{{ .chezmoi.pathListSeparator }} {
+    "command"{{ .chezmoi.pathListSeparator }} "bash ~{{ .chezmoi.pathSeparator }}.claude{{ .chezmoi.pathSeparator }}statusline-command.sh",
+    "refreshInterval"{{ .chezmoi.pathListSeparator }} 30,
+    "type"{{ .chezmoi.pathListSeparator }} "command"
+  }
 }
