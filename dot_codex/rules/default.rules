@@ -1,6 +1,6 @@
 # Allow the same GitHub CLI command families as Claude Code's permissions.allow.
 prefix_rule(
-    pattern = ["gh", "pr", ["view", "list", "create", "checkout", "comment", "edit"]],
+    pattern = ["gh", "pr", ["view", "list", "create", "checkout", "comment", "edit", "review"]],
     decision = "allow",
     justification = "Allowed GitHub pull-request operation",
     match = [
@@ -63,3 +63,4 @@ prefix_rule(pattern=["curl", "-L"], decision="allow")
 prefix_rule(pattern=["git", "fetch"], decision="allow")
 prefix_rule(pattern=["git", "push", "-u", "origin"], decision="allow")
 prefix_rule(pattern=["gh", "run", "view"], decision="allow")
+prefix_rule(pattern=["git", "worktree", "add"], decision="allow")
