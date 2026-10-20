@@ -28,7 +28,7 @@ if [[ -f ~{{ .chezmoi.pathSeparator }}.zshrc.local ]]; then
 fi
 
 # Always use the local project trust settings for Codex.
-alias codex='command codex --profile project-trust'
+# alias codex='command codex --profile project-trust'
 
 # rust
 . "$HOME{{ .chezmoi.pathSeparator }}.cargo{{ .chezmoi.pathSeparator }}env"
