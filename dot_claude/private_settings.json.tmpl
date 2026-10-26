@@ -36,6 +36,18 @@
           }
         ]
       }
+    ],
+    "SessionStart"{{ .chezmoi.pathListSeparator }} [
+      {
+        "matcher"{{ .chezmoi.pathListSeparator }} "^(startup|resume|clear|compact|fork)$",
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "type"{{ .chezmoi.pathListSeparator }} "command",
+            "command"{{ .chezmoi.pathListSeparator }} "bash '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.claude{{ .chezmoi.pathSeparator }}hooks{{ .chezmoi.pathSeparator }}herdr-agent-state.sh' session",
+            "timeout"{{ .chezmoi.pathListSeparator }} 10
+          }
+        ]
+      }
     ]
   },
   "model"{{ .chezmoi.pathListSeparator }} "sonnet",
