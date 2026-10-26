@@ -1,23 +1,34 @@
 {
-  "hooks" : {
-    "SessionEnd" : [
+  "hooks"{{ .chezmoi.pathListSeparator }} {
+    "SessionEnd"{{ .chezmoi.pathListSeparator }} [
       {
-        "matcher" : "other",
-        "hooks" : [
+        "hooks"{{ .chezmoi.pathListSeparator }} [
           {
-            "command" : "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync",
-            "timeout" : 3,
-            "type" : "command"
+            "command"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.local{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}codex-project-trust-sync",
+            "timeout"{{ .chezmoi.pathListSeparator }} 3,
+            "type"{{ .chezmoi.pathListSeparator }} "command"
+          }
+        ],
+        "matcher"{{ .chezmoi.pathListSeparator }} "other"
+      }
+    ],
+    "SessionStart"{{ .chezmoi.pathListSeparator }} [
+      {
+        "hooks"{{ .chezmoi.pathListSeparator }} [
+          {
+            "command"{{ .chezmoi.pathListSeparator }} "bash '{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}herdr-agent-state.sh' session",
+            "timeout"{{ .chezmoi.pathListSeparator }} 10,
+            "type"{{ .chezmoi.pathListSeparator }} "command"
           }
         ]
       }
     ],
-    "UserPromptSubmit" : [
+    "UserPromptSubmit"{{ .chezmoi.pathListSeparator }} [
       {
-        "hooks" : [
+        "hooks"{{ .chezmoi.pathListSeparator }} [
           {
-            "command" : "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと。\"}}'",
-            "type" : "command"
+            "command"{{ .chezmoi.pathListSeparator }} "echo '{\"hookSpecificOutput\"{{ .chezmoi.pathListSeparator }}{\"hookEventName\"{{ .chezmoi.pathListSeparator }}\"UserPromptSubmit\",\"additionalContext\"{{ .chezmoi.pathListSeparator }}\"ツール実行より先に、この発話への返答 (回答、または受け止めと進め方) を本文で書くこと。\"{{ "}}" }}'",
+            "type"{{ .chezmoi.pathListSeparator }} "command"
           }
         ]
       }

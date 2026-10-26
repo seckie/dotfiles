@@ -76,13 +76,20 @@ status_line = ["model-with-reasoning", "current-dir", "context-used", "used-toke
 status_line_use_colors = true
 screen_reader_detection_done = true
 
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 4
+
 [hooks.state]
 
 [hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}user_prompt_submit{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
 trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}cd77fc7b1061db527b37801d43a99c98967ebb1176e8fddf2424f0cf8aee161b"
 
 [hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}session_end{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
-trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}6519b917b86b17711eeb839f99e8d333e6abaed2436d473ca1359476ee149544"
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}676ac085e2e9373424c2e60a846774d363ba3f792d351ee8591137804dfacff5"
+
+[hooks.state."{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}hooks.{{ .chezmoi.config.format }}{{ .chezmoi.pathListSeparator }}session_start{{ .chezmoi.pathListSeparator }}0{{ .chezmoi.pathListSeparator }}0"]
+trusted_hash = "sha256{{ .chezmoi.pathListSeparator }}62d2666d014830049390b8b890a49ce0f17c9f9555f13d2b23e98370380172a0"
+enabled = true
 
 [mcp_servers.node_repl]
 args = []
@@ -122,3 +129,6 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "e7fc907079d6797973cb63f97d2562c965aa
 conversationDetailMode = "STEPS_COMMANDS"
 ambient-suggestions-enabled = true
 followUpQueueMode = "queue"
+
+[projects."{{ .chezmoi.commandDir }}"]
+trust_level = "trusted"
