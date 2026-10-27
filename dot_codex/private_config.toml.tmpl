@@ -3,7 +3,7 @@ notify = ["{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.p
 # Claude Code's "sonnet" has no one-to-one Codex model equivalent.
 # GPT-5.6 Terra is the closest balanced intelligence{{ .chezmoi.pathSeparator }}cost choice.
 model = "gpt-6.1-sol"
-model_reasoning_effort = "medium"
+model_reasoning_effort = "high"
 service_tier = "default"
 
 # Keep commands sandboxed and limit outbound access to GitHub.
@@ -129,6 +129,3 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "e7fc907079d6797973cb63f97d2562c965aa
 conversationDetailMode = "STEPS_COMMANDS"
 ambient-suggestions-enabled = true
 followUpQueueMode = "queue"
-
-[projects."{{ .chezmoi.commandDir }}"]
-trust_level = "trusted"
