@@ -12,13 +12,24 @@ opt.autochdir = true      -- ファイルのディレクトリに自動で移動
 
 -- macOS: normal mode に戻ったら入力ソース切り替えショートカットを送る
 if vim.fn.has('mac') == 1 then
+    local function switch_ime()
+        local output = vim.fn.system({
+            'osascript', '-e',
+            'tell application "System Events" to key code 49 using control down',
+        })
+        if vim.v.shell_error ~= 0 then
+            vim.notify('IME switch failed: ' .. output, vim.log.levels.ERROR)
+        end
+    end
+
     vim.api.nvim_create_autocmd('InsertLeave', {
-        callback = function()
-            vim.fn.jobstart({
-                'osascript', '-e',
-                'tell application "System Events" to key code 49 using control down',
-            }, { detach = true })
-        end,
+        callback = switch_ime,
     })
+
+    -- CTRL-C は InsertLeave を発生させないため、キー処理にも切替を追加
+    vim.keymap.set('i', '<C-c>', function()
+        switch_ime()
+        return '<C-c>'
+    end, { expr = true, desc = 'Switch IME and leave insert mode' })
 end
 
