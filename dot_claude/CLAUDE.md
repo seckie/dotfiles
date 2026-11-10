@@ -12,6 +12,8 @@ Delegate to a subagent only for large tasks that are genuinely independent and p
 
 ## GitHub CLI (gh)
 
-In this sandboxed environment, `gh` subcommands that call GitHub's GraphQL API (e.g. `gh pr view`, `gh pr list`, `gh issue list`) tend to fail. Prefer the REST API instead: use `gh api repos/<owner>/<repo>/...` (e.g. `gh api repos/OWNER/REPO/pulls/123`, `gh api repos/OWNER/REPO/issues`) or `gh pr create`/`gh pr diff`/`gh pr checks` which work fine. If a `gh` command fails with a GraphQL-related error, retry it via the equivalent REST endpoint rather than repeating the same call.
+Run `gh` as a standalone Bash tool call so the existing `gh *` or `rtk gh *` sandbox exclusion applies. For subcommands that support it, specify the repository with `--repo OWNER/REPO` instead of using `cd repo && gh ...`. For `gh api`, include the repository in the endpoint, such as `repos/OWNER/REPO/pulls/123`. Keep command chains, pipes, redirections, command substitutions, and shell control flow out of the call; prepare inputs and process outputs in separate tool calls. For multiline text, prepare a file first and use options such as `--body-file` where supported.
+
+Excluded commands run outside the sandbox and still follow normal permission rules. On macOS, `x509: OSStatus -26276` can affect both REST and GraphQL; switching APIs does not fix it. If it occurs, check that the call is standalone and matches an exclusion before retrying.
 
 @RTK.md
