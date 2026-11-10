@@ -5,6 +5,12 @@
 <!-- @see: https://platform.claude.com/docs/ja/build-with-claude/prompt-engineering/prompting-claude-opus-5 -->
 Keep responses focused, brief, and concise. Keep disclaimers and caveats short, and spend most of the response on the main answer. When asked to explain something, give a high-level summary unless an in-depth explanation is specifically requested.
 
+## Writing
+
+When drafting or revising documents on the user's behalf, read the shared [writing style guide](~/.config/writing/style-guide.md) and consult relevant [examples](~/.config/writing/examples.md) and [revision records](~/.config/writing/revisions.md).
+
+Prioritize the audience, purpose, and style specified for the current document. Apply the guide to ordinary conversation only when explicitly requested. If a referenced file cannot be read, say so. Do not infer preferences from an unedited AI draft or treat a one-off correction as a general rule.
+
 ## Subagent
 
 <!-- @see: https://platform.claude.com/docs/ja/build-with-claude/prompt-engineering/prompting-claude-opus-5 -->
