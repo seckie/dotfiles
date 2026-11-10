@@ -94,6 +94,7 @@ enabled = true
 [mcp_servers.node_repl]
 args = []
 command = "{{ .chezmoi.pathSeparator }}Applications{{ .chezmoi.pathSeparator }}ChatGPT.app{{ .chezmoi.pathSeparator }}Contents{{ .chezmoi.pathSeparator }}Resources{{ .chezmoi.pathSeparator }}cua_node{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
@@ -108,8 +109,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.930.61225"
-NODE_REPL_TRUSTED_SERVICES = '{"browser"{{ .chezmoi.pathListSeparator }}"{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}plugins{{ .chezmoi.pathSeparator }}cache{{ .chezmoi.pathSeparator }}openai-bundled{{ .chezmoi.pathSeparator }}browser{{ .chezmoi.pathSeparator }}26.930.61225{{ .chezmoi.pathSeparator }}scripts{{ .chezmoi.pathSeparator }}browser-service.mjs","sky"{{ .chezmoi.pathListSeparator }}"@oai{{ .chezmoi.pathSeparator }}sky{{ .chezmoi.pathSeparator }}service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1103.60933"
+NODE_REPL_TRUSTED_SERVICES = '{"browser"{{ .chezmoi.pathListSeparator }}"{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}plugins{{ .chezmoi.pathSeparator }}cache{{ .chezmoi.pathSeparator }}openai-bundled{{ .chezmoi.pathSeparator }}browser{{ .chezmoi.pathSeparator }}26.1103.60933{{ .chezmoi.pathSeparator }}scripts{{ .chezmoi.pathSeparator }}browser-service.mjs","sky"{{ .chezmoi.pathListSeparator }}"@oai{{ .chezmoi.pathSeparator }}sky{{ .chezmoi.pathSeparator }}service"}'
 SKY_CUA_SERVICE_PATH = "{{ .chezmoi.destDir }}{{ .chezmoi.pathSeparator }}.codex{{ .chezmoi.pathSeparator }}computer-use{{ .chezmoi.pathSeparator }}Codex Computer Use.app"
 CODEX_CLI_PATH = "{{ .chezmoi.pathSeparator }}Applications{{ .chezmoi.pathSeparator }}ChatGPT.app{{ .chezmoi.pathSeparator }}Contents{{ .chezmoi.pathSeparator }}Resources{{ .chezmoi.pathSeparator }}codex-cli{{ .chezmoi.pathSeparator }}CodexCLI.app{{ .chezmoi.pathSeparator }}Contents{{ .chezmoi.pathSeparator }}MacOS{{ .chezmoi.pathSeparator }}codex"
 
