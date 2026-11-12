@@ -1,4 +1,6 @@
 font-family = "Hack Nerd Font Mono"
+# 日本語グリフ用のフォールバック
+font-family = "UDEV Gothic 35"
 config-file = ~/.config/ghostty/display.conf
 window-save-state = never
 
