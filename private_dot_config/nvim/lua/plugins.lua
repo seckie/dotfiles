@@ -28,6 +28,7 @@ require('pckr').add{
       wk.setup()
       wk.add{
         { '<leader>c', group = 'Chezmoi' },
+        { '<leader>f', group = 'Find' },
         { '<leader>g', group = 'Git' },
       }
     end
@@ -82,6 +83,18 @@ require('pckr').add{
           end)
         end,
       }
+    end
+  },
+
+  -- Fuzzy file search
+  { 'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('telescope').setup{}
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search file contents' })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find open buffers' })
     end
   },
 
