@@ -6,7 +6,7 @@ model = "gpt-6.1-sol"
 model_reasoning_effort = "high"
 service_tier = "default"
 
-# Keep commands sandboxed; allow GitHub and local UI development servers.
+# Keep commands sandboxed and limit outbound access to GitHub.
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 
@@ -67,9 +67,6 @@ enabled = true
 [features.network_proxy.domains]
 "github.com" = "allow"
 "api.github.com" = "allow"
-"localhost" = "allow"
-"127.0.0.1" = "allow"
-"::1" = "allow"
 
 [sandbox_workspace_write]
 network_access = true
